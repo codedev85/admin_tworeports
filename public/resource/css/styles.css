@@ -5708,3 +5708,16 @@ textarea.priv__text--area {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
 }
+.switch-rank-container {
+display:none;
+}
+.switch-rank-container--active{
+display:block;
+}
+
+.home_switchable--container {
+display:none;
+}
+.home--switchable-container--on{
+    display:block;
+}

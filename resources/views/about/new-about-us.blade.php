@@ -507,6 +507,7 @@
                 });
                 switchableContainers[i].classList.add('switchable-container--on');
                 switchBtns[i].classList.add('active')
+                
             })
         }
         //swiyching visions

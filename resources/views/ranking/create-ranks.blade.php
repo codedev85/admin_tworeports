@@ -106,9 +106,7 @@
                     <p class="">
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
                     </p>
-                    <!-- <P class="homepage__para">
-                        EDIT HERO IMAGE
-                    </P>  -->
+        
                 </div>
 
             </div>
@@ -116,104 +114,79 @@
 
             <div class="main__container">
 
-<form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data">
+<form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container switch-rank-container--active">
     @csrf
                 <div class="center__container">
 
-                    <!-- <div class="center__container--wrapper">
-                        <input name="teams" placeholder="teams">
-                        <input type="date" name="date" placeholder="date">
-                        <input name="twitter" placeholder="twitter">
-                        <input name="twitter_value" placeholder="value">
-                        <input name="instagram" placeholder="Instagram">
-                        <input name="instagram_value" placeholder="Value">
-                        <input name="facebook" placeholder="Facebook">
-                        <input name="facebook_value" placeholder="Value">
-                        <select name="cat_id" class="select_box">
-                           @foreach($rank_cats as $rank_cat)
-                            <option class="form-control" value="{{$rank_cat->id}}">{{$rank_cat->name}}</option>
-                            @endforeach
-                        </select>
-                        <div class="six__btn--wrapper">
-                                <button class="red__homepage--btn"><span>Save </span></button>
-
-                        </div>
-
-
-
-
-
-                    </div> -->
+               
 
           
     
         <input type="hidden" name="cat_id" value="3"/>
-
-                <div class="rank-container">
-                        <h2 class="rank__heading">
+                <div class="rank-container rank-container-js">
+                   <h2 class="rank__heading">
                             Sports
                        <select class="select_box " name="sub_rank_id">
                              @foreach($sub_rank_cats as $rank)
                                 <option value="{{$rank->id}}">
                                   {{$rank->name}}
                                </option>
-                            
                              @endforeach
                       </select>
-                        </h2>
+                  </h2>
+
                 <div class="rank-input__container__title">
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                       Teams
+                           Teams
                         </h2> 
                         <span class="rank__tooltip" >Teams</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Date
+                           Date
                         </h2> 
                         <span class="rank__tooltip" >Date</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Twitter<br>(000+)
-
+                         Twitter<br>(000+)
                         </h2> 
                         <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
                     </div>
                     <div class="rank-title__container">
-                        <h2 type="text" class="rank__title">
-                        Twitter  Value<br>(000+)
+                         <h2 type="text" class="rank__title">
+                         Twitter  Value<br>(000+)
                         </h2> 
                         <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Facebook<br>(000+)
+                          Facebook<br>(000+)
                         </h2> 
                         <span class="rank__tooltip" > Facebook<br>(000+)</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Facebook Value <br>(000+)
+                         Facebook Value <br>(000+)
                         </h2> 
                         <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Instagram <br>(000+)
+                         Instagram <br>(000+)
                         </h2> 
                         <span class="rank__tooltip" >Instagram <br>(000+)</span>
                     </div>
                     <div class="rank-title__container">
                         <h2 type="text" class="rank__title">
-                        Instagram Value <br>(000+)
+                         Instagram Value <br>(000+)
                         </h2> 
                         <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                     </div>
                 </div>
 
-                    <div class="rank-input__container">
+                    <div class="rank-input__container rank-input__container-js">
                        <input type="text"type="text" name="teams[]" class="rank-input">
                        <input type="text" type="date" name='date[]' class="rank-input">
                        <input type="text" type="text" name='twitter[]' class="rank-input">
@@ -223,7 +196,7 @@
                        <input type="text" type="text" name="instagram[]" class="rank-input">
                        <input type="text" type="number" name="instagram_value[]" class="rank-input">
                     </div>
-                    <span class="rank__adder">
+                    <span class="rank__adder rank__adder-js">
                         <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
                     </span>
                 </div>
@@ -232,32 +205,582 @@
 
 
             </form>
-            </div>
-
-        </div>
-
-    </div>
 
 
-</section>
+            <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
+                @csrf
+                 <div class="center__container">
+                
+                    <input type="hidden" name="cat_id" value="3"/>
+            
+                            <div class="rank-container rank-container-js-one">
+                              <h2 class="rank__heading">
+                                        Music
+                                   <select class="select_box " name="sub_rank_id">
+                                         @foreach($sub_rank_cats as $rank)
+                                            <option value="{{$rank->id}}">
+                                              {{$rank->name}}
+                                           </option>
+                                        
+                                         @endforeach
+                                  </select>
+                               </h2>
+                            <div class="rank-input__container__title">
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                   Teams
+                                    </h2> 
+                                    <span class="rank__tooltip" >Teams</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Date
+                                    </h2> 
+                                    <span class="rank__tooltip" >Date</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Twitter<br>(000+)
+            
+                                    </h2> 
+                                    <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Twitter  Value<br>(000+)
+                                    </h2> 
+                                    <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Facebook<br>(000+)
+                                    </h2> 
+                                    <span class="rank__tooltip" > Facebook<br>(000+)</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Facebook Value <br>(000+)
+                                    </h2> 
+                                    <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Instagram <br>(000+)
+                                    </h2> 
+                                    <span class="rank__tooltip" >Instagram <br>(000+)</span>
+                                </div>
+                                <div class="rank-title__container">
+                                    <h2 type="text" class="rank__title">
+                                    Instagram Value <br>(000+)
+                                    </h2> 
+                                    <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
+                                </div>
+                            </div>
+            
+                                <div class="rank-input__container rank-input__container-js-one">
+                                   <input type="text"type="text" name="teams[]" class="rank-input">
+                                   <input type="text" type="date" name='date[]' class="rank-input">
+                                   <input type="text" type="text" name='twitter[]' class="rank-input">
+                                   <input type="text" type="number" name="twitter_value[]" class="rank-input">
+                                   <input type="text"type="text" name="facebook[]" class="rank-input">
+                                   <input type="text"type="number" name="facebook_value[]" class="rank-input">
+                                   <input type="text" type="text" name="instagram[]" class="rank-input">
+                                   <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                </div>
+                                <span class="rank__adder rank__adder-js-one">
+                                    <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
+                                </span>
+                            </div>
+                            
+                        </div>
+            
+            
+                        </form>
 
-<script>
-    let rankContainer = document.querySelector(".rank-container");
-    let rankInputContainer = document.querySelector(".rank-input__container")
-    let rankAdderTriggerBtn = document.querySelector(".rank__adder");
-
-    rankAdderTriggerBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        let clonedElement = rankInputContainer.cloneNode(true);
-        rankContainer.appendChild(clonedElement);
-    })
-                    
-    $('#form-submit-button').on('click', function(){
-    $('#form-submit').submit();
-     });
 
 
-</script>
+                        <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
+                            @csrf
+                             <div class="center__container">                  
+                            
+                                <input type="hidden" name="cat_id" value="3"/>
+                        
+                                        <div class="rank-container rank-container-js-two">
+                                           <h2 class="rank__heading">
+                                                    Movie
+                                               <select class="select_box " name="sub_rank_id">
+                                                     @foreach($sub_rank_cats as $rank)
+                                                        <option value="{{$rank->id}}">
+                                                          {{$rank->name}}
+                                                       </option>
+                                                    
+                                                     @endforeach
+                                              </select>
+                                            </h2>
+                                        <div class="rank-input__container__title">
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                               Teams
+                                                </h2> 
+                                                <span class="rank__tooltip" >Teams</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Date
+                                                </h2> 
+                                                <span class="rank__tooltip" >Date</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Twitter<br>(000+)
+                        
+                                                </h2> 
+                                                <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Twitter  Value<br>(000+)
+                                                </h2> 
+                                                <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Facebook<br>(000+)
+                                                </h2> 
+                                                <span class="rank__tooltip" > Facebook<br>(000+)</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Facebook Value <br>(000+)
+                                                </h2> 
+                                                <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Instagram <br>(000+)
+                                                </h2> 
+                                                <span class="rank__tooltip" >Instagram <br>(000+)</span>
+                                            </div>
+                                            <div class="rank-title__container">
+                                                <h2 type="text" class="rank__title">
+                                                Instagram Value <br>(000+)
+                                                </h2> 
+                                                <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
+                                            </div>
+                                        </div>
+                        
+                                            <div class="rank-input__container rank-input__container-js-two">
+                                               <input type="text"type="text" name="teams[]" class="rank-input">
+                                               <input type="text" type="date" name='date[]' class="rank-input">
+                                               <input type="text" type="text" name='twitter[]' class="rank-input">
+                                               <input type="text" type="number" name="twitter_value[]" class="rank-input">
+                                               <input type="text"type="text" name="facebook[]" class="rank-input">
+                                               <input type="text"type="number" name="facebook_value[]" class="rank-input">
+                                               <input type="text" type="text" name="instagram[]" class="rank-input">
+                                               <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                            </div>
+                                            <span class="rank__adder rank__adder-js-two">
+                                                <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                        
+                        
+                                    </form>
+
+
+                                    <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
+                                        @csrf
+                                         <div class="center__container">
+                                        
+                                            <input type="hidden" name="cat_id" value="3"/>
+                                    
+                                                    <div class="rank-container rank-container-js-three">
+                                                         <h2 class="rank__heading">
+                                                                TV
+                                                           <select class="select_box " name="sub_rank_id">
+                                                                 @foreach($sub_rank_cats as $rank)
+                                                                    <option value="{{$rank->id}}">
+                                                                      {{$rank->name}}
+                                                                   </option>
+                                                                
+                                                                 @endforeach
+                                                          </select>
+                                                         </h2>
+                                                    <div class="rank-input__container__title">
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                           Teams
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Teams</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Date
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Date</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Twitter<br>(000+)
+                                    
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Twitter  Value<br>(000+)
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Facebook<br>(000+)
+                                                            </h2> 
+                                                            <span class="rank__tooltip" > Facebook<br>(000+)</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Facebook Value <br>(000+)
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Instagram <br>(000+)
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Instagram <br>(000+)</span>
+                                                        </div>
+                                                        <div class="rank-title__container">
+                                                            <h2 type="text" class="rank__title">
+                                                            Instagram Value <br>(000+)
+                                                            </h2> 
+                                                            <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
+                                                        </div>
+                                                    </div>
+                                    
+                                                        <div class="rank-input__container rank-input__container-js-three">
+                                                           <input type="text"type="text" name="teams[]" class="rank-input">
+                                                           <input type="text" type="date" name='date[]' class="rank-input">
+                                                           <input type="text" type="text" name='twitter[]' class="rank-input">
+                                                           <input type="text" type="number" name="twitter_value[]" class="rank-input">
+                                                           <input type="text"type="text" name="facebook[]" class="rank-input">
+                                                           <input type="text"type="number" name="facebook_value[]" class="rank-input">
+                                                           <input type="text" type="text" name="instagram[]" class="rank-input">
+                                                           <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                        </div>
+                                                        <span class="rank__adder rank__adder-js-three">
+                                                            <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
+                                                        </span>
+                                                    </div>
+                                                    
+                                                </div>
+                                    
+                                    
+                                                </form>
+
+                                                <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
+                                                    @csrf
+                                                     <div class="center__container">
+                                                    
+                                                        <input type="hidden" name="cat_id" value="3"/>
+                                                
+                                                                <div class="rank-container rank-container-js-four">
+                                                                   <h2 class="rank__heading">
+                                                                            Social
+                                                                       <select class="select_box " name="sub_rank_id">
+                                                                             @foreach($sub_rank_cats as $rank)
+                                                                                <option value="{{$rank->id}}">
+                                                                                  {{$rank->name}}
+                                                                               </option>
+                                                                            
+                                                                             @endforeach
+                                                                      </select>
+                                                                    </h2>
+                                                                <div class="rank-input__container__title">
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                       Teams
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Teams</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Date
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Date</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Twitter<br>(000+)
+                                                
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Twitter  Value<br>(000+)
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Facebook<br>(000+)
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" > Facebook<br>(000+)</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Facebook Value <br>(000+)
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Instagram <br>(000+)
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Instagram <br>(000+)</span>
+                                                                    </div>
+                                                                    <div class="rank-title__container">
+                                                                        <h2 type="text" class="rank__title">
+                                                                        Instagram Value <br>(000+)
+                                                                        </h2> 
+                                                                        <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
+                                                                    </div>
+                                                                </div>
+                                                
+                                                                    <div class="rank-input__container rank-input__container-js-four">
+                                                                       <input type="text"type="text" name="teams[]" class="rank-input">
+                                                                       <input type="text" type="date" name='date[]' class="rank-input">
+                                                                       <input type="text" type="text" name='twitter[]' class="rank-input">
+                                                                       <input type="text" type="number" name="twitter_value[]" class="rank-input">
+                                                                       <input type="text"type="text" name="facebook[]" class="rank-input">
+                                                                       <input type="text"type="number" name="facebook_value[]" class="rank-input">
+                                                                       <input type="text" type="text" name="instagram[]" class="rank-input">
+                                                                       <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                                    </div>
+                                                                    <span class="rank__adder rank__adder-js-four">
+                                                                        <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
+                                                                    </span>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                
+                                                
+                                                            </form>
+
+
+                                                            <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
+                                                                @csrf
+                                                                  <div class="center__container">
+                                                                
+                                                                    <input type="hidden" name="cat_id" value="3"/>
+                                                            
+                                                                            <div class="rank-container rank-container-js-five">
+                                                                               <h2 class="rank__heading">
+                                                                                      Radio
+                                                                                   <select class="select_box " name="sub_rank_id">
+                                                                                         @foreach($sub_rank_cats as $rank)
+                                                                                            <option value="{{$rank->id}}">
+                                                                                              {{$rank->name}}
+                                                                                           </option>
+                                                                                        
+                                                                                         @endforeach
+                                                                                  </select>
+                                                                               </h2>
+                                                                            <div class="rank-input__container__title">
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                   Teams
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Teams</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Date
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Date</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Twitter<br>(000+)
+                                                            
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Twitter <br>   ( 000+)</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Twitter  Value<br>(000+)
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Twitter Value<br>(000+)</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Facebook<br>(000+)
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" > Facebook<br>(000+)</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Facebook Value <br>(000+)
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Facebook  Value<br>(000+)</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Instagram <br>(000+)
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Instagram <br>(000+)</span>
+                                                                                </div>
+                                                                                <div class="rank-title__container">
+                                                                                    <h2 type="text" class="rank__title">
+                                                                                    Instagram Value <br>(000+)
+                                                                                    </h2> 
+                                                                                    <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
+                                                                                </div>
+                                                                            </div>
+                                                            
+                                                                                <div class="rank-input__container rank-input__container-js-five">
+                                                                                   <input type="text"type="text" name="teams[]" class="rank-input">
+                                                                                   <input type="text" type="date" name='date[]' class="rank-input">
+                                                                                   <input type="text" type="text" name='twitter[]' class="rank-input">
+                                                                                   <input type="text" type="number" name="twitter_value[]" class="rank-input">
+                                                                                   <input type="text"type="text" name="facebook[]" class="rank-input">
+                                                                                   <input type="text"type="number" name="facebook_value[]" class="rank-input">
+                                                                                   <input type="text" type="text" name="instagram[]" class="rank-input">
+                                                                                   <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                                                </div>
+                                                                                <span class="rank__adder rank__adder-js-five">
+                                                                                    <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
+                                                                                </span>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                            
+                                                            
+                                                                        </form>
+                                                                        <div class="white__small--btn-wrapper">
+                                                                            <button class="white__small--btn rank-js-btn">1</button>
+                                                                            <button class="white__small--btn rank-js-btn">2</button>
+                                                                            <button class="white__small--btn rank-js-btn">3</button>
+                                                                            <button class="white__small--btn rank-js-btn">4</button>
+                                                                            <button class="white__small--btn rank-js-btn">5</button>
+                                                                            <button class="white__small--btn rank-js-btn">6</button>
+                                                                         </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                       </section>
+
+
+
+
+
+                     <script>
+
+                            let rankContainer = document.querySelector(".rank-container-js");
+                            let rankInputContainer = document.querySelector(".rank-input__container-js")
+                            let rankAdderTriggerBtn = document.querySelector(".rank__adder-js");
+                            let rankContainerOne = document.querySelector(".rank-container-js-one");
+                            let rankInputContainerOne = document.querySelector(".rank-input__container-js-one")
+                            let rankAdderTriggerBtnOne = document.querySelector(".rank__adder-js-one");
+                            let rankContainerTwo = document.querySelector(".rank-container-js-two");
+                            let rankInputContainerTwo = document.querySelector(".rank-input__container-js-two")
+                            let rankAdderTriggerBtnTwo = document.querySelector(".rank__adder-js-two");
+                            let rankContainerThree = document.querySelector(".rank-container-js-three");
+                            let rankInputContainerThree = document.querySelector(".rank-input__container-js-three")
+                            let rankAdderTriggerBtnThree = document.querySelector(".rank__adder-js-three");
+                            let rankContainerFour = document.querySelector(".rank-container-js-four");
+                            let rankInputContainerFour = document.querySelector(".rank-input__container-js-four")
+                            let rankAdderTriggerBtnFour = document.querySelector(".rank__adder-js-four");
+                            let rankContainerFive = document.querySelector(".rank-container-js-five");
+                            let rankInputContainerFive = document.querySelector(".rank-input__container-js-five")
+                            let rankAdderTriggerBtnFive = document.querySelector(".rank__adder-js-five");
+
+
+                            // let rankContainer_radio = document.querySelector(".rank-container_radio");
+                            // let rankInputContainer_radio = document.querySelector(".rank-input__container_radio")
+                            // let rankAdderTriggerBtn_radio = document.querySelector(".rank__adder_radio");
+
+                            let switchRankContainers = document.querySelectorAll(".switch-rank-container");
+                            let rankBtns = document.querySelectorAll(".rank-js-btn");
+                        // console.log(switchRankContainers);
+                            for(let i = 0; i < rankBtns.length; i++){
+                                rankBtns[i].addEventListener('click', function(e){
+                                    e.preventDefault();
+                                    switchRankContainers.forEach(function(item, n){
+                                        if(i !== n)
+                                            item.classList.remove("switch-rank-container--active");
+                                        else
+                                            item.classList.add("switch-rank-container--active");
+                                    })
+                                })
+                            }
+
+                
+
+
+
+                        rankAdderTriggerBtn.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainer.cloneNode(true);
+                            rankContainer.appendChild(clonedElement);
+                        })
+                         
+
+                        rankAdderTriggerBtnOne.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainerOne.cloneNode(true);
+                            rankContainerOne.appendChild(clonedElement);
+                        })
+
+                        rankAdderTriggerBtnTwo.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainerTwo.cloneNode(true);
+                            rankContainerTwo.appendChild(clonedElement);
+                        })
+              
+
+                        rankAdderTriggerBtnThree.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainerThree.cloneNode(true);
+                            rankContainerThree.appendChild(clonedElement);
+                        })
+                        
+
+                        rankAdderTriggerBtnFour.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainerFour.cloneNode(true);
+                            rankContainerFour.appendChild(clonedElement);
+                        })
+                         
+                     
+                        rankAdderTriggerBtnFive.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let clonedElement = rankInputContainerFive.cloneNode(true);
+                            rankContainerFive.appendChild(clonedElement);
+                        })
+                         
+                     
+
+
+
+
+
+                                        
+                        $('#form-submit-button').on('click', function(){
+                        $('#form-submit').submit();
+                        });
+
+
+
+
+            </script>
 
 <script src="resources/js/admin.js"></script>
 

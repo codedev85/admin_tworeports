@@ -36,6 +36,7 @@ class HomeController extends Controller
     public function homepage_index(){
         $videos = Video::all();
         $partners = Partner::all();
+        
         return view('homepage.new-homepage')
                   ->with('partners',$partners)
                   ->with('videos', $videos);

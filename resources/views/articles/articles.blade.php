@@ -140,7 +140,7 @@
                             </p>
                             <input type="hidden" name="email" value="{{Auth::user()->email}}"> {{-- required --}}
                             <input type="hidden" name="orderID" value="345">
-                            <input type="hidden" name="amount" value="{{$article->price}}"> {{-- required in kobo --}}
+                            <input type="hidden" name="amount" value="{{$article->price*100}}"> {{-- required in kobo --}}
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="metadata" value="{{ json_encode($array = ['customer_email' => Auth::user()->email,'name'=> Auth::user()->name, 'article_id'=>$article->id,'article_title'=>$article->title,'articles_category'=> $article->downloadarticlecat_id]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                             <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}

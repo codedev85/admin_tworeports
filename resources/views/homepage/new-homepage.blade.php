@@ -112,21 +112,36 @@
 
                 <div class="center__container">
 
-                    <div class="center__container--wrapper home_switchable--container home--switchable-container--on">
-
-                        <input placeholder="title">
-                        <textarea placeholder="subtitle"></textarea>
+                    <form class="center__container--wrapper home_switchable--container home--switchable-container--on">
+                      1
+                               <input placeholder="title">
+                                <textarea placeholder="subtitle"></textarea>
+                    </form>
+                    <form class="center__container--wrapper home_switchable--container">
+                         2
+                                <input placeholder="title">
+                                <textarea placeholder="subtitle"></textarea>
+                    </form>
+                    <form class="center__container--wrapper home_switchable--container">
+                       3
+                               <input placeholder="title">
+                                <textarea placeholder="subtitle"></textarea>
+                  </form>
+                  <form class="center__container--wrapper home_switchable--container">
+                       4
+                              <input placeholder="title">
+                               <textarea placeholder="subtitle"></textarea>
+                 </form>
 
                         <div class="container custom__edit--img-inner1">
-                            <span>Width - 1366 Height - 700</span>
-                            <img src="../resource/images/featuredimg__tworeport.jpg">
-                            <div class="white__small--btn-wrapper">
-                            <button class="white__small--btn home-js-btn">1</button>
-                            <button class="white__small--btn home-js-btn">2</button>
-                            <button class="white__small--btn home-js-btn">3</button>
-                            <button class="white__small--btn home-js-btn">4</button>
-                            </div>
-                        </div>
+                                <span>Width - 1366 Height - 700</span>
+                                <img src="../resource/images/featuredimg__tworeport.jpg">
+                                <div class="white__small--btn-wrapper">
+                                <button class="white__small--btn home-js-btn">1</button>
+                                <button class="white__small--btn home-js-btn">2</button>
+                                <button class="white__small--btn home-js-btn">3</button>
+                                <button class="white__small--btn home-js-btn">4</button>
+                                </div>
 
                     </div>
 
@@ -251,21 +266,43 @@
 <script src="../resource/js/admin.js"></script>
 <script>
         //switching missions;
-        let homeswitchBtns = document.querySelectorAll(".home-js-btn");
-        let homeswitchableContainers = document.querySelectorAll(".home_switchable--container");
-        for (let i = 0; i < switchBtns.length; i++) {
-            homeswitchBtns[i].addEventListener('click', function(e) {
-                e.preventDefault();
-                homeswitchableContainers.forEach(function(item) {
-                    item.classList.remove('home--switchable-container--on');
-                });
-                homeswitchBtns.forEach(function(item) {
-                    item.classList.remove('active');
-                });
-                homeswitchableContainers[i].classList.add('home--switchable-container--on');
-                homeswitchBtns[i].classList.add('active')
-            })
-        }
+        // let homeswitchBtns = document.querySelectorAll(".home-js-btn");
+        // let homeswitchableContainers = document.querySelectorAll(".home_switchable--container");
+        // for (let i = 0; i < switchBtns.length; i++) {
+        //     homeswitchBtns[i].addEventListener('click', function(e) {
+        //         e.preventDefault();
+        //         homeswitchableContainers.forEach(function(item) {
+        //             item.classList.remove('home--switchable-container--on');
+        //         });
+        //         homeswitchBtns.forEach(function(item) {
+        //             item.classList.remove('active');
+        //         });
+        //         homeswitchableContainers[i].classList.add('home--switchable-container--on');
+        //         homeswitchBtns[i].classList.add('active')
+        //     })
+        // }
+
+        // home-js-btn
+        // home_switchable--container home--switchable-container--on
+
+        let switchHomeContainers = document.querySelectorAll(".home_switchable--container");
+                            let homeBtns = document.querySelectorAll(".home-js-btn");
+                        // console.log(switchHomeContainers);
+                            for(let i = 0; i < homeBtns.length; i++){
+                                homeBtns[i].addEventListener('click', function(e){
+                                    e.preventDefault();
+                                    switchHomeContainers.forEach(function(item, n){
+                                        if(i !== n)
+                                            item.classList.remove("home--switchable-container--on");
+                                        else
+                                            item.classList.add("home--switchable-container--on");
+                                    })
+                                })
+                            }
+
+
+
+        
         </script>
 
 </body>

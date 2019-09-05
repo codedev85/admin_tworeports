@@ -20,6 +20,27 @@
 
     <title>Download &ndash; TWOREPORT
     </title>
+    <style>
+        .slide__download {
+        height: calc(60vh - 50px);
+    
+        background:  url({{url('storage/'.$article_bg->image)}});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* ../resources/images/services--hero.jpg */
+    
+    
+    }
+    .patstack-btn{
+        background:red;
+        color:white;
+        margin-left:0px;
+        padding: 12px 25px;
+        display: block;
+
+    }
+    </style>
 </head>
 
 
@@ -120,20 +141,20 @@
            <a href="{{ url('casestudy-pdf/'.$article->id)}}" class="download_btn js_modal_trigger__btn home__btn">FREE DOWNLOAD</a>
 
           
-        @elseif(Auth::guest() )
-        <a href="{{ url('/login')}}" class="download_btn js_modal_trigger__btn home__btn">LOGIN TO DOWNLOAD</a>
+        @elseif(!Auth::guest() )
+      
             
              <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
                     <div class="row" style="margin-bottom:40px;">
                     <div class="col-md-8 col-md-offset-2">
                     <p>
-                        <div>
+                        {{-- <div>
                             &#8358; {{$article->price}}
-                        </div>
+                        </div> --}}
                     </p>
                     <input type="hidden" name="email" value="{{Auth::user()->email}}"> {{-- required --}}
                     <input type="hidden" name="orderID" value="345">
-                    <input type="hidden" name="amount" value="{{$article->price*100}}*100"> {{-- required in kobo --}}
+                    <input type="hidden" name="amount" value="{{$article->price*100}}"> {{-- required in kobo --}}
                     <input type="hidden" name="quantity" value="1">
                     <input type="hidden" name="metadata" value="{{ json_encode($array = ['customer_email' => Auth::user()->email,'name'=> Auth::user()->name, 'article_id'=>$article->id,'article_title'=>$article->title,'articles_category'=> $article->downloadarticlecat_id]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                     <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
@@ -144,7 +165,7 @@
 
 
                     <p>
-                    <button class="download_btn" type="submit" value="Pay Now!">
+                    <button class="download_btn patstack-btn" type="submit" value="Pay Now!">
                     &#8358; {{$article->price}} Download
                     </button>
                     </p>

@@ -142,10 +142,11 @@ class ArticleController extends Controller
       
         $article = Article::where('id',$id)->where('downloadarticlecat_id',1)->first();
         //dd($article->title);
+        $article_bg = ArticleBg::orderBy('created_at','DESC')->first();
         $related_articles = Article::where('downloadarticlecat_id',1)->limit(3)->inRandomOrder()->get();
         //dd($related_articles);
         
-        return view('articles.casestudy-single-page')->with('related_articles',$related_articles)->with('article',$article);
+        return view('articles.casestudy-single-page')->with('related_articles',$related_articles)->with('article_bg',$article_bg)->with('article',$article);
     }
 
     public function download_pdf_casestudy($id){
