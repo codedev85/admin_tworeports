@@ -1,25 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Roboto:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="resources/css/styles.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <title>TWOREPORT</title>
-</head> --}}
 
 @include('includes.include-header')
 <style>
@@ -208,46 +186,12 @@
                                         <p class="home__time_category">{{strtoupper($new->category->name)}}</p>
                                         <p class="home__time_stamp">{{$new->created_at->diffForHumans()}}</p>
                                     </div>
-                                    {{-- <div class="home__time_stamp-title-category">
-                                            <span class="home__time_stamp">{{$new->created_at->diffForHumans()}}</span>
-                                    </div> --}}
+                                    
                                    <p class="home__new_title">{{strtoupper($new->title)}}</p>
                                     <a href="{{url('news/'.$new->id)}}" class="home__btn read__btn home__btn--stroked">Read</a>
                                    </div>
                                 @endforeach
-                                {{-- <div class="home__side_card">
-                                    <div class="home__side_top_img">
-                                        <a href="">
-                                            <img src="resources/images/sports.png" class="home__side_new_img" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="home__time_stamp-title-category">
-                                        <p class="home__time_category">Sports</p>
-                                        <p class="home__time_stamp">6 hours ago</p>
-
-                                    </div>
-                                    <p class="home__new_title">ADVICE ABOUT EVERYTHING THAT MATTERS</p>
-
-                                    <a href="" class="home__btn read__btn home__btn--stroked">READ</a>
-                                </div>
-
-
-                                <div class="home__side_card home__side_card--no_border">
-                                    <div class="home__side_top_img">
-                                        <a href="">
-                                            <img src="resources/images/buhari-osinbajo.jpg" class="home__side_new_img"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                    <div class="home__time_stamp-title-category">
-                                        <p class="home__time_category">Economy</p>
-                                        <p class="home__time_stamp">12 hours ago</p>
-
-                                    </div>
-                                    <p class="home__new_title">ADVICE ABOUT EVERYTHING THAT MATTERS</p>
-
-                                    <a href="" class="home__btn read__btn home__btn--stroked ">READ</a>
-                                </div> --}}
+                                
                             </div>
 
 
@@ -749,12 +693,14 @@
         <div class="home__next_btn home__next">
             <img src="resources/images/next_red.png" class="home__next" alt="">
         </div>
+        @foreach($partners as $partner)
         <div class="owl-carousel owl-one">
            
             <div class="home__sliding_logo">
-                <img src="resources/images/CampsBay_logo.png" width="120px" height="120px" alt="">
+                <img src="{{ url('storage/'.$partner->partner_image) }}" width="120px" height="120px" alt="">
             </div>
         </div>
+        @endforeach
 
     </div>
 

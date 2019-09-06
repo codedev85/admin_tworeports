@@ -20,6 +20,7 @@ class AboutController extends Controller
       //  dd('hello');
         return view('pages.pages');
     }
+
     public function about_us_new(){
         $abt_us = About::orderBy('updated_at','desc')->first();
         $vision = Vision::all();
@@ -38,13 +39,16 @@ class AboutController extends Controller
                          ->with('abt_us',$abt_us);
     }
 
+
     public function abt_us(Request $request, $id){
        // dd($request);
         $desc  = $request->input('hero-bg-text');
         if($request->hasFile('hero_bg')){
+
             $this->validate($request, [
                 'hero_bg' => 'required|mimes:jpeg,png,jpg,gif,svg|dimensions:min-width=1272,min-height=375',
             ]);
+
             $hero_image = $request->file('hero_bg');
             $ext = $hero_image->getClientOriginalExtension();
             $image_resize = Image::make($hero_image->getRealPath());
@@ -53,13 +57,15 @@ class AboutController extends Controller
             $path = "{$hash}.$ext";
             $url = 'about-hero/'.$path;
             Storage::put($url, $resize->__toString());
-       About::where('id',$id)->update([
+            About::where('id',$id)->update([
            'hero_bg_text'=> $desc,
            'hero_image'=>$url,
            'updated_at'=> date('Y-m-d'),
        ]);
+
     }else{
-        About::where('id',$id)->update([
+
+           About::where('id',$id)->update([
             'hero_bg_text'=> $desc,
             'updated_at'=> date('Y-m-d'),
         ]);
@@ -67,7 +73,10 @@ class AboutController extends Controller
         return back()->with('success','Created succesfully');
     }
 
+
+
     public function vision(Request $request, $id){
+        
        $desc = $request->input('vision_desc');
        $abt=  Vision::where('id',$id)->update([
            'description'=> $desc,
@@ -77,6 +86,7 @@ class AboutController extends Controller
        return back()->with('success','Created succesfully');
     
     }
+
 
     public function value_new_post(Request $request, $id){
         // dd($request);

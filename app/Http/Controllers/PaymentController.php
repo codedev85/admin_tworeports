@@ -63,16 +63,9 @@ class PaymentController extends Controller
            $pdf = PDF::loadView('articles.pdf')->setPaper('a4','portrait');
            $filename ='tworeports-articles';
            return $pdf->download('articles.pdf');
-           
-
-          
-    //    }
+    
            return back();
-        // dd($paymentDetails['data']['metadata']['customer_email']);
-        // $paymentDetails['data']['metadata']['name'];
-        // $paymentDetails['data']['metadata']['article_id'];
-        // $paymentDetails['data']['metadata']['article_title'];
-        // $paymentDetails['data']['metadata']['article_category'];
+    
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want

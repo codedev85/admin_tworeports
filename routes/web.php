@@ -40,8 +40,11 @@ Route::get('all/transactions','PaymentController@transactions');
 Route::post('/send-mail','MailController@send_mail');
 Route::get('/contact-us/','AdminMgtController@admin_send_mails_to_all_admin');
 
-//about
+//customers view page 
 Route::get('/about-us/', 'AboutController@view_about');
+Route::get('/services/', 'ServiceController@view_services');
+Route::get('/solutions/', 'SolutionController@view_solutions');
+Route::get('/talents/', 'TalentController@view_talents');
 
 
 // Route::middleware('auth','admin')->group(function () {
@@ -127,7 +130,7 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
     // Route::delete('/team-delete/{id}', 'AboutController@team_destroy');
 // });
 ///services
-Route::get('/services/', 'ServiceController@view_services');
+
 // Route::middleware('auth','admin')->group(function () {
      //new
 
@@ -154,7 +157,7 @@ Route::get('/services/', 'ServiceController@view_services');
     Route::post('/service-create-hero-post/', 'ServiceController@service_create_hero_bg_store');
 // });
 //solutions
-Route::get('/solutions/', 'SolutionController@view_solutions');
+
 // Route::middleware('auth','admin')->group(function () {
    //nes
    Route::get('/new-solutions/','SolutionController@new_solution_all');
@@ -182,7 +185,7 @@ Route::get('/solutions/', 'SolutionController@view_solutions');
 // });
 
 //talents
-Route::get('/talents/', 'TalentController@view_talents');
+
 // Route::middleware('auth','admin')->group(function () {
        //new
 
@@ -331,6 +334,8 @@ Route::get('/company-news-edit/{od}','CompanyNewController@news_edit');
 Route::post('/company-news-create-post/{id}','CompanyNewController@news_create_post');
 Route::post('/company-news-create-post/','CompanyNewController@news_create_post');
 Route::post('/company-news-create-update/{id}','CompanyNewController@news_create_update');
+
+Route::get('/edit-comapny-news-banner/','CompanyNewController@edit_company_news_banner');
 //show news
 Route::get('news/{id}','CompanyNewController@show_news');
 

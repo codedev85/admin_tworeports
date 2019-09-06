@@ -20,6 +20,19 @@
 
     <title>News &ndash; TWOREPORT
     </title>
+    <style>
+            .slide__download {
+            height: calc(60vh - 50px);
+        
+            background:  url({{url('storage/')}});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* ../resources/images/services--hero.jpg */
+        
+        
+        }
+        </style>
 </head>
 
 </head>
@@ -38,96 +51,10 @@
                         <img src="resources/images/Transparent_Long.png" alt="">
                     </a>
                 </div>
+                <!-- nav bar header -->
+                @include('includes.nav-header')
+                <!-- ends here -->
 
-                <div class="main__menu">
-                    <div class="menu__link_container">
-                        <a href="index.html" class="menu__link">Home</a>
-                    </div>
-
-                    <div class="menu__link_container">
-                        <a href="our-services.html" class="menu__link">Our Services
-                            <!-- <img src="resources/images/Polygon.svg" class="header__main_dropdown_arrow" alt=""> -->
-
-                        </a>
-                        <!-- <div class="header__main_dropdown_container">
-        
-                                    <a href="" class="header__drp_link">
-                                        Sports Measurement
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Sponsorship Intelligence
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Entertainment Research
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Consumer Insights
-                                    </a>
-        
-                                    <a href="" class="header__drp_link">
-                                        Digital Monitoring
-                                    </a>
-        
-                                </div> -->
-                    </div>
-
-                    <div class="menu__link_container">
-                        <a href="solutions.html" class="menu__link">Solutions
-                            <!-- <img src="resources/images/Polygon.svg" class="header__main_dropdown_arrow" alt=""> -->
-
-                        </a>
-                        <!-- <div class="header__main_dropdown_container">
-        
-                                    <a href="" class="header__drp_link">
-                                        Market Research
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Native Intelligence
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Advisory
-                                    </a>
-        
-        
-                                    <a href="" class="header__drp_link">
-                                        Market Evaluation
-                                    </a>
-        
-                                </div> -->
-                    </div>
-
-                    <div class="menu__link_container">
-                        <a href="about.html" class="menu__link">
-                            About Us
-                        </a>
-                    </div>
-
-                    <div class="menu__link_container">
-                        <a href="talent.html" class="menu__link">
-                            Talent
-                            <!-- <img src="resources/images/Polygon.svg" class="header__main_dropdown_arrow" alt=""> -->
-
-                        </a>
-                        <!-- <div class="header__main_dropdown_container">
-        
-                                    <a href="" class="header__drp_link">
-                                        Become a team player
-                                    </a>
-        
-                                </div> -->
-                    </div>
-
-                </div>
 
                 <div class="menu__right_items">
 

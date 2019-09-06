@@ -89,7 +89,9 @@ class CompanyNewController extends Controller
        }
 
     
-
+public function edit_company_news_banner(){
+    return view('companynews.edit-banner');
+}
     
 
     public function create_news_cat(){

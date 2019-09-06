@@ -32,6 +32,14 @@
     
     
     }
+    .paystack-btn{
+        background:red;
+        color:white;
+        margin-left:0px;
+        padding: 12px 25px;
+        display: block;
+
+    }
     </style>
 </head>
 
@@ -133,10 +141,10 @@
                         <div class="row" style="margin-bottom:40px;">
                         <div class="col-md-8 col-md-offset-2">
                             <p>
-                                <div>
+                                {{-- <div>
                                 
                                     &#8358; {{$article->price}}
-                                </div>
+                                </div> --}}
                             </p>
                             <input type="hidden" name="email" value="{{Auth::user()->email}}"> {{-- required --}}
                             <input type="hidden" name="orderID" value="345">
@@ -149,7 +157,7 @@
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
                             <p>
-                            <button class="download_btn" type="submit" value="Pay Now!">
+                            <button class="download_btn paystack-btn" type="submit" value="Pay Now!">
                             &#8358; {{$article->price}} Download
                             </button>
                             </p>

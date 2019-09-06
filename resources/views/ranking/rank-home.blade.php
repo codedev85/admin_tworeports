@@ -257,7 +257,7 @@
 
                     <thead>
                         <tr>
-                            <th>RANK</th>
+                            {{-- <th>RANK</th> --}}
                             <th>DATE</th>
                             <th>TEAM</th>
                             <th>TWITTER
@@ -283,20 +283,37 @@
 
                     <tbody>
                
-                            @foreach($tv_ranks as $rank)
+                        <?php
+
+                        $tv_cat =json_decode($tv_ranks);
+                       //  $music_cat =json_decode($music_ranks);
+                       //   $var = json_decode($music_cat->rank_name);
+                       
+    //                    ?>
+                        
+                        <tbody>
+                        
+                        @foreach(json_decode($tv_cat->rank_name)[0] as $key => $va)
+    
+    
                             <tr>
-                                <td>{{$rank->id}}</td>
-                                <td>{{$rank->date}}</td>
-                                <td>{{$rank->rank_name}}</td>
-                                <td>{{$rank->twitter}}</td>
-                                <td>{{$rank->add_sub_twit}}</td>
-                                <td>{{$rank->instagram}}</td>
-                                <td>{{$rank->add_sub_inst}}</td>
-                                <td>{{$rank->facebook}}</td>
-                                <td>{{$rank->add_sub_fb}}</td>
-                                <td>{{$rank->total}}</td>
+                            
+                                 {{-- <td>{{ json_decode($tv_cat->rank_name)[0][$key]}}</td>  --}}
+                                <td>{{json_decode($tv_cat->date)[0][$key]}}</td>
+                                <td>{{json_decode($tv_cat->rank_name)[0][$key]}}</td> 
+                                <td>{{json_decode($tv_cat->twitter)[0][$key]}}</td>
+                                <td>{{json_decode($tv_cat->add_sub_twit)[0][$key]}}</td>
+
+                                <td>{{json_decode($tv_cat->instagram)[0][$key]}}</td>
+                                <td>{{json_decode($tv_cat->add_sub_twit)[0][$key]}}</td>
+
+                                <td>{{json_decode($tv_cat->facebook)[0][$key]}}</td>
+                                <td>{{json_decode($tv_cat->add_sub_fb)[0][$key]}}</td>
+
+                                <td>{{json_decode($tv_cat->total)[0][$key]}}</td>
+                                    
                             </tr>
-                            @endforeach
+                        @endforeach
                     <tfoot>
                         <tr>
                             <td colspan="20">Source : TWOREPORT Social Tracker.</td>
@@ -343,7 +360,37 @@
                     </thead>
 
                     <tbody>
-                            @foreach($radio_ranks as $rank)
+                
+                        <?php
+
+                        $radio_cat =json_decode($radio_ranks);
+                       //  $music_cat =json_decode($music_ranks);
+                       //   $var = json_decode($music_cat->rank_name);
+                       
+                       //                     ?>
+                                          
+                                           <tbody>
+                                           
+                                           @foreach(json_decode($radio_cat->rank_name)[0] as $key => $va)
+                        
+                        
+                                                   <tr>
+                                                
+                                                   <td>{{json_decode($radio_cat->rank_name)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->date)[0][$key]}}</td>
+                                                   <td> Radio </td>
+                                                   <td>{{json_decode($radio_cat->twitter)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->add_sub_twit)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->instagram)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->add_sub_twit)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->facebook)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->add_sub_fb)[0][$key]}}</td>
+                                                   <td>{{json_decode($radio_cat->total)[0][$key]}}</td>
+                                                   {{-- <td>{{json_decode($radio_cat->twitter)[0][$key]}}</td> --}}
+                                                     
+                                                </tr>
+                                          @endforeach
+                            {{-- @foreach($radio_ranks as $rank)
                             <tr>
                                 <td>{{$rank->id}}</td>
                                 <td>{{$rank->date}}</td>
@@ -356,7 +403,7 @@
                                 <td>{{$rank->add_sub_fb}}</td>
                                 <td>{{$rank->total}}</td>
                             </tr>
-                            @endforeach
+                            @endforeach --}}
 
 
                     <tfoot>
@@ -420,14 +467,17 @@
                          
                             <td>{{json_decode($music_cat->rank_name)[0][$key]}}</td>
                             <td>{{json_decode($music_cat->date)[0][$key]}}</td>
+                            <td>Music</td>
                             <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
                             <td>{{json_decode($music_cat->add_sub_twit)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
-                            <td>{{json_decode($music_cat->twitter)[0][$key]}}</td>
+
+                            <td>{{json_decode($music_cat->instagram)[0][$key]}}</td>
+                            <td>{{json_decode($music_cat->add_sub_twit)[0][$key]}}</td>
+
+                            <td>{{json_decode($music_cat->facebook)[0][$key]}}</td>
+                            <td>{{json_decode($music_cat->add_sub_twit)[0][$key]}}</td>
+                            <td>{{json_decode($music_cat->total)[0][$key]}}</td>
+                            {{-- <td>{{json_decode($music_cat->twitter)[0][$key]}}</td> --}}
                               
                          </tr>
                    @endforeach
@@ -478,21 +528,37 @@
                     </thead>
 
                     <tbody>
-                            @foreach($sport_ranks as $rank)
-                            <tr>
-                                <td>{{$rank->id}}</td>
-                                <td>{{$rank->date}}</td>
-                                <td>{{$rank->rank_name}}</td>
-                                <td>{{$rank->twitter}}</td>
-                                <td>{{$rank->add_sub_twit}}</td>
-                                <td>{{$rank->instagram}}</td>
-                                <td>{{$rank->add_sub_inst}}</td>
-                                <td>{{$rank->facebook}}</td>
-                                <td>{{$rank->add_sub_fb}}</td>
-                                <td>{{$rank->total}}</td>
-                            </tr>
-                            @endforeach
+                        <?php
 
+                        $sport_cat =json_decode($sport_ranks);
+                        //  $music_cat =json_decode($music_ranks);
+                        //   $var = json_decode($music_cat->rank_name);
+                        
+    //                    ?>
+                        
+                        <tbody>
+                        
+                                @foreach(json_decode($sport_cat->rank_name)[0] as $key => $va)
+    
+    
+                                <tr>
+                                
+                                        <td>{{json_decode($sport_cat->rank_name)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->date)[0][$key]}}</td>  
+                                        <td>Sport</td>
+                                        <td>{{json_decode($sport_cat->twitter)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->add_sub_twit)[0][$key]}}</td>
+        
+                                        <td>{{json_decode($sport_cat->instagram)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->add_sub_inst)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->facebook)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->add_sub_fb)[0][$key]}}</td>
+                                        <td>{{json_decode($sport_cat->total)[0][$key]}}</td>
+                                        {{-- <td>{{json_decode($sport_cat->twitter)[0][$key]}}</td> --}}
+                                        
+                                </tr>
+                            @endforeach
+    
 
                     <tfoot>
                         <tr>
@@ -540,19 +606,37 @@
                     </thead>
 
                     <tbody>
-                            @foreach($movie_ranks as $rank)
-                            <tr>
-                                <td>{{$rank->id}}</td>
-                                <td>{{$rank->date}}</td>
-                                <td>{{$rank->rank_name}}</td>
-                                <td>{{$rank->twitter}}</td>
-                                <td>{{$rank->add_sub_twit}}</td>
-                                <td>{{$rank->instagram}}</td>
-                                <td>{{$rank->add_sub_inst}}</td>
-                                <td>{{$rank->facebook}}</td>
-                                <td>{{$rank->add_sub_fb}}</td>
-                                <td>{{$rank->total}}</td>
-                            </tr>
+                            <?php
+
+                            $movie_cat =json_decode($movie_ranks);
+                            //  $music_cat =json_decode($music_ranks);
+                            //   $var = json_decode($music_cat->rank_name);
+                            
+        //                    ?>
+                            
+                            <tbody>
+                            
+                            @foreach(json_decode($movie_cat->rank_name)[0] as $key => $va)
+        
+        
+                                <tr>
+                                
+                                    <td>{{json_decode($movie_cat->rank_name)[0][$key]}}</td>
+                                    <td>{{json_decode($movie_cat->date)[0][$key]}}</td>
+                                    <td>Movie</td>
+                                    <td>{{json_decode($movie_cat->twitter)[0][$key]}}</td>
+                                    <td>{{json_decode($movie_cat->add_sub_twit)[0][$key]}}</td>
+
+                                    <td>{{json_decode($movie_cat->instagram)[0][$key]}}</td>
+                                    <td>{{json_decode($movie_cat->add_sub_twit)[0][$key]}}</td>
+
+                                    <td>{{json_decode($movie_cat->facebook)[0][$key]}}</td>
+                                    <td>{{json_decode($movie_cat->add_sub_fb)[0][$key]}}</td>
+
+                                    <td>{{json_decode($movie_cat->total)[0][$key]}}</td>
+                                    {{-- <td>{{json_decode($movie_cat->twitter)[0][$key]}}</td> --}}
+                                        
+                                </tr>
                             @endforeach
 
 
@@ -602,20 +686,39 @@
                     </thead>
 
                     <tbody>
-                            @foreach($social_ranks as $rank)
+                           
+                        <?php
+
+                        $social_cat =json_decode($social_ranks);
+                        //  $music_cat =json_decode($music_ranks);
+                        //   $var = json_decode($music_cat->rank_name);
+                        
+    //                    ?>
+                        
+                        <tbody>
+                        
+                        @foreach(json_decode($social_cat->rank_name)[0] as $key => $va)
+    
+    
                             <tr>
-                                <td>{{$rank->id}}</td>
-                                <td>{{$rank->date}}</td>
-                                <td>{{$rank->rank_name}}</td>
-                                <td>{{$rank->twitter}}</td>
-                                <td>{{$rank->add_sub_twit}}</td>
-                                <td>{{$rank->instagram}}</td>
-                                <td>{{$rank->add_sub_inst}}</td>
-                                <td>{{$rank->facebook}}</td>
-                                <td>{{$rank->add_sub_fb}}</td>
-                                <td>{{$rank->total}}</td>
+                            
+                                <td>{{json_decode($social_cat->rank_name)[0][$key]}}</td>
+                                <td>{{json_decode($social_cat->date)[0][$key]}}</td>
+                                <td>Social</td>
+                                <td>{{json_decode($social_cat->twitter)[0][$key]}}</td>
+                                <td>{{json_decode($social_cat->add_sub_twit)[0][$key]}}</td>
+
+                                <td>{{json_decode($social_cat->instagram)[0][$key]}}</td>
+                                <td>{{json_decode($social_cat->add_sub_inst)[0][$key]}}</td>
+
+                                <td>{{json_decode($social_cat->facebook)[0][$key]}}</td>
+                                <td>{{json_decode($social_cat->add_sub_fb)[0][$key]}}</td>
+
+                                <td>{{json_decode($social_cat->total)[0][$key]}}</td>
+                                {{-- <td>{{json_decode($social_cat->twitter)[0][$key]}}</td> --}}
+                                    
                             </tr>
-                            @endforeach
+                        @endforeach
 
 
                     <tfoot>
@@ -707,7 +810,7 @@
                         </thead>
 
                         <tbody>
-                                @foreach($radio_ranks as $rank)
+                                {{-- @foreach($radio_ranks as $rank)
                                 <tr>
                                     <td>{{$rank->id}}</td>
                                     <td>{{$rank->date}}</td>
@@ -720,7 +823,7 @@
                                     <td>{{$rank->add_sub_fb}}</td>
                                     <td>{{$rank->total}}</td>
                                 </tr>
-                                @endforeach
+                                @endforeach --}}
 
 
                         <tfoot>

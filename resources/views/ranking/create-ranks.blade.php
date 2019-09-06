@@ -118,10 +118,6 @@
     @csrf
                 <div class="center__container">
 
-               
-
-          
-    
         <input type="hidden" name="cat_id" value="3"/>
                 <div class="rank-container rank-container-js">
                    <h2 class="rank__heading">
@@ -184,6 +180,12 @@
                         </h2> 
                         <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                     </div>
+                    <div class="rank-title__container">
+                            <h2 type="text" class="rank__title">
+                            Total <br>
+                            </h2> 
+                            <span class="rank__tooltip" >Total</span>
+                        </div>
                 </div>
 
                     <div class="rank-input__container rank-input__container-js">
@@ -195,14 +197,18 @@
                        <input type="text"type="number" name="facebook_value[]" class="rank-input">
                        <input type="text" type="text" name="instagram[]" class="rank-input">
                        <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                       <input type="text" type="number" name="total[]" class="rank-input">
                     </div>
                     <span class="rank__adder rank__adder-js">
                         <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
                     </span>
+                  
+
                 </div>
+            
                 
             </div>
-
+            <button class="red__homepage--btn"><span>Save Changes</span></button>
 
             </form>
 
@@ -211,7 +217,7 @@
                 @csrf
                  <div class="center__container">
                 
-                    <input type="hidden" name="cat_id" value="3"/>
+                    <input type="hidden" name="cat_id" value="4"/>
             
                             <div class="rank-container rank-container-js-one">
                               <h2 class="rank__heading">
@@ -275,6 +281,12 @@
                                     </h2> 
                                     <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                                 </div>
+                                <div class="rank-title__container">
+                                        <h2 type="text" class="rank__title">
+                                        Total <br>
+                                        </h2> 
+                                        <span class="rank__tooltip" >Total</span>
+                                    </div>
                             </div>
             
                                 <div class="rank-input__container rank-input__container-js-one">
@@ -286,6 +298,7 @@
                                    <input type="text"type="number" name="facebook_value[]" class="rank-input">
                                    <input type="text" type="text" name="instagram[]" class="rank-input">
                                    <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                   <input type="text" type="number" name="total[]" class="rank-input">
                                 </div>
                                 <span class="rank__adder rank__adder-js-one">
                                     <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
@@ -294,7 +307,7 @@
                             
                         </div>
             
-            
+                        <button class="red__homepage--btn"><span>Save Changes</span></button>
                         </form>
 
 
@@ -303,7 +316,7 @@
                             @csrf
                              <div class="center__container">                  
                             
-                                <input type="hidden" name="cat_id" value="3"/>
+                                <input type="hidden" name="cat_id" value="1"/>
                         
                                         <div class="rank-container rank-container-js-two">
                                            <h2 class="rank__heading">
@@ -367,6 +380,12 @@
                                                 </h2> 
                                                 <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                                             </div>
+                                            <div class="rank-title__container">
+                                                    <h2 type="text" class="rank__title">
+                                                    Total <br>
+                                                    </h2> 
+                                                    <span class="rank__tooltip" >Total</span>
+                                                </div>
                                         </div>
                         
                                             <div class="rank-input__container rank-input__container-js-two">
@@ -378,6 +397,7 @@
                                                <input type="text"type="number" name="facebook_value[]" class="rank-input">
                                                <input type="text" type="text" name="instagram[]" class="rank-input">
                                                <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                               <input type="text" type="number" name="total[]" class="rank-input">
                                             </div>
                                             <span class="rank__adder rank__adder-js-two">
                                                 <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
@@ -385,7 +405,7 @@
                                         </div>
                                         
                                     </div>
-                        
+                                    <button class="red__homepage--btn"><span>Save Changes</span></button>
                         
                                     </form>
 
@@ -394,7 +414,7 @@
                                         @csrf
                                          <div class="center__container">
                                         
-                                            <input type="hidden" name="cat_id" value="3"/>
+                                            <input type="hidden" name="cat_id" value="6"/>
                                     
                                                     <div class="rank-container rank-container-js-three">
                                                          <h2 class="rank__heading">
@@ -458,6 +478,12 @@
                                                             </h2> 
                                                             <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                                                         </div>
+                                                        <div class="rank-title__container">
+                                                                <h2 type="text" class="rank__title">
+                                                                Total <br>
+                                                                </h2> 
+                                                                <span class="rank__tooltip" >Total</span>
+                                                            </div>
                                                     </div>
                                     
                                                         <div class="rank-input__container rank-input__container-js-three">
@@ -469,6 +495,7 @@
                                                            <input type="text"type="number" name="facebook_value[]" class="rank-input">
                                                            <input type="text" type="text" name="instagram[]" class="rank-input">
                                                            <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                           <input type="text" type="number" name="total[]" class="rank-input">
                                                         </div>
                                                         <span class="rank__adder rank__adder-js-three">
                                                             <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
@@ -477,14 +504,14 @@
                                                     
                                                 </div>
                                     
-                                    
+                                                <button class="red__homepage--btn"><span>Save Changes</span></button>
                                                 </form>
 
                                                 <form action="{{url('/rank-post/')}}" id="form-submit" method="post" enctype="multipart/form-data" class="switch-rank-container">
                                                     @csrf
                                                      <div class="center__container">
                                                     
-                                                        <input type="hidden" name="cat_id" value="3"/>
+                                                        <input type="hidden" name="cat_id" value="2"/>
                                                 
                                                                 <div class="rank-container rank-container-js-four">
                                                                    <h2 class="rank__heading">
@@ -548,6 +575,12 @@
                                                                         </h2> 
                                                                         <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                                                                     </div>
+                                                                    <div class="rank-title__container">
+                                                                            <h2 type="text" class="rank__title">
+                                                                            Total <br>
+                                                                            </h2> 
+                                                                            <span class="rank__tooltip" >Total</span>
+                                                                        </div>
                                                                 </div>
                                                 
                                                                     <div class="rank-input__container rank-input__container-js-four">
@@ -559,6 +592,7 @@
                                                                        <input type="text"type="number" name="facebook_value[]" class="rank-input">
                                                                        <input type="text" type="text" name="instagram[]" class="rank-input">
                                                                        <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                                       <input type="text" type="number" name="total[]" class="rank-input">
                                                                     </div>
                                                                     <span class="rank__adder rank__adder-js-four">
                                                                         <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
@@ -567,7 +601,7 @@
                                                                 
                                                             </div>
                                                 
-                                                
+                                                            <button class="red__homepage--btn"><span>Save Changes</span></button>
                                                             </form>
 
 
@@ -575,7 +609,7 @@
                                                                 @csrf
                                                                   <div class="center__container">
                                                                 
-                                                                    <input type="hidden" name="cat_id" value="3"/>
+                                                                    <input type="hidden" name="cat_id" value="5"/>
                                                             
                                                                             <div class="rank-container rank-container-js-five">
                                                                                <h2 class="rank__heading">
@@ -639,6 +673,12 @@
                                                                                     </h2> 
                                                                                     <span class="rank__tooltip" >Instagram Value<br>(000+)</span>
                                                                                 </div>
+                                                                                <div class="rank-title__container">
+                                                                                        <h2 type="text" class="rank__title">
+                                                                                        Total <br>
+                                                                                        </h2> 
+                                                                                        <span class="rank__tooltip" >Total</span>
+                                                                                    </div>
                                                                             </div>
                                                             
                                                                                 <div class="rank-input__container rank-input__container-js-five">
@@ -650,6 +690,7 @@
                                                                                    <input type="text"type="number" name="facebook_value[]" class="rank-input">
                                                                                    <input type="text" type="text" name="instagram[]" class="rank-input">
                                                                                    <input type="text" type="number" name="instagram_value[]" class="rank-input">
+                                                                                   <input type="text" type="number" name="total[]" class="rank-input">
                                                                                 </div>
                                                                                 <span class="rank__adder rank__adder-js-five">
                                                                                     <svg height="24px" viewBox="0 0 448 448" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff"/></svg>
@@ -658,7 +699,7 @@
                                                                             
                                                                         </div>
                                                             
-                                                            
+                                                                        <button class="red__homepage--btn"><span>Save Changes</span></button>
                                                                         </form>
                                                                         <div class="white__small--btn-wrapper">
                                                                             <button class="white__small--btn rank-js-btn">1</button>

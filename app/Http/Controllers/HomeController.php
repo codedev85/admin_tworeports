@@ -111,14 +111,18 @@ class HomeController extends Controller
 
     public function rankings_index_tv(){
 
-        $tv_ranks = Rank::where('category_id', 1)->get();
-        $radio_ranks = Rank::where('category_id',2)->get();
-        $music_ranks= Rank::where('category_id',3)->orderBy('created_at','DESC')->first();
+        $tv_ranks = Rank::where('category_id', 6)->orderBy('created_at','DESC')->first();
+        $radio_ranks = Rank::where('category_id',5)->orderBy('created_at','DESC')->first();
+        $music_ranks= Rank::where('category_id',4)->orderBy('created_at','DESC')->first();
+        //dd($radio_ranks);
+      // dd($music_ranks);
         //dd(json_decode($music_ranks->rank_name));
         // dd(json_decode($music_ranks));
-        $sport_ranks= Rank::where('category_id',4)->get();
-        $movie_ranks= Rank::where('category_id',5)->get();
-        $social_ranks= Rank::where('category_id',6)->get();
+        $sport_ranks= Rank::where('category_id',3)->orderBy('created_at','DESC')->first();
+        // dd($sport_ranks);
+        $movie_ranks= Rank::where('category_id',1)->orderBy('created_at','DESC')->first();
+       // dd($movie_ranks);
+        $social_ranks= Rank::where('category_id',2)->orderBy('created_at','DESC')->first();
        //dd($tv_ranks);
         return view('ranking.rank-home')
                     ->with('movie_ranks',$movie_ranks)

@@ -97,7 +97,7 @@
             <div class="main__container">
                 <br>
                 <a href="{{url('/company-news-create/')}}" class="btn btn-success">Create Company News</a>
-                {{-- <a href="{{url('/sub-policy-create/')}}" class="btn btn-info">Create Sub Policy</a> --}}
+                <a href="{{url('/edit-comapny-news-banner/')}}" class="btn btn-info">EDIT BANNER</a>
                 <br><br>
                 <h3>News</h3>
                     <div class="table-responsive">

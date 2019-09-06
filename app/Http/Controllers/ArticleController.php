@@ -50,13 +50,14 @@ class ArticleController extends Controller
     public function download_pdf($id){
       
         $article = Article::where('id',$id)->where('downloadarticlecat_id',2)->first();
+       // $article = Article::where('id',$id)->where('downloadarticlecat_id',1)->first();
         view()->share('article', $article);
         $articles = ['dfhfhfhfhfh'];
-         if($article->article_is_not_free == 0){
+        //  if($article->article_is_not_free == 0){
             $pdf = PDF::loadView('articles.pdf')->setPaper('a4','portrait');
             $filename ='tworeports-articles';
             return $pdf->download('Tworeports.pdf');
-        }
+        // }
        
     }
 

@@ -48,9 +48,11 @@ class RankController extends Controller
     }
     public function post_ranks(Request $request){
         // dd(json_encode($request->input('facebook_value')));
-// dd($request);
+ //dd($request);
         $name = $request->input('teams');
+     
         $teams = $request->input('teams');
+      //  dd($teams);
         $date = $request->input('date');
         $twitter = $request->input('twitter');
         $twitter_value = $request->input('twitter_value');
@@ -60,6 +62,9 @@ class RankController extends Controller
         $instagram_value = $request->input('instagram_value');
         $cat_id = $request->input('cat_id');
         $sub_rank_id = $request->input('sub_rank_id');
+        $total = $request->input('total');
+
+        
         // $total = ($twitter + $instagram + $facebook);
        
         // $name = json_encode($request->input('teams'));
@@ -78,7 +83,7 @@ class RankController extends Controller
 
         $create_ranks = new Rank();
 
-              $desc_array = [];
+            //   $desc_array = [];
               $desc_array2 = [];
               $desc_array3 = [];
               $desc_array4 = [];
@@ -87,7 +92,8 @@ class RankController extends Controller
               $desc_array7 = [];
               $desc_array8 = [];
               $desc_array9 = [];
-              array_push($desc_array , $name);
+              $desc_array10 = [];
+            //   array_push($desc_array , $name);
               array_push($desc_array2 , $teams);
               array_push($desc_array3 , $date);
               array_push($desc_array4 , $twitter);
@@ -96,6 +102,7 @@ class RankController extends Controller
               array_push($desc_array7 , $facebook_value);
               array_push($desc_array8 , $instagram);
               array_push($desc_array9 , $instagram_value);
+              array_push($desc_array10, $total);
             //   array_push($desc_array , $name);
             //   dd(json_encode($desc_array));
             // json_encode($desc_array);
@@ -108,19 +115,20 @@ class RankController extends Controller
             // json_encode($desc_array8);
             // json_encode($desc_array9);
 
-        $create_ranks->rank_name =  json_encode($desc_array);
-        $create_ranks->date =  json_encode($desc_array2);
-        $create_ranks->twitter = json_encode($desc_array3);
-        $create_ranks->add_sub_twit =  json_encode($desc_array4);
-        $create_ranks->instagram = json_encode($desc_array5);
-        $create_ranks->add_sub_inst =  json_encode($desc_array6);
-        $create_ranks->facebook =  json_encode($desc_array7);
-        $create_ranks->add_sub_fb = json_encode($desc_array8);
-        $create_ranks->total = 1000;
+        // $create_ranks->rank_name =  json_encode($desc_array);
+        $create_ranks->rank_name =  json_encode($desc_array2);
+        $create_ranks->date = json_encode($desc_array3);
+        $create_ranks->twitter =  json_encode($desc_array4);
+        $create_ranks->add_sub_twit = json_encode($desc_array5);
+        $create_ranks->facebook =  json_encode($desc_array6);
+        $create_ranks->add_sub_fb =  json_encode($desc_array7);
+        $create_ranks->instagram = json_encode($desc_array8);
+        $create_ranks->add_sub_inst = json_encode($desc_array9);
+        $create_ranks->total = json_encode($desc_array10);
         $create_ranks->category_id = $cat_id;
         $create_ranks->sub_rank_id = $sub_rank_id;
    
-
+       // dd($create_ranks);
         //endehre
 
         // $create_ranks->rank_name = $name;
@@ -141,6 +149,7 @@ class RankController extends Controller
 
 
     }
+  
 
 
     public function edit_ranks($id){

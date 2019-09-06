@@ -25,16 +25,16 @@
                 </div>
 
                 <div class="footer__list_container">
-                    <a href="our-services.html" class="footer__link footer__link--title">
+                    <a href="{{ url('/services') }}" class="footer__link footer__link--title">
                         Our Services
                     </a>
-                    <a href="our-services.html" class="footer__link">
+                    <a href="{{ url('/services') }}" class="footer__link">
                         Sports Measurement
                     </a>
-                    <a href="our-services.html" class="footer__link">
+                    <a href="{{ url('/services') }}" class="footer__link">
                         Sponsorship Intelligence
                     </a>
-                    <a href="our-services.html" class="footer__link">
+                    <a href="{{ url('/services') }}" class="footer__link">
                         Entertainment Research
                     </a>
                     <a href="our-services.html" class="footer__link">
@@ -73,17 +73,17 @@
                 </div>
 
                 <div class="footer__list_container">
-                    <a href="solutions.html" class="footer__link footer__link--title">
+                    <a href="{{ url('/solutions') }}" class="footer__link footer__link--title">
                         Solutions </a>
-                    <a href="solutions.html" class="footer__link">
+                    <a href="{{ url('/solutions') }}" class="footer__link">
                         Market Research </a>
-                    <a href="solutions.html" class="footer__link">
+                    <a href="{{ url('/solutions') }}" class="footer__link">
                         Native Intelligence </a>
-                    <a href="solutions.html" class="footer__link">
+                    <a href="{{ url('/solutions') }}" class="footer__link">
                         Market Valuation </a>
-                    <a href="solutions.html" class="footer__link">
+                    <a href="{{ url('/solutions') }}" class="footer__link">
                         Advisory </a>
-                    <a href="solutions.html" class="footer__link">
+                    <a href="{{ url('/solutions') }}" class="footer__link">
                         Digital Monitoring
                     </a>
                 </div>
@@ -137,11 +137,11 @@
 
 
 </section>
-<script>
+{{-- <script>
 
 $(document).ready(function() {
     var targeOffsetTop = $('[role="mission"]').offset().top;
     $( document ).scrollTop(targeOffsetTop)();
   });
-</script>
+</script> --}}
 
