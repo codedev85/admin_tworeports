@@ -4322,4 +4322,5 @@ section.main__case_content {
 .news-paragraph p{
     margin-bottom: 1.4em;
     line-height: 28px;
+    text-align: justify;
 }

@@ -26,19 +26,16 @@ Route::post('/pay', [
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::get('all/transactions','PaymentController@transactions');
 });
-// use App\Mail\MailAdmin;
-// use Illuminate\Support\Facades\Mail;
 
-// Route::get('/send-mail', function () {
 
-//     Mail::to('newuser@example.com')->send(new MailAdmin());
 
-//     return 'A message has been sent to Mailtrap!';
 
-// });
 
-Route::post('/send-mail','MailController@send_mail');
-Route::get('/contact-us/','AdminMgtController@admin_send_mails_to_all_admin');
+
+
+
+
+
 
 //customers view page 
 Route::get('/about-us/', 'AboutController@view_about');
@@ -46,13 +43,36 @@ Route::get('/services/', 'ServiceController@view_services');
 Route::get('/solutions/', 'SolutionController@view_solutions');
 Route::get('/talents/', 'TalentController@view_talents');
 
+//articles
+    //download article route
+Route::get('/download-article/','TalentController@download_article');
+Route::get('/article/{id}', 'ArticleController@front_end_get_articles');
+//singlerelatedarticle
+Route::get('/related/article/{id}', 'ArticleController@related_article');
+///pdf download
+// Route::get('pdfview/{id}',array('as'=>'pdfview','uses'=>'ArticleController@download_pdf'));
+Route::get('pdfview/{id}','ArticleController@download_pdf');
+
+//identfy what dizz route   does later
+Route::get('/articles/','ArticleController@front_end_articles');
+Route::get('/casestudy/{id}', 'ArticleController@casestudy_single_page');
+Route::get('casestudy-pdf/{id}','ArticleController@download_pdf_casestudy');
+
 
 Route::middleware(['auth','admin'])->group(function () {
+
+Route::post('/send-mail','MailController@send_mail');
+Route::get('/contact-us/','AdminMgtController@admin_send_mails_to_all_admin');
+
+
+
+
+
 
     //admin
     Route::get('/admin', 'HomeController@index')->name('admin');
     Route::get('/pages', 'AboutController@pages_update');
-});
+
     //newest tosotr
     Route::post('/about-us-post/{id}' ,'AboutController@abt_us');
     //new
@@ -222,8 +242,7 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
     Route::post('/post-hero-bg/{id}','HomeController@update_homepage_hero_bg');
 
 
-    //download article route
-    Route::get('/download-article/','TalentController@download_article');
+
 
     //manage homepage videos
     Route::get('/create-video/', 'HomeController@create_video');
@@ -232,6 +251,7 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
     Route::post('/post/infographics/', 'HomeController@post_infographics');
     Route::post('edit/infographics/{id}','HomeController@edit_infographics');
     Route::post('/post/banner/', 'HomeController@post_side_banner');
+    Route::post('/update/banner/{id}','HomeController@update_side_banner');
 
 
 // });
@@ -395,25 +415,17 @@ Route::get('/all/admin/','AdminMgtController@view_all_admin');
 Route::get('view/all/articles','ArticleController@view_all');
 Route::get('/new-article-create/', 'ArticleController@create_article');
 Route::post('/post-article/', 'ArticleController@post_article');
-Route::get('/article/{id}', 'ArticleController@front_end_get_articles');
+
 //edit article
 Route::get('/article/edit/{id}', "ArticleController@edit_article");
 Route::post('/update/article/{id}','ArticleController@update_article');
-//singlerelatedarticle
-Route::get('/related/article/{id}', 'ArticleController@related_article');
-///pdf download
-// Route::get('pdfview/{id}',array('as'=>'pdfview','uses'=>'ArticleController@download_pdf'));
-Route::get('pdfview/{id}','ArticleController@download_pdf');
 
-//identfy what dizz route   does later
-Route::get('/articles/','ArticleController@front_end_articles');
 
 
 //case study
 Route::get('/casestudy','ArticleController@case_study_create');
 Route::post('/post-casestudy/', 'ArticleController@post_casestudy');
-Route::get('/casestudy/{id}', 'ArticleController@casestudy_single_page');
-Route::get('casestudy-pdf/{id}','ArticleController@download_pdf_casestudy');
+
 
 Route::get('/articles-background/','ArticleController@create_article_bg');
 Route::post('/article-bg-post/','ArticleController@download_pdf_casestudy_bg');
@@ -436,3 +448,4 @@ Route::get('/edit-menu/{id}','MenuController@edit_menu');
 Route::post('/menu-update/{id}','MenuController@update_menu');
 
 
+});

@@ -215,8 +215,12 @@
 
                     <div class="home__infographic_container">
                         <div class="home__info_inner_container">
-                            <img src="resources/images/sponsors.jpg" alt="">
-                            <img src="resources/images/info.png" alt="">
+                            {{-- <img src="resources/images/sponsors.jpg" alt="">
+                            <img src="resources/images/info.png" alt=""> --}} 
+                            <img src="{{ url('storage/'.$info[0]->url) }}" alt="">
+                            <img src="{{ url('storage/'.$info[0]->url2) }}" alt="">
+                            
+                            {{-- <img src="resources/images/info.png" alt=""> --}}
                         </div>
                     </div>
                 </div>
@@ -458,7 +462,8 @@
 
             <div class="home__ad_box">
                 <a href="">
-                    <img src="resources/images/two-report-banner.png" alt="">
+                    {{-- <img src="resources/images/two-report-banner.png" alt=""> --}}
+                    <img src="{{ url('storage/'.$banner->img) }}" alt="">
                 </a>
             </div>
 

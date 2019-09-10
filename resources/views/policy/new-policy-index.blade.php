@@ -100,14 +100,14 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/sub-policy-create/')}}" class="terms-btn"> Add New Terms of use </a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/sub-policy-create/')}}" class="terms-btn"> Add New Policy </a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/policy-edit/'.$policy->id)}}" class="terms-btn"> Edit New Terms of use</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/policy-edit/'.$policy->id)}}" class="terms-btn"> Edit Main Policy</a></span></button>
                         </P>
                         &nbsp;
                         <P class="aboutus__hero--container">

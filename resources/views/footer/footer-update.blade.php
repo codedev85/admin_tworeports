@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>TWOREPORT About Us Update</title>
+    <title>TWOREPORT Footer Update</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 </a>
             <div class="top__bar-hero">
                 <div>
-                    <span>CREATE FOOTER</span>
+                    <span>UPDATE FOOTER</span>
                 </div>
             </div>
         </div>
@@ -64,8 +64,9 @@
 
                 </div>
                 <div class="left__menu--sub-item">
-                <a href="{{url('/new-team-all/')}}">Edit Soluion</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a>
-                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> <button class="red__homepage--btn"><span>Add New Item</span></button>
+                {{-- <a href="{{url('/new-team-all/')}}">Edit Soluion</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a> --}}
+                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> 
+                {{-- <button class="red__homepage--btn"><span>Add New Item</span></button> --}}
             </div>
         </div>
 

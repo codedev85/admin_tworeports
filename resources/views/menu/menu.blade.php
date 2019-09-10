@@ -18,7 +18,13 @@
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <title>TWOREPORT Service</title>
+    <title>TWOREPORT Menu</title>
+    <style>
+  .menu-btn{
+      color:white;
+      text-decoration:none;
+  }
+    </style>
 </head>
 <body>
 <div class="top__bar">
@@ -32,7 +38,7 @@
 
             <div class="top__bar-hero">
 
-                    <div><span>UPDATE MENU</span></div>
+                    <div><span>MENU</span></div>
 
             </div>
 
@@ -88,7 +94,7 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous()}}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/menu/create')}}"> Add Menu</a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/menu/create')}}" class="menu-btn"> Add Menu</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
@@ -120,7 +126,7 @@
                 @foreach($menus as $menu)
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $menu->created_at->format('Y.m.d') }}</td>
                            <td class="table__third--col">{{$menu->name}}</td>
                        <td class="table__data">
                             <a href="{{url('/edit-menu/'.$menu->id)}}">EDIT</a>

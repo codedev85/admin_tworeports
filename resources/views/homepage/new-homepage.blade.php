@@ -197,7 +197,7 @@
                            <input placeholder="title" name="url">
                             <div class="container custom__edit--img-inner">
                                 <span class="span__text--container">Width - 700 Height - 287</span>
-                                <iframe width="697" height="200" src="https://www.youtube.com/embed/e2gu5g9Ebk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="697" height="200" src="{{ $videos->url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <button class="submit-button" type="submit">Submit</button>
                     </form>
@@ -225,14 +225,15 @@
 
                             <div class="left__section homepage-container">
                                     <h3>Upload Banner</h3>
-                            <form method="post" action="{{url('/post/banner/')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{url('/update/banner/'.$banner->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="file" name="url" placeholder="title">
                                 <button class="submit-button" type="submit">Submit</button>
                             </form>
                                 <div class="container custom__img-inner">
                                 <span>Width - 700 Height - 616</span>
-                                <img src="../resource/images/Banner.jpg">
+                                {{-- <img src="../resource/images/Banner.jpg"> --}}
+                                <img src="{{ url('storage/'.$banner->img) }}"/>
                                 </div>
                             </div>
                             {{-- <div class="left__section">
@@ -253,6 +254,7 @@
                             <form method="post" enctype="multipart/form-data" action="{{url('edit/infographics/'.$infographics->id)}}">
                                 @csrf
                                 <input type="file" name="url" placeholder="title">
+                                <input type="file" name="url2" placeholder="title">
                                 <button class="submit-button" type="submit">Submit</button>
                             </form>
                                 <div class="container custom__img-inner">
@@ -261,8 +263,8 @@
                                 
                                 <div class="sub__img--container">
                                     {{-- <img src="{{ url('storage/'.$infographics->url) }}"/> --}}
-                                    <img src="../resource/images/AFCoN Sponsors.jpg">
-                                    <img src="../resource/images/Prize Money Comparison.jpg">
+                                    <img src="{{ url('storage/'.$infographics->url) }}">
+                                    <img src="{{ url('storage/'.$infographics->url2) }}">
                                     <br>
                                 </div>
                                 </div>

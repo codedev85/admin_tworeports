@@ -115,8 +115,9 @@ class TermController extends Controller
         return view('terms.term-of-use');
     }
     public function term_edit_hero_bg($id){
-        dd($id);
+       // dd($id);
         $edit_banne = TermBg::first();
+       // dd($edit_term);
 
         return view('terms.hero-bg')->with('edit_banne', $edit_banne);
     }
@@ -124,7 +125,7 @@ class TermController extends Controller
     // term_edit_hero_bg
     // term_edit_hero_bg_store
     public function term_edit_hero_bg_store(Request $request, $id){
-        dd($id);
+       // dd($id);
        $sub_term_title = $request->input('terms_title');
        $hero_bg = $request->file('hero_bg');
        $tt = Storage::putFile('terms_hero_bg', $hero_bg);

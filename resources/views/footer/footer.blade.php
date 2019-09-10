@@ -18,7 +18,13 @@
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <title>TWOREPORT Service</title>
+    <title>TWOREPORT Footer</title>
+    <style>
+      .footer-btn{
+          color:white;
+          text-decoration:none;
+      }
+    </style>
 </head>
 <body>
 <div class="top__bar">
@@ -32,7 +38,7 @@
 
             <div class="top__bar-hero">
 
-                    <div><span>UPDATE FOOTER</span></div>
+                    <div><span>FOOTER</span></div>
 
             </div>
 
@@ -88,7 +94,7 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous()}}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/footer/create')}}"> Add new Footer</a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/footer/create')}}" class="footer-btn"> Add new Footer</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">

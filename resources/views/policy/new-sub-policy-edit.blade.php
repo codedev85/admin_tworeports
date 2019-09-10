@@ -91,11 +91,11 @@
                         {{-- <input type="file"  name="solution_img" > --}}
                         <div class="container custom__edit--img-inner add__extra--margin">
 
-                            <span>Width - 1366 Height - 700</span>
+                            {{-- <span>Width - 1366 Height - 700</span>
                             
                             {{$edit_sub_policy->solution_img}}
                             <img src="{{ url('storage/'.$edit_sub_policy->solution_img) }}"/>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>

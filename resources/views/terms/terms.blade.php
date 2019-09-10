@@ -29,6 +29,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <title>TWOREPORT Homepage</title>
+    <style>
+       .term-btn{
+           color:white;
+           text-decoration:none;
+       }
+    </style>
 </head>
 <body>
 <div class="top__bar">
@@ -36,9 +42,9 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+   <a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+   </a>
             <div class="top__bar-hero">
 
                     <div><span>TERMS OF USE</span></div>
@@ -65,15 +71,23 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
 
             </div>
@@ -88,15 +102,15 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{!! URL::previous() !!}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/sub-term-create/')}}"> Add New Terms of use </a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/sub-term-create/')}}" class="term-btn"> Add New Terms of use </a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/term-edit/'.$term->id)}}"> Edit New Terms of use</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/term-edit/'.$term->id)}}" class="term-btn"> Edit New Terms of use</a></span></button>
                         </P>
                         &nbsp;
                         <P class="aboutus__hero--container">
-                            {{-- <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/'.$hero_bg )}}"> Edit Terms of use Banner</a></span></button> --}}
+                            <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/'.$hero_bg->id)}}" class="term-btn"> Edit Terms of use Banner</a></span></button>
                             </P>
                 </div>
 

@@ -13,14 +13,21 @@
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>TWOREPORT About Us Update</title>
+    <style>
+       .abt-btn{
+           color:white;
+       }
+   </style>
 </head>
 
 <body>
     <div class="top__bar">
         <div class="top__bar--main">
+            <a href="{{ url('/') }}">
             <span><img alt=""
            class="home__img"
            src="../resource/images/tworeport__logo.svg"></span>
+            </a>
             <div class="top__bar-hero">
                 <div>
                     <span>ABOUT US UPDATE</span>
@@ -38,12 +45,12 @@
                     <div class="left__menu--item">
                         <img alt="" class="left__menu--icon" src="../resource/images/Vector%20(1).svg"> <a href="{{url('/')}}">Back To Main Site</a>
                     </div>
-                    <div class="left__menu--item">
+                    {{-- <div class="left__menu--item">
                             <img alt="" class="left__menu--icon" src="../resource/images/Vector%20(2).svg"> <a href="{{url('new/team/member')}}">Manage Team</a>
                         </div>
                         <div class="left__menu--item">
                                 <img alt="" class="left__menu--icon" src="../resource/images/Vector%20(2).svg"> <a>Manage Advisory</a>
-                            </div>
+                            </div> --}}
                     <!-- <div class="left__menu--item">
                         <img alt="" class="left__menu--icon" src="../resource/images/Vector%20(2).svg"> <a>Log Out</a>
                     </div> -->
@@ -94,7 +101,7 @@
                         <input placeholder="title" name="hero-bg-text" value="{{$abt_us->hero_bg_text}}">
                         <input type="file" name="hero_img">
                         <br>
-                        <button>Submit</button>
+                        <button class="abt-btn">Submit</button>
                         <div class="container custom__edit--img-inner">
                         <img src="{{url('storage/'.$abt_us->hero_image)}}" width="100" height='150'>
                         <span class="span__text--container">Width - 700 Height - 287</span> 
@@ -110,7 +117,7 @@
                         <!-- <input placeholder="title" name="vision_title"> -->
                      <textarea placeholder="text" name="vision_desc">{{$vision[0]->description}}</textarea>
                         <br>
-                        <button>Submit</button>
+                        <button class="abt-btn">Submit</button>
                       </form>
 
                       <form class="vision_switchable--container " action="{{url('/post-vision/'.$vision[1]->id)}}"  method="post">
@@ -118,14 +125,14 @@
                             <!-- <input placeholder="titleeeee" name="vision_title"> -->
                             <textarea placeholder="text" name="vision_desc">{{$vision[1]->description}}</textarea>
                             <br>
-                          <button>Submit</button>
+                          <button class="abt-btn">Submit</button>
                       </form>
                        <form class="vision_switchable--container "  method="post">
                         @csrf
                                 <!-- <input placeholder="titleeeeeeeee" name="vision_title"> -->
                                 <textarea placeholder="text" name="vision_desc">{{$vision[2]->description}}</textarea>
                                 <br>
-                         <button>Submit</button>
+                         <button class="abt-btn">Submit</button>
                               </form>
                         <div>
                             <div class="white__small--btn-wrapper">
@@ -148,7 +155,7 @@
                                 <!-- <input type="file" placeholder="people" name="values_img"> -->
                                 <textarea placeholder="title" name="value_desc">{{$values[0]->description}}</textarea>
                                 <br>
-                                <button>Submit</button>
+                                <button class="abt-btn">Submit</button>
                           </div>
 
                         </div>
@@ -167,7 +174,7 @@
                                     <!-- <input type="file" placeholder="people" name="values_img"> -->
                                     <textarea placeholder="title" name="value_desc">{{$values[1]->description}}</textarea>
                                     <br>
-                                    <button>Submit</button>
+                                    <button class="abt-btn">Submit</button>
                               </div>
                             </div>
                      </form>
@@ -182,7 +189,7 @@
                                         <!-- <input type="file" placeholder="people" name="values_img"> -->
                                         <textarea placeholder="title" name="value_desc">{{$values[2]->description}}</textarea>
                                         <br>
-                                        <button>Submit</button>
+                                        <button class="abt-btn">Submit</button>
                                   </div>
                                 </div>
                             </form>
@@ -198,7 +205,7 @@
                                             <!-- <input type="file" placeholder="people" name="values_img[]"> -->
                                             <textarea placeholder="title" name="value_desc">{{$values[3]->description}}</textarea>
                                             <br>
-                                            <button>Submit</button>
+                                            <button class="abt-btn">Submit</button>
                                       </div>
                                     </div>
 
@@ -213,7 +220,7 @@
                                                 <!-- <input type="file" placeholder="people" name="values_img"> -->
                                                 <textarea placeholder="title" name="value_desc" >{{$values[4]->description}}</textarea>
                                                 <br>
-                                                <button>Submit</button>
+                                                <button class="abt-btn">Submit</button>
                                           </div>
                                         </div>
                                     </form>
@@ -228,7 +235,7 @@
                                                     <!-- <input type="file" placeholder="people" name="values_img"> -->
                                                     <textarea placeholder="title" name="value_desc">{{$values[5]->description}}</textarea>
                                                     <br>
-                                                    <button>Submit</button>
+                                                    <button class="abt-btn">Submit</button>
                                               </div>
                                             </div>
                                         </form>
@@ -250,7 +257,7 @@
                             <input class="input__data--container" name="mission_header" value="{{$mission[0]->title}}" placeholder="using data to help our clients :">
                                 <textarea placeholder="text" name="mission_desc">{{$mission[0]->description}}"</textarea>
                                 <br>
-                             <button>Submit</button>
+                             <button class="abt-btn">Submit</button>
                             </div>
                         </form>
 
@@ -262,7 +269,7 @@
                                 <input class="input__data--container" name="mission_header"value="{{$mission[1]->title}}"  placeholder="using data to help our clients :">
                                 <textarea placeholder="text" name="mission_desc">{{$mission[1]->description}}"</textarea>
                                 <br>
-                              <button>Submit</button>
+                              <button class="abt-btn">Submit</button>
                             </div>
                         </form>
 
@@ -274,7 +281,7 @@
                                 <input class="input__data--container" name="mission_header" value="{{$mission[2]->title}}" placeholder="using data to help our clients :">
                                 <textarea placeholder="text" name="mission_desc">{{$mission[2]->description}}"</textarea>
                                 <br>
-                                <button>Submit</button>
+                                <button class="abt-btn">Submit</button>
                             </div>
                         </form>
 
@@ -285,7 +292,7 @@
                                 <input class="input__data--container"name="mission_header" value="{{$mission[3]->title}}"  placeholder="using data to help our clients :">
                                 <textarea placeholder="text" name="mission_desc">{{$mission[3]->description}}"</textarea>
                                 <br>
-                                <button>Submit</button>
+                                <button class="abt-btn">Submit</button>
                             </div>
                         </form>
 
@@ -297,7 +304,7 @@
                                 <input class="input__data--container" name="mission_header" value="{{$mission[4]->title}}" placeholder="using data to help our clients :">
                                 <textarea placeholder="text" name="mission_desc">{{$mission[4]->description}}"</textarea>
                                 <br>
-                        <button>Submit</button>
+                        <button class="abt-btn">Submit</button>
                             </div>
                         </form>
 

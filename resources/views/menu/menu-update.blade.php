@@ -40,23 +40,18 @@
                     <div class="left__menu--item">
                         <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{url('/')}}">Back To Main Site</a>
                     </div>
-                    <!-- <div class="left__menu--item">
-                            <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Team</a>
-                        </div>
-                        <div class="left__menu--item">
-                                <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Advisory</a>
-                            </div> -->
+                    
                     <div class="left__menu--item">
-                    <img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                     {{ __('Logout') }}
-                 </a>
+                    <img alt="" class="left__menu--icon" src="../resource/images/edithero__tworeport.svg">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
 
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     @csrf
-                 </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     </div>
                     <!-- <div class="left__menu--item left__clicked--text"><img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> <a>Edit</a><img class="dropdown__arrow" src="../resource/images/dropdownicon.svg">
 
@@ -64,8 +59,9 @@
 
                 </div>
                 <div class="left__menu--sub-item">
-                <a href="{{url('/new-team-all/')}}">Edit Soluion</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a>
-                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> <button class="red__homepage--btn"><span>Add New Item</span></button>
+                {{-- <a href="{{url('/new-team-all/')}}">Edit Soluion</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a> --}}
+                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> 
+                {{-- <button class="red__homepage--btn"><span>Add New Item</span></button> --}}
             </div>
         </div>
 

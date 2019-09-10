@@ -35,17 +35,20 @@ class HomeController extends Controller
     }
 
     public function homepage_index(){
-        $videos = Video::all();
+
+        $videos = Video::orderBy('created_at','DESC')->first();
         $partners = Partner::all();
         $homepage_hero = AboutBg::all();
-       //dd($homepage_hero);
-       $infographics = infographic::first();
+        $infographics = infographic::orderBy('created_at','DESC')->first();
+        $banner = Banner::orderBy('created_at','DESC')->first();
+       // dd($banner);
      
         
         return view('homepage.new-homepage')
                   ->with('infographics',$infographics)
                   ->with('homepage_hero',$homepage_hero)
                   ->with('partners',$partners)
+                  ->with('banner',$banner)
                   ->with('videos', $videos);
     }
 
@@ -159,21 +162,33 @@ class HomeController extends Controller
 
 
     public function edit_infographics(Request $request ,$id){
-        $this->validate($request, [
-                'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
-            ]);
+        // dd($id);
+        // $this->validate($request, [
+        //         'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
+        //     ]);
 
-        if ($request->hasFile('url')) {
+        if ($request->hasFile('url') && $request->hasFile('url2')) {
             $infographic_img = $request->file('url');
             $ext = $infographic_img->getClientOriginalExtension();
             $image_resize = Image::make($infographic_img->getRealPath());
-            $resize = Image::make($image_resize)->fit(120, 120)->encode($ext);
+            $resize = Image::make($image_resize)->fit(460, 300)->encode($ext);
             $hash = md5($resize->__toString());
             $path = "{$hash}.".$ext;
             $url = 'infographics/'.$path;
             Storage::put($url, $resize->__toString());
+
+            $infographic_img2 = $request->file('url2');
+            $ext2 = $infographic_img2->getClientOriginalExtension();
+            $image_resize2 = Image::make($infographic_img2->getRealPath());
+            $resize2 = Image::make($image_resize2)->fit(460, 300)->encode($ext2);
+            $hash2 = md5($resize2->__toString());
+            $path2 = "{$hash2}.".$ext2;
+            $url2 = 'infographics/'.$path2;
+            Storage::put($url2, $resize2->__toString());
+           
             Infographic::where('id',$id)->update([
                 'url'       => $url,
+                'url2'      => $url2,
                 'updated_at'=> date('Y-m-d'),
             ]);
            
@@ -202,6 +217,32 @@ class HomeController extends Controller
         }
         return back()->with('success','Banner Uploaded successfully');
     }
+
+
+    
+    public function update_side_banner(Request $request , $id){
+        // $this->validate($request, [
+        //         'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
+        //     ]);
+
+        if ($request->hasFile('url')) {
+            $infographic_img = $request->file('url');
+            $ext = $infographic_img->getClientOriginalExtension();
+            $image_resize = Image::make($infographic_img->getRealPath());
+            $resize = Image::make($image_resize)->fit(294, 471)->encode($ext);
+            $hash = md5($resize->__toString());
+            $path = "{$hash}.".$ext;
+            $url = 'home_page_banner/'.$path;
+            Storage::put($url, $resize->__toString());
+            Banner::where('id',$id)->update([
+                'img'=> $url,
+                'updated_at'=>date('Y-m-d'),
+            ]);
+           
+        }
+        return back()->with('success','Banner Uploaded successfully');
+    }
+
 
 
     public function rankings_index_tv(){
