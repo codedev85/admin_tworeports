@@ -12,6 +12,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../vendor/css/owl.theme.default.min.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- <link rel="stylesheet" href="resources/css/modal.css"> -->
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
@@ -35,9 +37,9 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+<a href="{{ url('/') }}">
             <span><img src="../../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+</a>
             <div class="top__bar-hero">
 
                     <div><span>COMPANY NEWS</span></div>
@@ -64,15 +66,23 @@
 
                 <div class="left__menu--item">
                     <img src="../../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
 
             </div>
@@ -84,7 +94,7 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                    <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
                     <a href="{{url('/company-news-create/')}}">
@@ -123,11 +133,11 @@
                        @endforeach
                     </table>
                 </div>
-
+              
             </div>
-
+            {{ $news->links() }}
         </div>
-
+      
     </div>
 
 

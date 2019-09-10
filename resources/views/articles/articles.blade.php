@@ -21,17 +21,21 @@
     <title>Download &ndash; TWOREPORT
     </title>
     <style>
-        .slide__download {
-        height: calc(60vh - 50px);
     
-        background:  url({{url('storage/'.$article_bg->image)}});
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* ../resources/images/services--hero.jpg */
-    
-    
-    }
+
+    .slide__download {
+    height: calc(60vh - 50px);
+
+    background: url({{url('storage/'.$article_bg->image)}});
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* ../resources/images/services--hero.jpg */
+
+
+}
+
     .paystack-btn{
         background:red;
         color:white;
@@ -134,39 +138,39 @@
             </div>
          
 
-           @if($article->article_is_not_free == 0)
-              <a href="{{ url('pdfview/'.$article->id)}}" class="download_btn js_modal_trigger__btn home__btn">FREE DOWNLOAD</a>
-           @elseif(!Auth::guest() )
-                <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
-                        <div class="row" style="margin-bottom:40px;">
-                        <div class="col-md-8 col-md-offset-2">
-                            <p>
-                                {{-- <div>
-                                
-                                    &#8358; {{$article->price}}
-                                </div> --}}
-                            </p>
-                            <input type="hidden" name="email" value="{{Auth::user()->email}}"> {{-- required --}}
-                            <input type="hidden" name="orderID" value="345">
-                            <input type="hidden" name="amount" value="{{$article->price*100}}"> {{-- required in kobo --}}
-                            <input type="hidden" name="quantity" value="1">
-                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['customer_email' => Auth::user()->email,'name'=> Auth::user()->name, 'article_id'=>$article->id,'article_title'=>$article->title,'articles_category'=> $article->downloadarticlecat_id]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
-                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
-                            <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
-                            {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
+            @if($article->article_is_not_free == 0)
+            <a href="{{ url('pdfview/'.$article->id)}}" class="download_btn js_modal_trigger__btn home__btn">FREE DOWNLOAD</a>
+         @elseif(!Auth::guest() )
+              <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                      <div class="row" style="margin-bottom:40px;">
+                      <div class="col-md-8 col-md-offset-2">
+                          <p>
+                              {{-- <div>
+                              
+                                  &#8358; {{$article->price}}
+                              </div> --}}
+                          </p>
+                          <input type="hidden" name="email" value="{{Auth::user()->email}}"> {{-- required --}}
+                          <input type="hidden" name="orderID" value="345">
+                          <input type="hidden" name="amount" value="{{$article->price*100}}"> {{-- required in kobo --}}
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="hidden" name="metadata" value="{{ json_encode($array = ['customer_email' => Auth::user()->email,'name'=> Auth::user()->name, 'article_id'=>$article->id,'article_title'=>$article->title,'articles_category'=> $article->downloadarticlecat_id]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                          <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                          <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
+                          {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
 
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
-                            <p>
-                            <button class="download_btn paystack-btn" type="submit" value="Pay Now!">
-                            &#8358; {{$article->price}} Download
-                            </button>
-                            </p>
-                        </div>
-                        </div>
-                </form>
-          @else
-                 <a href="{{ url('/login')}}" class="download_btn js_modal_trigger__btn home__btn">LOGIN TO DOWNLOAD</a>
-          @endif
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
+                          <p>
+                          <button class="download_btn paystack-btn" type="submit" value="Pay Now!">
+                          &#8358; {{$article->price}} Download
+                          </button>
+                          </p>
+                      </div>
+                      </div>
+              </form>
+        @else
+               <a href="{{ url('/login')}}" class="download_btn js_modal_trigger__btn home__btn">LOGIN TO DOWNLOAD</a>
+        @endif
 
          <div>
                 <div class="news-paragraph">

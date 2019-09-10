@@ -17,8 +17,14 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+      .talents-btn{
+          color:white;
+          text-decoration:none;
+      }
+    </style>
 
-    <title>TWOREPORT Homepage</title>
+    <title>TWOREPORT Talents</title>
 </head>
 <body>
 <div class="top__bar">
@@ -88,14 +94,14 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
                     {{-- <button id="" class=""><span class=""><a href="{{url('/new-talents-create/')}}"> Add new Solution</a></span></button> --}}
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/edit-talent-hero/'.$talent_bg->id)}}"> Edit Banner</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/edit-talent-hero/'.$talent_bg->id)}}" class="talents-btn"> Edit Banner</a></span></button>
                         </P>
                 </div>
 

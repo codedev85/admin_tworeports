@@ -18,11 +18,9 @@ class CheckAdmin
     {
 
 
-        if (Auth::user()->role_id < 3) {
-            return redirect('/admin');
-        }else{
-            return redirect('/');
-        }
+        // if (Auth::user()->role_id == 3) {
+        //     return back();
+        // }
         return $next($request);
     }
 }

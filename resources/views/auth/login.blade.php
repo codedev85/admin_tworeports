@@ -173,7 +173,5 @@ $('#form-submit-button').on('click', function(){
     $('#form-submit').submit();
      });
     
-
-
 </script>
 </html>

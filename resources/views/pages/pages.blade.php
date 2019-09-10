@@ -47,9 +47,9 @@
 <div class="top__bar">
 
         <div class="top__bar--main">
-
+<a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+</a>
             <div class="top__bar-hero">
 
                     <div><span>DASHBOARD</span></div>
@@ -72,15 +72,23 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
 
             </div>
@@ -88,16 +96,19 @@
         </div>
 
         <div class="dashbord__menu--Container">
+        
 
             <div class="dashboard__item--container">
                 <div class="left__dashboard--menus">
-
+                 <a href="{{ url('/menu') }}">
                     <div class="left__dashboard--item">
-
+                            
                         <p><img src="resource/images/menu__tworeport.svg" alt="" class="homepage__img"></p>
                         <p class="home__menu--description"><a href="{{ url('/menu') }}" class="home__page--link">Menu</a></p>
-
+                            
                     </div>
+                </a>
+                    <a href="{{ url('/aboutus/create/') }}">
                     <div class="left__dashboard--item">
 
 
@@ -106,6 +117,9 @@
 
 
                     </div>
+                </a>
+
+                <a href="{{ url('/new-solutions/') }}">
                     <div class="left__dashboard--item">
 
 
@@ -114,6 +128,8 @@
 
 
                     </div>
+                </a>
+                <a href="{{ url('/new-services') }}">
                     <div class="left__dashboard--item">
 
 
@@ -122,12 +138,13 @@
 
 
                     </div>
+                </a>
 
                 </div>
                 <div class="center__dashboard--menus">
 
 
-
+                   <a href="{{ url('/footer') }}">
                         <div class="center__dashboard--item">
 
 
@@ -136,6 +153,8 @@
 
 
                         </div>
+                    </a>
+                    <a href="{{ url('view/all/articles') }}">
                         <div class="center__dashboard--item">
 
 
@@ -146,6 +165,9 @@
 
                         </a>
                         </div>
+                    </a>
+
+                    <a href="{{ url('/cases/') }}">
                         <div class="center__dashboard--item">
 
                         <a href="{{url('/cases/')}}">
@@ -154,6 +176,9 @@
                           </a>
 
                         </div>
+                    </a>
+
+                    <a href="{{ url('policy-index') }}">
                         <div class="center__dashboard--item ">
 
 
@@ -162,12 +187,13 @@
 
 
                         </div>
+                    </a>
 
                 </div>
                 <div class="right__dashboard--menus">
 
 
-
+                 <a href="{{ url('/homepage/index/') }}">
                         <div class="right__dashboard--item">
 
 
@@ -176,20 +202,27 @@
 
 
                         </div>
+                    </a>
+                    <a href="{{ url('/adv-all/') }}">
                         <div class="right__dashboard--item">
                                     <p><img src="resource/images/advisory__tworeport.svg" alt="" class="homepage__img"></p>
                         <p class="home__menu--description"><a href="{{url('/adv-all/')}}" class="home__page--link">Advisory Council</a></p>
 
                         </div>
+                    </a>
+                    <a href="{{ url('/new-talents/') }}">
                         <div class="right__dashboard--item">
                                     <p><img src="resource/images/talent__tworeport.svg" alt="" class="homepage__img"></p>
 
                                     <p class="home__menu--description"><a href="{{url('/new-talents/')}}" class="home__page--link">Talent</a></p>
                         </div>
+                    </a>
+                    <a href="{{ url('term-index') }}">
                         <div class="right__dashboard--item">
                                     <p><img src="resource/images/termsofuse__tworeport.svg" alt="" class="homepage__img"></p>
                                     <p class="home__menu--description"><a href="{{url('term-index')}}" class="home__page--link">Terms of Use</a></p>
                         </div>
+                    </a>
                 </div>
                 <div class="left__dashboard--menus">
                         {{-- <div class="left__dashboard--item">

@@ -38,12 +38,12 @@
 <div class="top__bar">
 
         <div class="top__bar--main">
-
+          <a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+                </a>
             <div class="top__bar-hero">
 
-                    <div><span>RANK CREATE</span></div>
+                    <div><span>CREATE RANK</span></div>
 
             </div>
 
@@ -63,22 +63,30 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dropdown__icon.svg" alt="" class="left__menu--icon">
-                    <a >Dashboard</a>
+                    <a href="{{ url('/admin') }}" >Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
                 <div class="left__menu--item left__clicked--text">
-                    <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow">
+                    {{-- <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
+                    <a>Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow"> --}}
                 </div>
             </div>
-                <div class="left__menu--sub-item">
+                {{-- <div class="left__menu--sub-item">
                     <a>Video</a>
                     <a>Company News</a>
                     <a>Infographics</a>
@@ -86,11 +94,11 @@
                     <a>Subscribe</a>
                     <a>Partners/Clients</a>
                     <a>Articles</a>
-                </div>
+                </div> --}}
                 <a href="{{url('/ranks-category/')}}">
                 <button class="red__homepage--btn"><span>Add Category</span></button> 
-</a>
-                <button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button>
+              </a>
+                {{-- <button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> --}}
 
                 
             </div>
@@ -104,7 +112,7 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
         
                 </div>

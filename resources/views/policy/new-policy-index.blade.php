@@ -27,8 +27,15 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+  .terms-btn{
+      color:white;
+      text-decoration:none;
+  }
 
-    <title>TWOREPORT Homepage</title>
+    </style>
+
+    <title>TWOREPORT Privacy Policy</title>
 </head>
 <body>
 <div class="top__bar">
@@ -36,12 +43,12 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+<a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+</a>
             <div class="top__bar-hero">
 
-                    <div><span>TERMS OF USE</span></div>
+                    <div><span>PRIVACY POLICY</span></div>
 
             </div>
 
@@ -65,15 +72,23 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
 
             </div>
@@ -88,15 +103,15 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/sub-term-create/')}}"> Add New Terms of use </a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/sub-policy-create/')}}" class="terms-btn"> Add New Terms of use </a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/term-edit/'.$policy->id)}}"> Edit New Terms of use</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/policy-edit/'.$policy->id)}}" class="terms-btn"> Edit New Terms of use</a></span></button>
                         </P>
                         &nbsp;
                         <P class="aboutus__hero--container">
-                            <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/' )}}"> Edit Terms of use Banner</a></span></button>
+                            {{-- <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/' )}}"> Edit Terms of use Banner</a></span></button> --}}
                             </P>
                 </div>
 

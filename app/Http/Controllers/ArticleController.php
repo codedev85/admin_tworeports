@@ -26,7 +26,7 @@ class ArticleController extends Controller
     public function front_end_get_articles($id){
       
         $article = Article::where('id',$id)->where('downloadarticlecat_id',2)->first();
-        //dd($article->title);
+       // dd($article);
         $article_bg = ArticleBg::orderBy('created_at','DESC')->first();
         $related_articles = Article::where('downloadarticlecat_id',2)->limit(3)->inRandomOrder()->get();
         //dd($related_articles);
@@ -75,7 +75,7 @@ class ArticleController extends Controller
         $price  = $request->input('price');
         $free_or_paid = $request->input('paid');
       
-
+//dd($request);
         $new_article = new Article();
         $new_article->title = $title;
         $new_article->description = $article_desc;
@@ -101,7 +101,34 @@ class ArticleController extends Controller
     }
 
     public function update_article(Request $request,$id){
-        dd($request);
+       // dd($request);
+
+
+        $title  = $request->input('article_title');
+        $media_consumption  = $request->input('media_comsumption');
+        $article_desc = $request->input('article_desc');
+        $tags = $request->input('tags');
+        $download_article_category_id = $request->input('download_category');
+        $price  = $request->input('price');
+        $free_or_paid = $request->input('paid');
+      
+//dd($request);
+        Article::where('id',$id)->update([
+            'title'=> $title,
+            'description' => $article_desc,
+            'media_consumption' => $media_consumption,
+            'downloadarticlecat_id'=> $download_article_category_id,
+            'tag' => $tags,
+            'price' =>  $price,
+            // if($free_or_paid == "on"){
+            //     $new_article->article_is_not_free = 1;
+            // }else{
+            //     $new_article->article_is_not_free = 0;
+            // }
+        ]);
+   
+
+        return back()->with('success', 'Articles updated successfully');
 
     }
 
@@ -111,6 +138,7 @@ class ArticleController extends Controller
     }
 
     public function post_casestudy(Request $request){
+       // dd($request);
        
         $title  = $request->input('article_title');
         $media_consumption  = $request->input('media_comsumption');

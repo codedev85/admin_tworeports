@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Request;
 
 class MailAdmin extends Mailable
 {
@@ -26,17 +27,14 @@ class MailAdmin extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $request)
     {
-        //   return $this->from('example@example.com')
-        // ->view('mails.ex');
-       // return $this->view('view.name');
        return $this->from('admin@admin.com', 'Tworeports')
-            ->subject('Mailtrap Confirmation')
+            ->subject($request->input('subject'))
             ->markdown('mails.ex')
             ->with([
-                'name' => 'New Mailtrap User',
-                'link' => 'https://mailtrap.io/inboxes'
+                'name' => $request->input('desc'),
+                'link' => 'https://tworeport.com',
             ])
             ->view('mails.ex');
 

@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>TWOREPORT About Us Update</title>
+    <title>TWOREPORT Service</title>
 </head>
 
 <body>
@@ -33,36 +33,46 @@
             <div class="left__bar">
                 <div class="left__homepage--container">
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/dropdown__icon.svg"> <a>Dashboard</a>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/dropdown__icon.svg"> <a href="{{ url('/admin') }}">Dashboard</a>
                     </div>
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a>Back To Main Site</a>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{ url('/') }}">Back To Main Site</a>
                     </div>
-                    <div class="left__menu--item">
+                    {{-- <div class="left__menu--item">
                             <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Team</a>
                         </div>
                         <div class="left__menu--item">
                                 <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Advisory</a>
-                            </div>
+                            </div> --}}
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Log Out</a>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> 
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                     </div>
-                    <div class="left__menu--item left__clicked--text"><img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> <a>Edit</a><img class="dropdown__arrow" src="../resource/images/dropdownicon.svg">
-
+                    <div class="left__menu--item left__clicked--text"><img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> 
+                      
                     </div>
 
                 </div>
                 <div class="left__menu--sub-item">
-                <a href="{{url('/new-team-all/')}}">Edit Soluion</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a>
-                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> <button class="red__homepage--btn"><span>Add New Item</span></button>
+               
+                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> 
+               
             </div>
         </div>
 
         <div class="center__Container">
-            @include('flash.flash')
+            {{-- @include('flash.flash') --}}
             <div class="form__header--list">
                 <div class="form__header--list1">
-                    <p class=""><img alt="" class="back__arrow" src="../../resource/images/left-arrow.svg"><span class=""><a>Back</a></span></p>
+                    <p class=""><img alt="" class="back__arrow" src="../../resource/images/left-arrow.svg"><span class=""><a href="{{ url()->previous() }}">Back</a></span></p>
                     {{-- <p class="homepage__para">EDIT HERO IMAGE</p> --}}
                 </div>
             </div>
@@ -83,7 +93,9 @@
                             {{-- <div class="white__small--btn-wrapper">
                                 <button class="white__small--btn">1</button> <button class="white__small--btn">2</button> <button class="white__small--btn">3</button>
                             </div> --}}
-                            {{$find_hero_bg->hero_image}}
+
+                        
+                            <img src="{{ url('storage/'.$find_hero_bg->hero_image) }}">
                         </div>
                     </div>
 

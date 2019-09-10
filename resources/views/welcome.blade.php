@@ -22,6 +22,9 @@
     background-position: 0% 0%;
     background-size: cover;
 }
+.c_img{
+    text-decoration:none;
+}
 </style>
 <body>
 
@@ -475,9 +478,10 @@
 
 
                     <div class="home_case_individual_container">
-                        <a href="{{url('/casestudy/'.$all_casestudy[0]->id)}}" target="_blank"></a>
-                        <img class="home__case_individual_img" src="resources/images/7.png" alt="">
-
+                       
+                        <img class="home__case_individual_img " src="resources/images/7.png" alt="">
+                        {{-- <a href="{{url('/casestudy/'.$all_casestudy[0]->id)}}" class="c_img" target="_blank"> --}}
+                        <a class="c_img" href="{{url('/casestudy/'.$all_casestudy[0]->id)}}">
                         <div class="home__case_individuals_details">
                             <h3 class="home__case_details_title">
                                 MOVIES
@@ -487,11 +491,14 @@
                                 <!-- Omotola Jalade E-Kehinde -->
                             </p>
                         </div>
+                    </a>
                         <img class="case__nav" src="resources/images/next_red.png" alt="">
                     </div>
                     <div class="home_case_individual_container">
-                        <a href="{{url('/casestudy/'.$all_casestudy[1]->id)}}" target="_blank"></a>
+                      
                         <img class="home__case_individual_img" src="resources/images/5.png" alt="">
+                        {{-- <a href="{{url('/casestudy/'.$all_casestudy[1]->id)}}" target="_blank"> --}}
+                            <a class="c_img" href="{{url('/casestudy/'.$all_casestudy[1]->id)}}">
 
                         <div class="home__case_individuals_details">
                             <h3 class="home__case_details_title">
@@ -502,15 +509,18 @@
                                 {{$all_casestudy[1]->title}}
                             </p>
                         </div>
+                    </a>
                         <img class="case__nav" src="resources/images/next_red.png" alt="">
-
+                    
                     </div>
 
 
 
                     <div class="home_case_individual_container">
-                        <a href="{{url('/casestudy/'.$all_casestudy[2]->id)}}" target="_blank"></a>
+                      
                         <img class="home__case_individual_img" src="resources/images/6.png" alt="">
+                        {{-- <a href="{{url('/casestudy/'.$all_casestudy[2]->id)}}" class="c_img" target="_blank"> --}}
+                            <a class="c_img" href="{{url('/casestudy/'.$all_casestudy[2]->id)}}">
 
                         <div class="home__case_individuals_details">
                             <h3 class="home__case_details_title">
@@ -521,13 +531,14 @@
                                 {{$all_casestudy[2]->title}}
                             </p>
                         </div>
+                    </a>
                         <img class="case__nav" src="resources/images/next_red.png" alt="">
 
                     </div>
                     <div class="home_case_individual_container">
-                        <a href="{{url('/casestudy/'.$all_casestudy[3]->id)}}"></a>
+                      
                         <img class="home__case_individual_img" src="resources/images/1.png" alt="">
-
+                        <a class="c_img" href="{{url('/casestudy/'.$all_casestudy[3]->id)}}">
                         <div class="home__case_individuals_details">
                             <h3 class="home__case_details_title">
                                 SPORTS
@@ -537,6 +548,7 @@
                                 <!-- Blessing Okogbere -->
                             </p>
                         </div>
+                    </a>
                         <img class="case__nav" src="resources/images/next_red.png" alt="">
 
                     </div>

@@ -137,11 +137,4 @@
 
 
 </section>
-{{-- <script>
-
-$(document).ready(function() {
-    var targeOffsetTop = $('[role="mission"]').offset().top;
-    $( document ).scrollTop(targeOffsetTop)();
-  });
-</script> --}}
 

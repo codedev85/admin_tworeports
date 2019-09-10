@@ -17,7 +17,18 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <style>
 
+            .top-container{
+                height:700px;
+            }
+        .submit-button{
+            color:white;
+        }
+        .homepage-container{
+            height:350px;
+        }
+      </style>
 
     <title>TWOREPORT Homepage</title>
 </head>
@@ -69,23 +80,20 @@
                      {{ __('Logout') }}
                  </a>
 
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     @csrf
-                 </form>
-                </div>
-                <div class="left__menu--item left__clicked--text">
-                    <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    </div>
+                    <div class="left__menu--item left__clicked--text">
+                        <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
+                        <a>Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow">
 
-                </div>
+                    </div>
             </div>
                 <div class="left__menu--sub-item">
-                    <a>Video</a>
                      <a href="{{url('/homepage/new/all')}}">Company News</a>
                     <a href="{{url('all/partners')}}">Partners/Clients</a>
                 </div>
-                <button class="red__homepage--btn"><span>Save</span></button>
-                <!-- <button class="red__homepage--btn"><span>Add New Item</span></button> -->
             </div>
 
 
@@ -97,11 +105,11 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{!! URL::previous() !!}">Back</a></span>
                     </p>
-                    <P class="homepage__para">
+                    {{-- <P class="homepage__para">
                         EDIT HERO IMAGE
-                    </P>
+                    </P> --}}
                 </div>
 
             </div>
@@ -112,30 +120,67 @@
 
                 <div class="center__container">
 
-                    <form class="center__container--wrapper home_switchable--container home--switchable-container--on">
-                      1
-                               <input placeholder="title">
-                                <textarea placeholder="subtitle"></textarea>
+                    <form class="center__container--wrapper top-container home_switchable--container home--switchable-container--on" enctype="multipart/form-data" method="post" action="{{ url('/post-hero-bg/'.$homepage_hero[0]->id) }}">
+                      
+                      @csrf
+                            
+                               <input type="file" name='homepage_hero'/>
+                               <textarea placeholder="subtitle" name="main_title">{{ $homepage_hero[0]->main_title }}</textarea>
+                                <textarea placeholder="subtitle" name="sub_title">{{ $homepage_hero[0]->sub_title }}</textarea>
+                                <div class="container custom__edit--img-inner1">
+                                    <span>Width - 1366 Height - 700</span>
+                                    <img src="{{ url('storage/'.$homepage_hero[0]->image) }}" height="250"></div>
+                                    <button class="submit-button">Submit</button>
+                                
                     </form>
-                    <form class="center__container--wrapper home_switchable--container">
-                         2
-                                <input placeholder="title">
-                                <textarea placeholder="subtitle"></textarea>
+                </div>
+                <div class="center__container">
+                    <form class="center__container--wrapper top-container home_switchable--container" enctype="multipart/form-data" method="post" action="{{ url('/post-hero-bg/'.$homepage_hero[1]->id) }}">
+                         
+                         @csrf
+                                
+                                <input type="file" name="homepage_hero"/>
+                                <textarea placeholder="subtitle" name="main_title">{{ $homepage_hero[1]->main_title }}</textarea>
+                                <textarea placeholder="subtitle" name="sub_title">{{ $homepage_hero[1]->sub_title }}</textarea>
+                                <div class="container custom__edit--img-inner1">
+                                    <span>Width - 1366 Height - 700</span>
+                                    <img src="{{ url('storage/'.$homepage_hero[1]->image) }}" height="250">
+                                    <img src=""></div>
+                                    <button class="submit-button">Submit</button>
+                                
                     </form>
-                    <form class="center__container--wrapper home_switchable--container">
-                       3
-                               <input placeholder="title">
-                                <textarea placeholder="subtitle"></textarea>
+                </div>
+                <div class="center__container">
+                    <form class="center__container--wrapper top-container home_switchable--container" enctype="multipart/form-data" method="post" action="{{ url('/post-hero-bg/'.$homepage_hero[2]->id) }}">
+                       
+                       @csrf
+                            
+                               <input type="file" name="homepage_hero" name="main_title"/>
+                               <textarea placeholder="subtitle" name="main_title">{{ $homepage_hero[2]->main_title }}</textarea>
+                                <textarea placeholder="subtitle" name="sub_title">{{ $homepage_hero[2]->sub_title }}</textarea>
+                              <div class="container custom__edit--img-inner1">
+                                    <span>Width - 1366 Height - 700</span>
+                                    <img src="{{ url('storage/'.$homepage_hero[2]->image) }}" height="250"></div>
+                                    <button class="submit-button">Submit</button>
                   </form>
-                  <form class="center__container--wrapper home_switchable--container">
-                       4
-                              <input placeholder="title">
-                               <textarea placeholder="subtitle"></textarea>
-                 </form>
+                </div>
 
+                  <div class="center__container">
+                  <form class="center__container--wrapper top-container home_switchable--container" enctype="multipart/form-data" method="post" action="{{ url('/post-hero-bg/'.$homepage_hero[3]->id) }}">
+                       
+                       @csrf
+                               
+                              <input type="file" name='homepage_hero' name="main_title"/>
+                              <textarea placeholder="subtitle" name="main_title">{{ $homepage_hero[3]->main_title }}</textarea>
+                               <textarea placeholder="subtitle" name="sub_title">{{ $homepage_hero[3]->sub_title }}</textarea>
+                                   <div class="container custom__edit--img-inner1">
+                                    <span>Width - 1366 Height - 700</span>
+                                    <img src="{{ url('storage/'.$homepage_hero[3]->image) }}" height="250"></div>
+                                    <button class="submit-button">Submit</button>
+                 </form>
+                </div>
+                
                         <div class="container custom__edit--img-inner1">
-                                <span>Width - 1366 Height - 700</span>
-                                <img src="../resource/images/featuredimg__tworeport.jpg">
                                 <div class="white__small--btn-wrapper">
                                 <button class="white__small--btn home-js-btn">1</button>
                                 <button class="white__small--btn home-js-btn">2</button>
@@ -145,7 +190,7 @@
 
                     </div>
 
-
+              <div>
 
                 <form method="post" action="{{url('/create-video-post/')}}" class="center__container--wrapper center__container--second-wrapper">
                          @csrf
@@ -154,8 +199,10 @@
                                 <span class="span__text--container">Width - 700 Height - 287</span>
                                 <iframe width="697" height="200" src="https://www.youtube.com/embed/e2gu5g9Ebk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            <button type="submit">Submit</button>
+                            <button class="submit-button" type="submit">Submit</button>
                     </form>
+                </div>
+               
                     {{-- <div class="center__container--wrapper">
                             <input placeholder="title">
                             <textarea placeholder="subtitle"></textarea>
@@ -176,12 +223,12 @@
                     <div class="four__section--container-wrapper">
                         <div class="four__section--wrapper">
 
-                            <div class="left__section">
+                            <div class="left__section homepage-container">
                                     <h3>Upload Banner</h3>
                             <form method="post" action="{{url('/post/banner/')}}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="file" name="url" placeholder="title">
-                                <button type="submit">Submit</button>
+                                <button class="submit-button" type="submit">Submit</button>
                             </form>
                                 <div class="container custom__img-inner">
                                 <span>Width - 700 Height - 616</span>
@@ -201,18 +248,20 @@
                             </div> --}}
                         </div>
                         <div class="four__section--wrapper">
-                            <div class="right__section">
+                            <div class="right__section  homepage-container">
                                     <h3>Upload Infographics</h3>
-                            <form method="post" enctype="multipart/form-data" action="{{url('/post/infographics/')}}">
+                            <form method="post" enctype="multipart/form-data" action="{{url('edit/infographics/'.$infographics->id)}}">
                                 @csrf
                                 <input type="file" name="url" placeholder="title">
-                                <button type="submit">Submit</button>
+                                <button class="submit-button" type="submit">Submit</button>
                             </form>
                                 <div class="container custom__img-inner">
 
                                 <span>Width - 270 Height - 150</span>
+                                
                                 <div class="sub__img--container">
-                                    <img src="../resource/images../AFCoN Sponsors.jpg">
+                                    {{-- <img src="{{ url('storage/'.$infographics->url) }}"/> --}}
+                                    <img src="../resource/images/AFCoN Sponsors.jpg">
                                     <img src="../resource/images/Prize Money Comparison.jpg">
                                     <br>
                                 </div>
@@ -232,7 +281,7 @@
 
                     </div>
 
-                    <div class="center__container--wrapper center__container--second-wrapper">
+                    {{-- <div class="center__container--wrapper center__container--second-wrapper">
 
                         <input placeholder="title">
                         <div class="container custom__edit--img-inner">
@@ -250,7 +299,7 @@
                             <button class="white__small--btn">5</button>
                             </div>
                         </div>
-                </div>
+                </div> --}}
 
                 </div>
 
@@ -259,6 +308,7 @@
         </div>
 
     </div>
+ 
 
 
 </section>

@@ -10,10 +10,14 @@ class MailController extends Controller
 {
 //     //
   public  function send_mail (Request $request) {
-    $email = $request->input('email');
-    // dd($email);
 
-        Mail::to('olawuyiayansola@gmail.com')->send(new MailAdmin());
+    //dd($request);
+    $email = $request->input('email');
+        // dd($email);
+        //original code incase the codes stops wokring revert to jscon encode
+        // $admin_email = json_decode($email);
+          //dd($admin_email);
+        Mail::to($email)->send(new MailAdmin());
         return back()->with('success','Email sent successfully');
 
         // return 'A message has been sent to Mailtrap!';

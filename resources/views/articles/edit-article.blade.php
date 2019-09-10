@@ -21,70 +21,70 @@
     <title>TWOREPORT download Article</title>
     <style>
     /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
+                .switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+                }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+                /* Hide default HTML checkbox */
+                .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+                /* The slider */
+                .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+                }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+                .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+                }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
+                input:checked + .slider {
+                background-color: #2196F3;
+                }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+                input:focus + .slider {
+                box-shadow: 0 0 1px #2196F3;
+                }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
+                input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+                }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
+                /* Rounded sliders */
+                .slider.round {
+                border-radius: 34px;
+                }
 
-.slider.round:before {
-  border-radius: 50%;
-}
-#form1{
-    display:none;
-}
+                .slider.round:before {
+                border-radius: 50%;
+                }
+                #form1{
+                    display:none;
+                }
 
   </style>
 </head>
@@ -117,22 +117,31 @@ input:checked + .slider:before {
 
                 <div class="left__menu--item">
                     <img src="../../resource/images/dropdown__icon.svg" alt="" class="left__menu--icon">
-                    <a >Dashboard</a>
+                    <a href="{{ url('/admin') }}" >Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    {{-- <a>Log Out</a> --}}
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
                 <div class="left__menu--item left__clicked--text">
-                    <img src="../../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Edit</a><img src="../../resource/images/dropdownicon.svg" class="dropdown__arrow">
+                    {{-- <img src="../../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon"> --}}
+                    {{-- <a>Edit</a><img src="../../resource/images/dropdownicon.svg" class="dropdown__arrow"> --}}
                 </div>
             </div>
-                <div class="left__menu--sub-item">
+                {{-- <div class="left__menu--sub-item">
                     <a href="{{url('view/all/articles')}}">All Articles</a>
                     <a>Company News</a>
                     <a>Infographics</a>
@@ -140,9 +149,9 @@ input:checked + .slider:before {
                     <a>Subscribe</a>
                     <a>Partners/Clients</a>
                     <a>Articles</a>
-                </div>
+                </div> --}}
                 <button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button>
-                <button class="red__homepage--btn"><span>Add New Item</span></button>
+                {{-- <button class="red__homepage--btn"><span>Add New Item</span></button> --}}
             </div>
             
 
@@ -154,7 +163,7 @@ input:checked + .slider:before {
                 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <!-- <P class="homepage__para">
                         EDIT HERO IMAGE

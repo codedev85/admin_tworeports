@@ -111,43 +111,52 @@
                         <p class="home__menu--description"><a href="{{url('/homepage/new/all')}}" class="home__page--link">News Update</a></p>
                     </a>
                     </div>
+                    <a href="{{url('view/all/articles')}}">
                     <div class="center__dashboard--item">
-                     <a href="{{url('view/all/articles')}}">
+                   
                                     <p><img src="resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
                                     <p class="home__menu--description"><a href="{{url('view/all/articles')}}" class="home__page--link">Download Articles</a></p>
-                    </a>
+                    
                    </div>
+                </a>
+            <a href="{{ url('/admin/mgt/') }}">
                     <div class="left__dashboard--item">
                         <p><img src="resource/images/aboutus__tworeport.svg" alt="" class="homepage__img"></p>
                         <p class="home__menu--description"><a href="{{url('/admin/mgt/')}}" class="home__page--link">Admin Management</a></p>
                     </div>
                 </div>
+            </a>
                 <div class="center__dashboard--menus">
+                        <a href="{{url('/casestudy')}}">
                         <div class="center__dashboard--item">
-                         <a href="{{url('/casestudy')}}">
+                   
                                     <p><img src="resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
                                     <p class="home__menu--description"><a href="" class="home__page--link">Case Study</a></p>
-                       </a>
+                       
                </div>
+            </a>
+            <a href="{{url('/rankings/')}}">
                <div class="center__dashboard--item">
-                      <a href="{{url('/rankings/')}}">
+                     
                                     <p><img src="resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
                                     <p class="home__menu--description"><a href="" class="home__page--link">Ranking Update</a></p>
-                     </a>
+                    
               </div>
+            </a>
+            <a href="{{'/reset/password/'.Auth::user()->id}}">
               <div class="center__dashboard--item">
-                     <a href="{{'/reset/password/'.Auth::user()->id}}">"
+                    
 
                                     <p><img src="resource/images/download__tworeport.svg" alt="" class="homepage__img"></p>
                                     <p class="home__menu--description"><a href="" class="home__page--link">Change Password</a></p>
 
-                     </a>
+                    
              </div>
+            </a>
         </div>
         <div class="right__dashboard--menus">
 
-
-                    <a href="{{url('/pages')}}" class="home__page--link">
+                <a href="{{url('/pages')}}" class="home__page--link">
                         <div class="right__dashboard--item">
 
 
@@ -157,19 +166,22 @@
 
                         </div>
                     </a>
+                    <a href="{{url('all/transactions')}}">
                     <div class="center__dashboard--item">
-                               <a href="{{url('all/transactions')}}">
 
                                     <p><img src="resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
                                     <p class="home__menu--description"><a href="{{url('all/transactions')}}" class="home__page--link">Transactions</a></p>
-                              </a>
+                              
                     </div>
+                </a>
+                <a href="{{url('/contact-us/')}}">
                     <div class="right__dashboard--item">
-                        <a href="{{url('/contact-us/')}}">
+                     
                                     <p><img src="resource/images/advisory__tworeport.svg" alt="" class="homepage__img"></p>
                                     <p class="home__menu--description"><a href="" class="home__page--link">Contact KJK</a></p>
-                       </a>
+                      
                   </div>
+                </a>
             </div>
          </div>
       </div>

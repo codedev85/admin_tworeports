@@ -12,20 +12,20 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>TWOREPORT Service</title>
+    <title>TWOREPORT About Us Update</title>
 </head>
 
 <body>
     <div class="top__bar">
         <div class="top__bar--main">
-            <a href="{{ url('/') }}">
+        <a href="{{url('/')}}">
             <span><img alt=""
            class="home__img"
            src="../../resource/images/tworeport__logo.svg"></span>
-            </a>
+           </a>
             <div class="top__bar-hero">
                 <div>
-                    <span>CREATE SERVICE</span>
+                    <span>CREATE ADVISORY</span>
                 </div>
             </div>
         </div>
@@ -35,67 +35,48 @@
             <div class="left__bar">
                 <div class="left__homepage--container">
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/dropdown__icon.svg"> <a href="{{ url('/admin') }}">Dashboard</a>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/dropdown__icon.svg"> <a href="{{url('/admin')}}">Dashboard</a>
                     </div>
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{ url('/') }}">Back To Main Site</a>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{url('/')}}">Back To Main Site</a>
                     </div>
-                    {{-- <div class="left__menu--item">
+                    <!-- <div class="left__menu--item">
                             <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Team</a>
                         </div>
                         <div class="left__menu--item">
                                 <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Advisory</a>
-                            </div> --}}
+                            </div> -->
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> 
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                         {{ __('Logout') }}
-                     </a>
-    
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         @csrf
-                     </form>
+                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Log Out</a>
                     </div>
-                    <div class="left__menu--item left__clicked--text">
-                        {{-- <img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> 
-                        <a>Edit</a><img class="dropdown__arrow" src="../resource/images/dropdownicon.svg"> --}}
+                    <div class="left__menu--item left__clicked--text"><img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> <a>Edit</a><img class="dropdown__arrow" src="../resource/images/dropdownicon.svg">
 
                     </div>
 
                 </div>
                 <div class="left__menu--sub-item">
-                {{-- <a href="{{url('/new-team-all/')}}">Edit Soluion</a> 
-                 <a>Video</a>
-                  <a>Company News</a>
-                   <a>Infographics</a> 
-                   <a>Banner</a> 
-                   <a>Subscribe</a>
-                    <a>Partners/Clients</a>
-                     <a>Articles</a> --}}
-                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> 
-                {{-- <button class="red__homepage--btn"><span>Add New Item</span></button> --}}
+                <a href="{{url('/new-team-all/')}}">Edit Team</a>  <a>Video</a> <a>Company News</a> <a>Infographics</a> <a>Banner</a> <a>Subscribe</a> <a>Partners/Clients</a> <a>Articles</a>
+                </div><button class="red__homepage--btn" id="form-submit-button"><span>Save Changes</span></button> <button class="red__homepage--btn"><span>Add New Item</span></button>
             </div>
         </div>
 
         <div class="center__Container">
             <div class="form__header--list">
                 <div class="form__header--list1">
-                    <p class=""><img alt="" class="back__arrow" src="../../resource/images/left-arrow.svg"><span class=""><a href="{{ url()->previous() }}">Back</a></span></p>
+                    <p class=""><img alt="" class="back__arrow" src="../../resource/images/left-arrow.svg"><span class=""><a>Back</a></span></p>
                     {{-- <p class="homepage__para">EDIT HERO IMAGE</p> --}}
                 </div>
             </div>
-            <form id="form-submit" method="post" enctype="multipart/form-data" action="{{url('/new-services-create-post/')}}">
+            <form id="form-submit" method="post" enctype="multipart/form-data" action="{{url('/advisory/post/'.$adv->id)}}">
                 @csrf
             <div class="main__container">
                 <div class="center__container">
 
                     <div class="center__container--wrapper center__container--sub-wrapper add__extra--padding">
-                        <input placeholder="name" name="name">
-                        {{-- <input placeholder="title" name="main_title"> --}}
-                        <textarea placeholder="adv_desc" name="desc"></textarea>
-                        <input type="file"  name="solution_img">
+                    <input placeholder="name" name="name" value="{{$adv->name }}">
+                        <input placeholder="title" name="main_title" value="{{ $adv->title }}">
+                        {{-- <input type="file"  name="profile_pics"> --}}
+                        <textarea placeholder="adv_desc" name="desc">{{ $adv->adv_desc }}</textarea>
                         <div class="container custom__edit--img-inner add__extra--margin">
 
                             <span>Width - 1366 Height - 700</span>
@@ -173,12 +154,12 @@
 
     </script>
       {{-- //CKEDITOR --}}
-  {{-- <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+  <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
   <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
   <script>
      $('textarea').ckeditor();
      // $('.textarea').ckeditor(); // if class is prefered.
- </script> --}}
+ </script>
 
     <script src="../../resource/js/admin.js"></script>
     <!-- tnl&gt;5B -->

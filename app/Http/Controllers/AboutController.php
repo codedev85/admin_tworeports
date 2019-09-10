@@ -119,7 +119,11 @@ class AboutController extends Controller
 
 
 
-
+     public function create_team()
+     {
+         return view('teams.team-create');
+     }
+ 
 
 
 
@@ -648,10 +652,10 @@ class AboutController extends Controller
         return view('teams.team');
 
     }
-    public function create_team()
-    {
-        return view('about.team');
-    }
+    // public function create_team()
+    // {
+    //     return view('about.team');
+    // }
 
     public function post_team(Request $request)
     {

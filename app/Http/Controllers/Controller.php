@@ -10,6 +10,7 @@ use App\Video;
 use App\CompanyNew;
 use App\Partner;
 use App\Article;
+use App\AboutBg;
 
 class Controller extends BaseController
 {
@@ -23,13 +24,18 @@ class Controller extends BaseController
       //dd($partners);
       $all_articles = Article::where('downloadarticlecat_id',2)->orderBy('created_at','DESC')->limit(5)->get();
       $all_casestudy = Article::where('downloadarticlecat_id',1)->orderBy('created_at','DESC')->limit(5)->get();
-      //dd($all_casestudy);
+      $hero_imgs = AboutBg::all();
+    // dd($hero_imgs);
+    // dd($all_casestudy);
       //dd($all_articles);
       return view('welcome')
                  ->with('partners',$partners)
                  ->with('news',$news)
                  ->with('video',$video)
+                 ->with('hero_imgs',$hero_imgs)
                  ->with('all_casestudy',$all_casestudy)
                  ->with('all_articles',$all_articles);
   }
+
+
 }

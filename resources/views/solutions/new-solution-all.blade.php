@@ -17,8 +17,13 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <title>TWOREPORT Homepage</title>
+    <style>
+        .solution-btn{
+          color:white;
+          text-decoration:none;
+        }
+   </style>
+    <title>TWOREPORT Solutions</title>
 </head>
 <body>
 <div class="top__bar">
@@ -26,12 +31,12 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+           <a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+           </a>
             <div class="top__bar-hero">
 
-                    <div><span>MENU UPDATE</span></div>
+                    <div><span>SOLUTIONS</span></div>
 
             </div>
 
@@ -90,11 +95,11 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous()}}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/new-solutions-create/')}}"> Add new Solution</a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/new-solutions-create/')}}" class="solution-btn"> Add new Solution</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/edit-hero/'.$solution_bg->id)}}"> Edit Banner</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/edit-hero/'.$solution_bg->id)}}" class="solution-btn"> Edit Banner</a></span></button>
                         </P>
                 </div>
 

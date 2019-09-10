@@ -12,6 +12,7 @@ class AdvisoryController extends Controller
 
     public function adv_all(){
         $adv = Advisory::all();
+        // dd($adv);
         return view('advisory.adv-all')->with('adv',$adv);
     }
     public function adv_create(){
@@ -29,6 +30,29 @@ class AdvisoryController extends Controller
         $new_adv->save();
         return back()->with('success','Advisory created successfully');
     }
+
+
+    public function adv_edit($id){
+        $adv = Advisory::where('id',$id)->first();
+    
+        return view('advisory.adv-edit')->with('adv',$adv);
+    }
+    public function adv_update(Request $request , $id){
+        $name = $request->input('name');
+        $title = $request->input('main_title');
+        $desc = $request->input('desc');
+
+        $new_adv = new Advisory();
+
+        Advisory::where('id',$id)->update([
+            'name'=>$name,
+            'title'=>$title,
+            'adv_desc'=>$desc,
+        ]);
+    
+        return back()->with('success','Advisory updated successfully');
+    }
+
 
  public function adv_banner(Request $request){
         // dd($request);

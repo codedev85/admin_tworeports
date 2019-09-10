@@ -85,7 +85,7 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{!! URL::previous() !!}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
                     <button id="" class=""><span class=""><a href="{{url('/sub-term-create/')}}"> Add New Terms of use </a></span></button>
@@ -96,7 +96,7 @@
                         </P>
                         &nbsp;
                         <P class="aboutus__hero--container">
-                            <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/'.$hero_bg )}}"> Edit Terms of use Banner</a></span></button>
+                            {{-- <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/'.$hero_bg )}}"> Edit Terms of use Banner</a></span></button> --}}
                             </P>
                 </div>
 

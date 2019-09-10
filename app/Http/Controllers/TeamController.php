@@ -14,8 +14,10 @@ class TeamController extends Controller
 
         return view('teams.new-team');
     }
+
+
     public function new_team_member_post(Request $request){
-       // dd($request);
+    
      $name = $request->input('name');
      $title = $request->input('main_title');
      $fun_fact = $request->input('fun_fact');
@@ -47,6 +49,7 @@ class TeamController extends Controller
 
     public function new_team_all(){
         $teams = Team::all();
+       
         return view('teams.new-team-all')->with('teams',$teams);
     }
     public function new_team_edit($id){

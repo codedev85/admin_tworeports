@@ -47,11 +47,12 @@ Route::get('/solutions/', 'SolutionController@view_solutions');
 Route::get('/talents/', 'TalentController@view_talents');
 
 
-// Route::middleware('auth','admin')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
 
     //admin
     Route::get('/admin', 'HomeController@index')->name('admin');
     Route::get('/pages', 'AboutController@pages_update');
+});
     //newest tosotr
     Route::post('/about-us-post/{id}' ,'AboutController@abt_us');
     //new
@@ -120,6 +121,7 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
     Route::get('/new-team-all/', 'TeamController@new_team_all');
     Route::get('/new-team-edit/{id}', 'TeamController@new_team_edit');
     Route::post('/team/update/{id}', 'TeamController@new_team_post');
+    Route::get('/create-team/', 'AboutController@create_team');
 
     //old
     // Route::get('/team/', 'AboutController@team');
@@ -215,7 +217,9 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
 // Route::middleware('auth','admin')->group(function () {
     //ppage
     Route::get('/homepage/index/', 'HomeController@homepage_index');
+    Route::post('/homepage/hero/post', 'HomeController@upload_homepage_hero_bg');
     Route::get('/homepage/new/all', 'HomeController@homepage_index_news');
+    Route::post('/post-hero-bg/{id}','HomeController@update_homepage_hero_bg');
 
 
     //download article route
@@ -226,6 +230,7 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
     Route::post('/create-video-post/', 'HomeController@create_video_post');
     Route::delete('/video-delete/{id}', 'HomeController@video_destroy');
     Route::post('/post/infographics/', 'HomeController@post_infographics');
+    Route::post('edit/infographics/{id}','HomeController@edit_infographics');
     Route::post('/post/banner/', 'HomeController@post_side_banner');
 
 
@@ -237,7 +242,11 @@ Route::get('/rankings/', 'RankController@ranking_all');
 Route::get('/create-ranks/' , 'RankController@ranks_create');
 Route::post('/rank-post/', 'RankController@post_ranks');
 Route::get('/ranks-edit/{id}', 'RankController@edit_ranks');
-Route::post('/update-ranks/{id}','RankController@update_ranks');
+Route::post('/update-ranks/{id}','RankController@new_update_ranks');
+
+//old route
+// Route::post('/update-ranks/{id}','RankController@update_ranks');
+
 
 Route::get('/talent-edit-post/{id}', 'TalentController@edit_talent');
 Route::post('/talent-update/{id}', 'TalentController@update_talent');
@@ -354,6 +363,9 @@ Route::post('/news-letter/', 'RankController@subscribe');
 Route::get('/adv-all/','AdvisoryController@adv_all');
 Route::get('/advisory-create/','AdvisoryController@adv_create');
 Route::post('/adv-post/','AdvisoryController@adv_create_post');
+
+Route::get('/advisory/edit/{id}','AdvisoryController@adv_edit');
+Route::get('/advisory/post/{id}','AdvisoryController@adv_update');
 //chane to just edit bannner later on
 Route::get('/adv-banner/', 'AdvisoryController@adv_banner');
 Route::get('/advisory/{id}','AdvisoryController@adv_single');

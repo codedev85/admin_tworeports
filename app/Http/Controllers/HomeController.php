@@ -11,6 +11,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 use App\Infographic;
 use App\Banner;
+use App\AboutBg;
 class HomeController extends Controller
 {
     /**
@@ -36,14 +37,80 @@ class HomeController extends Controller
     public function homepage_index(){
         $videos = Video::all();
         $partners = Partner::all();
+        $homepage_hero = AboutBg::all();
+       //dd($homepage_hero);
+       $infographics = infographic::first();
+     
         
         return view('homepage.new-homepage')
+                  ->with('infographics',$infographics)
+                  ->with('homepage_hero',$homepage_hero)
                   ->with('partners',$partners)
                   ->with('videos', $videos);
     }
 
+
+
+
+    public function upload_homepage_hero_bg(REquest $request){
+        $main_title = $request->input('main_title');
+        $sub_title  = $request->input('sub_title');
+        //dd($request);
+        // $this->validate($request, [
+        //     'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
+        // ]);
+    if ($request->hasFile('homepage_hero')) {
+        $infographic_img = $request->file('homepage_hero');
+        $ext = $infographic_img->getClientOriginalExtension();
+        $image_resize = Image::make($infographic_img->getRealPath());
+        $resize = Image::make($image_resize)->fit(1366, 700)->encode($ext);
+        $hash = md5($resize->__toString());
+        $path = "{$hash}.".$ext;
+        $url = 'homepage-hero-bg/'.$path;
+       
+        Storage::put($url, $resize->__toString());
+        $new_about_bg = new AboutBg();
+        $new_about_bg->main_title = $main_title;
+        $new_about_bg->sub_title  = $sub_title;
+        $new_about_bg->image = $url;
+        $new_about_bg->save();
+        return back()->with('success','Hero Image saved successfully');
+
+    }
+
+}
+
+    public function update_homepage_hero_bg(REquest $request, $id){
+        //dd($id);
+        $main_title = $request->input('main_title');
+        $sub_title  = $request->input('sub_title');
+        //dd($request);
+        // $this->validate($request, [
+        //     'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
+        // ]);
+    if ($request->hasFile('homepage_hero')) {
+        $infographic_img = $request->file('homepage_hero');
+        $ext = $infographic_img->getClientOriginalExtension();
+        $image_resize = Image::make($infographic_img->getRealPath());
+        $resize = Image::make($image_resize)->fit(1366, 700)->encode($ext);
+        $hash = md5($resize->__toString());
+        $path = "{$hash}.".$ext;
+        $url = 'homepage-hero-bg/'.$path;
+       
+        Storage::put($url, $resize->__toString());
+       AboutBg::where('id',$id)->update([
+        'main_title' => $main_title,
+        'sub_title'  => $sub_title,
+        'image' => $url,
+       ]);
+        
+       }
+        return back()->with('success','Hero Image updated successfully');
+
+    
+}
     public function homepage_index_news(){
-        $news = CompanyNew::all();
+        $news = CompanyNew::simplePaginate(5);
        
         return view('homepage.new-all-news')->with('news',$news);
 
@@ -62,10 +129,13 @@ class HomeController extends Controller
        return back();
 
     }
+
     public function video_destroy($id){
         Video::find($id)->delete();
         return back();
     }
+
+
 
     public function post_infographics(Request $request){
         $this->validate($request, [
@@ -86,6 +156,31 @@ class HomeController extends Controller
         }
         return back()->with('success','Infographic Uploaded successfully');
     }
+
+
+    public function edit_infographics(Request $request ,$id){
+        $this->validate($request, [
+                'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500',
+            ]);
+
+        if ($request->hasFile('url')) {
+            $infographic_img = $request->file('url');
+            $ext = $infographic_img->getClientOriginalExtension();
+            $image_resize = Image::make($infographic_img->getRealPath());
+            $resize = Image::make($image_resize)->fit(120, 120)->encode($ext);
+            $hash = md5($resize->__toString());
+            $path = "{$hash}.".$ext;
+            $url = 'infographics/'.$path;
+            Storage::put($url, $resize->__toString());
+            Infographic::where('id',$id)->update([
+                'url'       => $url,
+                'updated_at'=> date('Y-m-d'),
+            ]);
+           
+        }
+        return back()->with('success','Infographic updated successfully');
+    }
+
 
     public function post_side_banner(Request $request){
         // $this->validate($request, [
@@ -134,13 +229,20 @@ class HomeController extends Controller
 
     }
 
+
+
     public function create_partner(){
         return view('partners.partner-create');
     }
+
+
+
     public function all_partner(){
         $partners = partner::orderBy('created_at','DESC')->paginate(5);
         return view('partners.all-partners')->with('partners',$partners);
     }
+
+
 
     public function activate($id){
         
@@ -149,6 +251,9 @@ class HomeController extends Controller
         ]);
         return back();
     }
+
+
+
     public function deactivate($id){
       
         Partner::where('id',$id)->update([
@@ -156,6 +261,8 @@ class HomeController extends Controller
         ]);
         return back();
     }
+
+
 
 
     public function partner_create_post(Request $request)
@@ -181,12 +288,17 @@ class HomeController extends Controller
 
         return back()->with('success','Partner created successfully');
     }
+
+
+
     public function partner_edit_post($id){
 
         $find_partner = Partner::find($id);
         return view('partners.edit-partner')->with('find_partner', $find_partner);
 
     }
+
+
     public function partner_update_post(Request $request , $id){
     $name = $request->input('partner_name');
 

@@ -12,13 +12,21 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../vendor/css/owl.theme.default.min.css">
-
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="resources/css/modal.css"> -->
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
 
-    <title>TWOREPORT Homepage</title>
+  .art-btn{
+      color:white;
+      text-decoration:none;
+  }
+   </style>
+
+    <title>TWOREPORT Articles</title>
 </head>
 <body>
 <div class="top__bar">
@@ -26,9 +34,9 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
-            <span><img src="../../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+                <a href="{{ url('/') }}">
+                            <span><img src="../../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
+                </a>
             <div class="top__bar-hero">
 
                     <div><span>ARTICLES</span></div>
@@ -55,15 +63,23 @@
 
                 <div class="left__menu--item">
                     <img src="../../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
 
             </div>
@@ -75,14 +91,14 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/new-article-create/')}}"> Add Article</a></span></button>
+                    <button id="" class=""><span class=""><a class="art-btn" href="{{url('/new-article-create/')}}" class="art-btn"> Add Article</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/articles-background/')}}"> Edit Banner</a></span></button>
+                        <button id="" class=""><span class=""><a class="art-btn" href="{{url('/articles-background/')}}" class="art-btn"> Edit Banner</a></span></button>
                         </P>
                 </div>
 
@@ -129,18 +145,14 @@
                     {{-- </span> <a href={{url('/solution/delete/'$solution->id.)}}></a>DELETE</td> --}}
                        </tr>
                        @endforeach
-                  
                     </table>
-
-
                 </div>
-
+                {{-- {{ $articles->links() }} --}}
             </div>
 
         </div>
-
+       
     </div>
-
 
 </section>
 

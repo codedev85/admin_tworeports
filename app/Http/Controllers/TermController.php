@@ -42,7 +42,7 @@ class TermController extends Controller
     public function term_edit($id){
 
          $edit_term = Term::where('id',$id)->first();
-        dd($edit_term);
+       // dd($edit_term);
          return view('terms.term-edit')->with('edit_term',$edit_term);
 
     }

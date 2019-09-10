@@ -17,8 +17,14 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+    .adv-btn{
+            color:white;
+            text-decoration:none;
+    }
+    </style>
 
-    <title>TWOREPORT Homepage</title>
+    <title>TWOREPORT Advisory</title>
 </head>
 <body>
 <div class="top__bar">
@@ -26,12 +32,12 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+<a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+</a>
             <div class="top__bar-hero">
 
-                    <div><span>MENU UPDATE</span></div>
+                    <div><span>ADVISORY</span></div>
 
             </div>
 
@@ -55,15 +61,23 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a HREF="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                 </div>
 
             </div>
@@ -75,14 +89,14 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/advisory-create/')}}"> Add new Advisory</a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/advisory-create/')}}" class="adv-btn"> Add new Advisory</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/adv-banner/')}}"> Edit Banner</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/adv-banner/')}}" class="adv-btn"> Edit Banner</a></span></button>
                         </P>
                 </div>
 
@@ -112,7 +126,7 @@
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
                            <td class="table__sec--col">April 16th, 2019.</td>
                            <td class="table__third--col">{{$ad->name}}</td>
-                       <td class="table__data"><a href="{{url('/new-team-edit/'.$ad->id)}}">EDIT </a><span>|</span> DELETE</td>
+                       <td class="table__data"><a href="{{url('/advisory/edit/'.$ad->id)}}">EDIT </a><span>|</span> DELETE</td>
                        </tr>
                     @endforeach
                     </table>

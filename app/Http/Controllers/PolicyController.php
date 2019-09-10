@@ -66,6 +66,7 @@ class PolicyController extends Controller
         return view('policy.new-sub-policy-edit')->with('edit_sub_policy',$edit_sub_policy);
 
    }
+   
     public function sub_policy_post(Request $request){
         $sub_policy_title = $request->input('sub_policy_title');
         $sub_policy_desc = $request->input('sub_policy_desc');
@@ -88,6 +89,7 @@ class PolicyController extends Controller
        ]);
        return back()->with('success','Policy Updated successfully');
    }
+
    public function sub_policy_destroy($id)
    {
        PolicySub::find($id)->delete();

@@ -46,9 +46,10 @@ class RankController extends Controller
                     ->with('sub_rank_cats',$sub_rank_cats)
                    ->with('rank_cats',$rank_cats);
     }
+
+
     public function post_ranks(Request $request){
-        // dd(json_encode($request->input('facebook_value')));
- //dd($request);
+   
         $name = $request->input('teams');
      
         $teams = $request->input('teams');
@@ -63,23 +64,6 @@ class RankController extends Controller
         $cat_id = $request->input('cat_id');
         $sub_rank_id = $request->input('sub_rank_id');
         $total = $request->input('total');
-
-        
-        // $total = ($twitter + $instagram + $facebook);
-       
-        // $name = json_encode($request->input('teams'));
-        // $teams = json_encode($request->input('teams'));
-        // $date = json_encode($request->input('date'));
-        // $twitter = json_encode($request->input('twitter'));
-        // $twitter_value = json_encode($request->input('twitter_value'));
-        // $facebook = json_encode($request->input('facebook'));
-        // $facebook_value = json_encode($request->input('facebook_value'));
-        // $instagram = json_encode($request->input('instagram'));
-        // $instagram_value = json_encode($request->input('instagram_value'));
-        // $cat_id = $request->input('cat_id');
-        // $sub_rank_id = $request->input('sub_rank_id');
-        // $total = ($twitter + $instagram + $facebook);
-// dd( $instagram_value);
 
         $create_ranks = new Rank();
 
@@ -103,19 +87,7 @@ class RankController extends Controller
               array_push($desc_array8 , $instagram);
               array_push($desc_array9 , $instagram_value);
               array_push($desc_array10, $total);
-            //   array_push($desc_array , $name);
-            //   dd(json_encode($desc_array));
-            // json_encode($desc_array);
-            // json_encode($desc_array2);
-            // json_encode($desc_array3);
-            // json_encode($desc_array4);
-            // json_encode($desc_array5);
-            // json_encode($desc_array6);
-            // json_encode($desc_array7);
-            // json_encode($desc_array8);
-            // json_encode($desc_array9);
-
-        // $create_ranks->rank_name =  json_encode($desc_array);
+         
         $create_ranks->rank_name =  json_encode($desc_array2);
         $create_ranks->date = json_encode($desc_array3);
         $create_ranks->twitter =  json_encode($desc_array4);
@@ -128,20 +100,6 @@ class RankController extends Controller
         $create_ranks->category_id = $cat_id;
         $create_ranks->sub_rank_id = $sub_rank_id;
    
-       // dd($create_ranks);
-        //endehre
-
-        // $create_ranks->rank_name = $name;
-        // $create_ranks->date = $date;
-        // $create_ranks->twitter = $twitter;
-        // $create_ranks->add_sub_twit =$twitter_value;
-        // $create_ranks->instagram = $instagram;
-        // $create_ranks->add_sub_inst =$instagram_value;
-        // $create_ranks->facebook =$facebook;
-        // $create_ranks->add_sub_fb =$facebook_value;
-        // $create_ranks->total = 1000;
-        // $create_ranks->category_id = $cat_id;
-        // $create_ranks->sub_rank_id = $sub_rank_id;
         $create_ranks->save();
 
 
@@ -153,47 +111,112 @@ class RankController extends Controller
 
 
     public function edit_ranks($id){
-    $edit_rank = Rank::where('id',$id)->first();
-    $cats = Category::all();
-    return view('ranking.edit-rank')
-                 ->with('cats',$cats)
-                 ->with('edit_rank',$edit_rank);
+
+          $edit_rank = Rank::where('id',$id)->first();
+          $sub_rank_cats = RankCat::all();
+          $cats = Category::all();
+          
+          return view('ranking.edit-rank')
+                        ->with('sub_rank_cats',$sub_rank_cats)
+                      ->with('cats',$cats)
+                      ->with('edit_rank',$edit_rank);
 
 
     }
-    public function update_ranks(Request $request,$id){
-      //  dd($request);
-        $name = $request->input('teams');
-        $teams = $request->input('teams');
-        $date = $request->input('date');
-        $twitter = $request->input('twitter');
-        $twitter_value = $request->input('twitter_value');
-        $facebook = $request->input('facebook');
-        $facebook_value = $request->input('facebook_value');
-        $instagram = $request->input('instagram');
-        $instagram_value = $request->input('instagram_value');
-        $cat_id = $request->input('cat_id');
-        $total = ($twitter + $instagram + $facebook);
-        // dd($request);
 
-       Rank::where('id',$id)->update([
-        'rank_name'    => $name,
-        'date'         => $date,
-        'twitter'      => $twitter,
-        'add_sub_twit' => $twitter_value,
-        'instagram'    => $instagram,
-        'add_sub_inst' => $instagram_value,
-        'facebook'     => $facebook,
-        'add_sub_fb'   => $facebook_value,
-        'total'        => $total,
+
+    public function new_update_ranks(Request $request,$id){
+  // dd($request);
+      $name = $request->input('teams');
+   
+      $teams = $request->input('teams');
+    //  dd($teams);
+      $date = $request->input('date');
+      $twitter = $request->input('twitter');
+      $twitter_value = $request->input('twitter_value');
+      $facebook = $request->input('facebook');
+      $facebook_value = $request->input('facebook_value');
+      $instagram = $request->input('instagram');
+      $instagram_value = $request->input('instagram_value');
+      $cat_id = $request->input('cat_id');
+      $sub_rank_id = $request->input('sub_rank_id');
+      $total = $request->input('total');
+
+      $create_ranks = new Rank();
+
+          //   $desc_array = [];
+            $desc_array2 = [];
+            $desc_array3 = [];
+            $desc_array4 = [];
+            $desc_array5 = [];
+            $desc_array6 = [];
+            $desc_array7 = [];
+            $desc_array8 = [];
+            $desc_array9 = [];
+            $desc_array10 = [];
+          //   array_push($desc_array , $name);
+            array_push($desc_array2 , $teams);
+            array_push($desc_array3 , $date);
+            array_push($desc_array4 , $twitter);
+            array_push($desc_array5 , $twitter_value);
+            array_push($desc_array6 , $facebook);
+            array_push($desc_array7 , $facebook_value);
+            array_push($desc_array8 , $instagram);
+            array_push($desc_array9 , $instagram_value);
+            array_push($desc_array10, $total);
+      Rank::where('id',$id)->update([
+        'rank_name'    => json_encode($desc_array2),
+        'date'         => json_encode($desc_array3),
+        'twitter'      =>  json_encode($desc_array4),
+        'add_sub_twit' => json_encode($desc_array5),
+        'facebook'     => json_encode($desc_array6),
+        'add_sub_fb'   =>  json_encode($desc_array7),
+        'instagram'    => json_encode($desc_array8),
+        'add_sub_inst' => json_encode($desc_array9),
+        'total'        => json_encode($desc_array10),
         'category_id'  => $cat_id,
-       ]);
+        'sub_rank_id'  => $sub_rank_id,
+        'updated_at'  => date('Y-m-d'),
+      ]);
+  
+      return back()->with('success','Rank Updated Successfully');
+
+
+  }
+
+    // public function update_ranks(Request $request,$id){
+    //   //  dd($request);
+    //     $name = $request->input('teams');
+    //     $teams = $request->input('teams');
+    //     $date = $request->input('date');
+    //     $twitter = $request->input('twitter');
+    //     $twitter_value = $request->input('twitter_value');
+    //     $facebook = $request->input('facebook');
+    //     $facebook_value = $request->input('facebook_value');
+    //     $instagram = $request->input('instagram');
+    //     $instagram_value = $request->input('instagram_value');
+    //     $cat_id = $request->input('cat_id');
+    //     $total = ($twitter + $instagram + $facebook);
+    //     // dd($request);
+
+    //    Rank::where('id',$id)->update([
+    //     'rank_name'    => $name,
+    //     'date'         => $date,
+    //     'twitter'      => $twitter,
+    //     'add_sub_twit' => $twitter_value,
+    //     'instagram'    => $instagram,
+    //     'add_sub_inst' => $instagram_value,
+    //     'facebook'     => $facebook,
+    //     'add_sub_fb'   => $facebook_value,
+    //     'total'        => $total,
+    //     'category_id'  => $cat_id,
+    //    ]);
 
     
-        return back()->with('success','Rank updated successfully');
+    //     return back()->with('success','Rank updated successfully');
 
 
-    }
+    // }
 
     public function rank_destroy($id)
     {
@@ -201,9 +224,13 @@ class RankController extends Controller
 
         return back();
     }
+
+
     public function ranks_category(){
         return view('ranking.ranks-category');
     }
+
+
     public function ranks_category_create(Request $request){
 
         $categories = $request->input('ranks');
@@ -215,6 +242,7 @@ class RankController extends Controller
         return back();
 
     }
+
     public function subscribe(Request $request){
       // dd($request->lname);
        if(!Newsletter::getMember($request->email)){

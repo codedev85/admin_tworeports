@@ -26,12 +26,12 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-
+  <a href="{{ url('/') }}">
             <span><img src="../../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+  </a>
             <div class="top__bar-hero">
 
-                    <div><span>MENU UPDATE</span></div>
+                    <div><span>ALL ADMIN</span></div>
 
             </div>
 
@@ -55,15 +55,23 @@
 
                 <div class="left__menu--item">
                     <img src="../../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../;;/resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
 
             </div>
@@ -75,7 +83,7 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     
                   
@@ -105,7 +113,7 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $user->created_at }}</td>
                            <td class="table__third--col">{{$user->name}}</td>
                        <td class="table__data">
 
