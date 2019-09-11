@@ -52,15 +52,15 @@
             <div class="left__homepage--container">
 
                 <div class="left__menu--item">
-                    <img src="resource/images/dropdown__icon.svg" alt="" class="left__menu--icon">
+                    <img src="../../resource/images/dropdown__icon.svg" alt="" class="left__menu--icon">
                     <a href="{{url('/admin')}}" >Dashboard</a>
                 </div>
                 <div class="left__menu--item">
-                    <img src="resource/images/Vector (1).svg" alt="" class="left__menu--icon">
+                    <img src="../../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
                     <a href="{{url('/')}}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
-                    <img src="resource/images/Vector (2).svg" alt="" class="left__menu--icon">
+                    {{-- <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon"> --}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="left__menu--item left__clicked--text">
-                    <img src="resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
+                    {{-- <img src="../../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon"> --}}
                     {{-- <a href="{{url('/talents-view/')}}">View</a><img src="../dropdownicon.svg" class="dropdown__arrow"> --}}
                 </div>
 
@@ -102,7 +102,7 @@
             <div class="form__header--list">
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
+                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
 
 
                     </p>

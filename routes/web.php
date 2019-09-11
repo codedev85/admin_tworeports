@@ -43,6 +43,7 @@ Route::get('/services/', 'ServiceController@view_services');
 Route::get('/solutions/', 'SolutionController@view_solutions');
 Route::get('/talents/', 'TalentController@view_talents');
 
+
 //articles
     //download article route
 Route::get('/download-article/','TalentController@download_article');
@@ -57,6 +58,11 @@ Route::get('pdfview/{id}','ArticleController@download_pdf');
 Route::get('/articles/','ArticleController@front_end_articles');
 Route::get('/casestudy/{id}', 'ArticleController@casestudy_single_page');
 Route::get('casestudy-pdf/{id}','ArticleController@download_pdf_casestudy');
+//show news
+Route::get('news/{id}','CompanyNewController@show_news');
+Route::get('/privacy-policy/','PolicyController@privacy_policy');
+Route::get('/terms/', 'TermController@terms_use');
+Route::get('/rankings/index/', 'HomeController@rankings_index_tv');
 
 
 Route::middleware(['auth','admin'])->group(function () {
@@ -257,12 +263,16 @@ Route::post('/mission-post/{id}','AboutController@mission_post');
 // });
 
 //rankings
-Route::get('/rankings/index/', 'HomeController@rankings_index_tv');
+
 Route::get('/rankings/', 'RankController@ranking_all');
 Route::get('/create-ranks/' , 'RankController@ranks_create');
 Route::post('/rank-post/', 'RankController@post_ranks');
 Route::get('/ranks-edit/{id}', 'RankController@edit_ranks');
 Route::post('/update-ranks/{id}','RankController@new_update_ranks');
+Route::get('/rank-hero-banner', 'RankController@rankHeroBanner');
+Route::post('/rank-hero-banner-post/','RankController@rankHeroBannerCreate');
+Route::post('/rank-hero-banner-update/{id}','RankController@rankHeroBanneUpdate');
+
 
 //old route
 // Route::post('/update-ranks/{id}','RankController@update_ranks');
@@ -298,7 +308,7 @@ Route::post('/policy-update-post/{id}', 'PolicyController@policy_update');
 Route::delete('/policy-delete/{id}', 'PolicyController@policy_destroy');
 
 //front end policy
-Route::get('/privacy-policy/','PolicyController@privacy_policy');
+
 //sub policies
 Route::get('/sub-policy-create/','PolicyController@sub_policy');
 Route::post('/sub-policy-create-post/', 'PolicyController@sub_policy_post');
@@ -311,15 +321,16 @@ Route::delete('/sub-policy-delete/{id}', 'PolicyController@sub_policy_destroy');
 
 
 //terms
-Route::get('/terms/', 'TermController@terms_use');
+
 //terms crud functionality for admin
-Route::get('term-index','TermController@term_index');
+
 Route::get('/term-create/', 'TermController@term_create');
 Route::post('/term-create-post/', 'TermController@term_create_post');
 // Route::get('/term-show/{id}', 'TermController@term_show');
 Route::get('/term-edit/{id}', 'TermController@term_edit');
 Route::post('/term-update-post/{id}', 'TermController@term_update');
 // Route::delete('/term-delete/{id}', 'TermController@term_destroy');
+Route::get('term-index','TermController@term_index');
 
 
 
@@ -363,10 +374,9 @@ Route::get('/company-news-edit/{od}','CompanyNewController@news_edit');
 Route::post('/company-news-create-post/{id}','CompanyNewController@news_create_post');
 Route::post('/company-news-create-post/','CompanyNewController@news_create_post');
 Route::post('/company-news-create-update/{id}','CompanyNewController@news_create_update');
-
 Route::get('/edit-comapny-news-banner/','CompanyNewController@edit_company_news_banner');
-//show news
-Route::get('news/{id}','CompanyNewController@show_news');
+Route::delete('/news/delete/{id}','CompanyNewController@news_destroy');
+
 
 
 
@@ -389,6 +399,9 @@ Route::get('/advisory/post/{id}','AdvisoryController@adv_update');
 //chane to just edit bannner later on
 Route::get('/adv-banner/', 'AdvisoryController@adv_banner');
 Route::get('/advisory/{id}','AdvisoryController@adv_single');
+Route::post('/advisory-banner/','AdvisoryController@AdvisoryHeroBannerCreate');
+Route::post('/advisory-banner-update/{id}','AdvisoryController@AdvisoryBanneUpdate');
+
 
 
 
@@ -412,12 +425,17 @@ Route::get('/all/admin/','AdminMgtController@view_all_admin');
 
 
 ////all articles
-Route::get('view/all/articles','ArticleController@view_all');
+Route::get('view/all/articles','ArticleController@view_all_article');
+Route::get('all/casestudy','ArticleController@view_all_casestudy');
 Route::get('/new-article-create/', 'ArticleController@create_article');
 Route::post('/post-article/', 'ArticleController@post_article');
 
 //edit article
 Route::get('/article/edit/{id}', "ArticleController@edit_article");
+
+Route::get('/casestudy/edit/{id}', "ArticleController@edit_casestudy");
+
+
 Route::post('/update/article/{id}','ArticleController@update_article');
 
 

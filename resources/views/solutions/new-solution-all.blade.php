@@ -127,18 +127,19 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $solution->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$solution->sub_title}}</td>
                        <td class="table__data">
 
-                        <a href="{{url('/solution/edit/'.$solution->id)}}">EDIT </a><span>|
+                        <a href="{{url('/solution/edit/'.$solution->id)}}">EDIT </a> 
+                        {{-- <span>|
 
                             <form action="{{url('/solution/delete/'.$solution->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
                                 <input  type="submit" value="delete" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </form>
-                        </span>
+                        </span> --}}
 
 
                     {{-- </span> <a href={{url('/solution/delete/'$solution->id.)}}></a>DELETE</td> --}}

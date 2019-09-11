@@ -12,7 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../vendor/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../vendor/css/owl.theme.default.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="resources/css/modal.css"> -->
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
@@ -124,9 +124,10 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $ad->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$ad->name}}</td>
-                       <td class="table__data"><a href="{{url('/advisory/edit/'.$ad->id)}}">EDIT </a><span>|</span> DELETE</td>
+                       <td class="table__data"><a href="{{url('/advisory/edit/'.$ad->id)}}">EDIT </a><span>
+                           {{-- |</span> DELETE</td> --}}
                        </tr>
                     @endforeach
                     </table>
@@ -135,7 +136,7 @@
                 </div>
 
             </div>
-
+{{ $adv->links() }}
         </div>
 
     </div>

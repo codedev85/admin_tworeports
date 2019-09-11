@@ -38,7 +38,7 @@
 
             <div class="top__bar-hero">
 
-                    <div><span>UPDATE SERVICE</span></div>
+                    <div><span>SERVICE</span></div>
 
             </div>
 
@@ -126,18 +126,19 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $service->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$service->sport_title}}</td>
                        <td class="table__data">
 
-                        <a href="{{url('/service/edit/'.$service->id)}}">EDIT </a><span>|
+                        <a href="{{url('/service/edit/'.$service->id)}}">EDIT </a>
+                        {{-- <span>|
 
                             <form action="{{url('/service/delete/'.-$service->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
                                 <input  type="submit" value="delete" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </form>
-                        </span>
+                        </span> --}}
 
 
                     {{-- </span> <a href={{url('/solution/delete/'$solution->id.)}}></a>DELETE</td> --}}

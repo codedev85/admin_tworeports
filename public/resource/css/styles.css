@@ -4479,9 +4479,13 @@ form input {
     margin: 20px 0px;
     display: flex;
     flex-direction: column;
-    transform: translateX(200px);
+    transform: translateX(300px);
     position: relative;
     top: 80px;
+    -webkit-transform: translateX(300px);
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -o-transform: translateX(300px);
 }
 
 .center__container input {
@@ -4538,6 +4542,7 @@ table {
     justify-content: space-around;
     flex-direction: column;
     padding: 20px 0px;
+    padding-right: 60px;
     background: #FFFFFF;
     box-sizing: border-box;
     box-shadow: 0px 4px 12px rgba(255, 0, 0, 0.1);
@@ -4569,7 +4574,7 @@ th {
     font-family: sofia pro;
     font-style: normal;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 26px;
     text-align: justify;
     color: #333333;
@@ -5720,4 +5725,7 @@ display:none;
 }
 .home--switchable-container--on{
     display:block;
+}
+.pagination {
+    padding-left: 100px;
 }

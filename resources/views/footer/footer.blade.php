@@ -126,7 +126,7 @@
                 @foreach($footers as $footer)
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $footer->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$footer->name}}</td>
                        <td class="table__data">
                             <a href="{{url('/edit-footer/'.$footer->id)}}">EDIT</a>

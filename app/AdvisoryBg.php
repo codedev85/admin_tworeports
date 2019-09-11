@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Advisory extends Model
+class AdvisoryBg extends Model
 {
     //
-   
+    protected $table = 'advisorybgs';
 }

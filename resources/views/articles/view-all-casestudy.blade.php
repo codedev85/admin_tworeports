@@ -10,21 +10,23 @@
     <link
         href="https://fonts.googleapis.com/css?family=Roboto:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    <link rel="stylesheet" href="../vendor/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../vendor/css/owl.theme.default.min.css">
-
+    <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../vendor/css/owl.theme.default.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="resources/css/modal.css"> -->
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
-    <link href="../resource/css/styles.css" rel="stylesheet">
+    <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <title>TWOREPORT Menu</title>
     <style>
-  .menu-btn{
+
+  .art-btn{
       color:white;
       text-decoration:none;
   }
-    </style>
+   </style>
+
+    <title>TWOREPORT Articles</title>
 </head>
 <body>
 <div class="top__bar">
@@ -32,13 +34,12 @@
     <div class="top__bar--wrapper">
 
         <div class="top__bar--main">
-<a href="{{url('/')}}">
-            <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-            </a>
-
+                <a href="{{ url('/') }}">
+                            <span><img src="../../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
+                </a>
             <div class="top__bar-hero">
 
-                    <div><span>MENU</span></div>
+                    <div><span>CASESTUDY</span></div>
 
             </div>
 
@@ -61,16 +62,15 @@
             <div class="left__menu--container">
 
                 <div class="left__menu--item">
-                    <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a href="{{url('/admin')}}">Dashboard</a>
+                    <img src="../../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
-                    <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a href="{{url('/')}}">Back To Main Site</a>
+                    <img src="../../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
-        
                 <div class="left__menu--item">
-                    <img src="resource/images/Vector (2).svg" alt="" class="left__menu--icon">
+                    <img src="../../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
@@ -91,14 +91,14 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous()}}">Back</a></span>
+                        <img src="../../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/menu/create')}}" class="menu-btn"> Add Menu</a></span></button>
+                    <button id="" class=""><span class=""><a class="art-btn" href="{{url('/casestudy')}}" class="art-btn"> Add Casestudy</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">
-               
+                        {{-- <button id="" class=""><span class=""><a class="art-btn" href="{{url('/articles-background/')}}" class="art-btn"> Edit Banner</a></span></button> --}}
                         </P>
                 </div>
 
@@ -122,34 +122,41 @@
                             </tr>
 
                         </thead>
-           
-                @foreach($menus as $menu)
+                        @foreach($articles as $article)
+
                        <tr class="table__row">
-                           <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">{{ $menu->created_at->format('D,m,Y') }}</td>
-                           <td class="table__third--col">{{$menu->name}}</td>
+                   
+                           <td class="table__data"><img src="../../resource/images/Ellipse (5).svg"></td>
+                           <td class="table__sec--col">{{ $article->created_at->format('D,m,Y') }}</td>
+                           <td class="table__sec--col">    <?php echo html_entity_decode(str_limit($article->title , $limit = 15, $end = '...' ));?></td>
+                        
                        <td class="table__data">
-                            <a href="{{url('/edit-menu/'.$menu->id)}}">EDIT</a>
 
-                        </td>
-                  
+                        <a href="{{url('/casestudy/edit/'.$article->id)}}">EDIT </a><span>|
+
+                            <form action="{{url('/article/delete/'.$article->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
+                                <input  type="submit" value="delete" />
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </form>
+                        </span>
+
+
+                    {{-- </span> <a href={{url('/solution/delete/'$solution->id.)}}></a>DELETE</td> --}}
                        </tr>
-              @endforeach
+                       @endforeach
                     </table>
-
-
                 </div>
-
+            
             </div>
-
+            {{ $articles->links() }}
         </div>
-
+       
     </div>
-
 
 </section>
 
-<script src="../resource/js/admin.js"></script>
+<script src="../../resource/js/admin.js"></script>
 
 </body>
 </html>

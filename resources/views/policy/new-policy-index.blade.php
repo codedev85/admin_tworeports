@@ -111,7 +111,7 @@
                         </P>
                         &nbsp;
                         <P class="aboutus__hero--container">
-                            {{-- <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/' )}}"> Edit Terms of use Banner</a></span></button> --}}
+                            <button id="" class=""><span class=""><a href="{{url('/term-hero-bg/' )}}" class="terms-btn"> Edit Terms of use Banner</a></span></button>
                             </P>
                 </div>
 
@@ -139,18 +139,19 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $s_policy->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$s_policy->policy_title}}</td>
                        <td class="table__data">
 
-                        <a href="{{url('/sub-policy-edit/'.$s_policy->id)}}">EDIT </a><span>|
+                        <a href="{{url('/sub-policy-edit/'.$s_policy->id)}}">EDIT </a>
+                        {{-- <span>|
 
                             <form action="{{url('/sub-policy-delete/'.$s_policy->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
                                 <input  type="submit" value="delete" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </form>
-                        </span>
+                        </span> --}}
                        </tr>
                     @endforeach
                     </table>

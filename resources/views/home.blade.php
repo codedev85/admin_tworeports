@@ -127,7 +127,7 @@
                 </div>
             </a>
                 <div class="center__dashboard--menus">
-                        <a href="{{url('/casestudy')}}">
+                        <a href="{{url('all/casestudy')}}">
                         <div class="center__dashboard--item">
                    
                                     <p><img src="resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>

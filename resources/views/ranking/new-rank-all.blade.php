@@ -12,7 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../vendor/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../vendor/css/owl.theme.default.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="resources/css/modal.css"> -->
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../resource/css/styles.css" rel="stylesheet">
@@ -23,7 +23,7 @@
         text-decoration:none;
     }
     </style>
-    <title>TWOREPORT Homepage</title>
+    <title>TWOREPORT Ranking Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -99,11 +99,28 @@
                     
                     &nbsp;
                     <P class="aboutus__hero--container">
-                        <button id="" class=""><span class=""><a href="{{url('/edit-service-hero/')}}" class="rank-btn"> Edit Banner</a></span></button>
+                        <button id="" class=""><span class=""><a href="{{url('/rank-hero-banner')}}" class="rank-btn"> Edit Banner</a></span></button>
                         </P>
                 </div>
 
             </div>
+            <?php
+            
+            //  $r_name = json_decode($rankings);
+            //  $rankArray= [];
+            //  array_push($rankArray , $r_name);
+           
+            //  foreach($rankArray[0] as $key => $rankList){
+            //     $rankArrayNameList = $rankArray[0][$key];
+            //     $RankList=[];
+            //     array_push($RankList,$rankArray[0][$key]);
+              
+            //  }
+   
+
+
+
+            ?>
           
 
             <div class="form__container">
@@ -127,18 +144,20 @@
 
    <tr class="table__row">
        <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-       <td class="table__sec--col">April 16th, 2019.</td>
-       <td class="table__third--col">  <?php echo str_limit(html_entity_decode(strip_tags($rank->rank_name)), $limit = 50, $end = '...'); ?></td>
+       <td class="table__sec--col">{{ $rank->created_at->format('D,m,Y') }}.</td>
+       <td class="table__third--col">{{ $rank->category['name']}} </td>
+       <?php //echo str_limit(html_entity_decode(strip_tags($rank->rank_name)), $limit = 50, $end = '...'); ?>
    <td class="table__data">
 
-    <a href="{{url('/ranks-edit/'.$rank->id)}}">EDIT </a><span>|
+    <a href="{{url('/ranks-edit/'.$rank->id)}}">EDIT </a>
+    {{-- <span>|
 
         <form action="{{url('/rank-delete/'.-$rank->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
             <input  type="submit" value="delete" />
             <input type="hidden" name="_method" value="delete" />
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form>
-    </span>
+    </span> --}}
 
 
 {{-- </span> <a href={{url('/solution/delete/'$solution->id.)}}></a>DELETE</td> --}}
@@ -148,10 +167,11 @@
 
 
 </div>
+
             </div>
-
+            {{ $rankings->links() }}
         </div>
-
+      
     </div>
 
 

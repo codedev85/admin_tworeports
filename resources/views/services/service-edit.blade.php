@@ -18,18 +18,19 @@
     <link href="../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <title>TWOREPORT OurServices Update</title>
+    <title>TWOREPORT OurServices </title>
 </head>
 <body>
 <div class="top__bar">
 
         <div class="top__bar--main">
-
+          <a href="{{ url('/') }}">
             <span><img src="../tworeport__logo.svg" alt="" class="home__img"></span>
+          </a>
 
             <div class="top__bar-hero">
 
-                    <div><span>UPDATE SERVICE</span></div>
+                    <div><span>SERVICE</span></div>
 
             </div>
 
@@ -49,22 +50,30 @@
 
                 <div class="left__menu--item">
                     <img src="../dropdown__icon.svg" alt="" class="left__menu--icon">
-                    <a >Dashboard</a>
+                    <a href="{{ url('/admin') }}" >Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../Vector (2).svg" alt="" class="left__menu--icon">
-                    <a>Log Out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </div>
                 <div class="left__menu--item left__clicked--text">
                     <img src="../edithero__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Edit</a><img src="../dropdownicon.svg" class="dropdown__arrow">
+                    {{-- <a>Edit</a><img src="../dropdownicon.svg" class="dropdown__arrow"> --}}
                 </div>
             </div>
-                <div class="left__menu--sub-item">
+                {{-- <div class="left__menu--sub-item">
                     <a>Video</a>
                     <a>Company News</a>
                     <a>Infographics</a>
@@ -72,7 +81,7 @@
                     <a>Subscribe</a>
                     <a>Partners/Clients</a>
                     <a>Articles</a>
-                </div>
+                </div> --}}
 {{--
                 <button class="red__homepage--btn"><span>Save Changes</span></button>
 
@@ -88,11 +97,11 @@
 
                 <div class="form__header--list1">
                     <p class="">
-                        <img src="../left-arrow.svg" alt="" class="back__arrow"><span class=""><a>Back</a></span>
+                        <img src="../left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
-                    <P class="homepage__para">
+                    {{-- <P class="homepage__para">
                         EDIT HERO IMAGE
-                    </P>
+                    </P> --}}
                 </div>
 
             </div>

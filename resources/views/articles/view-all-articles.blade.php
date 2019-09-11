@@ -127,8 +127,8 @@
                        <tr class="table__row">
                    
                            <td class="table__data"><img src="../../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
-                           <td class="table__sec--col">{{$article->title}}</td>
+                           <td class="table__sec--col">{{ $article->created_at->format('D,m,Y') }}</td>
+                           <td class="table__sec--col"> <?php echo html_entity_decode(str_limit($article->title , $limit = 10, $end = '...' ));?></td>
                         
                        <td class="table__data">
 
@@ -147,9 +147,9 @@
                        @endforeach
                     </table>
                 </div>
-                {{-- {{ $articles->links() }} --}}
+              
             </div>
-
+            {{ $articles->links() }}
         </div>
        
     </div>

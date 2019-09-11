@@ -17,16 +17,23 @@ class ArticleController extends Controller
     }
 
 
-    public function view_all(){
-        $articles = Article::all();
+    public function view_all_article(){
+        $articles = Article::where('downloadarticlecat_id',2)->orderBy('created_at','DESC')->simplePaginate(5);;
+        // dd($articles);
         return view('articles.view-all-articles')->with('articles',$articles);
+    }
+   
+    public function view_all_casestudy(){
+        $articles = Article::where('downloadarticlecat_id',1)->orderBy('created_at','DESC')->simplePaginate(5);
+       // dd($articles);
+        return view('articles.view-all-casestudy')->with('articles',$articles);
     }
 
 
     public function front_end_get_articles($id){
       
         $article = Article::where('id',$id)->where('downloadarticlecat_id',2)->first();
-       // dd($article);
+       ///dd($article);
         $article_bg = ArticleBg::orderBy('created_at','DESC')->first();
         $related_articles = Article::where('downloadarticlecat_id',2)->limit(3)->inRandomOrder()->get();
         //dd($related_articles);
@@ -99,9 +106,15 @@ class ArticleController extends Controller
         return view('articles.edit-article')->with('find_article',$find_article);
 
     }
+    public function edit_casestudy($id){
+
+        $find_article = Article::find($id);
+        return view('articles.edit-casestudy')->with('find_article',$find_article);
+
+    }
 
     public function update_article(Request $request,$id){
-       // dd($request);
+    // dd($request);
 
 
         $title  = $request->input('article_title');
@@ -199,7 +212,7 @@ class ArticleController extends Controller
 
     public function create_article_bg(){
         $article_bg = ArticleBg::orderBy('created_at','DESC')->first();
-    
+    //   dd($article_bg);
     
         return view('articles/articles-admin-bg')->with('article_bg',$article_bg);
     }

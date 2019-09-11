@@ -113,16 +113,17 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">{{ $user->created_at }}</td>
-                           <td class="table__third--col">{{$user->name}}</td>
+                           <td class="table__sec--col">{{ $user->created_at->format('D.m,Y') }}</td>
+                           <td class="table__third--col">{{$user->email}}</td>
                        <td class="table__data">
 
                             <form action="{{url('/service/delete/'.$user->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
-                                <input  type="submit" value="delete" />
+                                <input  type="submit" value="Remove Admin" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </form>
                         </span>
+                    </td>
                        </tr>
                     @endforeach
                     </table>

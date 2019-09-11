@@ -7,13 +7,16 @@ use App\Rank;
 use App\Category;
 use Newsletter;
 use App\RankCat;
+use App\RankBg;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 
 class RankController extends Controller
 {
     //
     public function ranking_all(){
-        $rankings = Rank::all();
-
+        $rankings = Rank::orderBy('created_at','DESC')->simplePaginate(10);
+       
         //dd($rankings);
        return  view('ranking.new-rank-all')
         ->with('rankings', $rankings);
@@ -44,7 +47,7 @@ class RankController extends Controller
 
         return view('ranking.create-ranks')
                     ->with('sub_rank_cats',$sub_rank_cats)
-                   ->with('rank_cats',$rank_cats);
+                    ->with('rank_cats',$rank_cats);
     }
 
 
@@ -118,8 +121,8 @@ class RankController extends Controller
           
           return view('ranking.edit-rank')
                         ->with('sub_rank_cats',$sub_rank_cats)
-                      ->with('cats',$cats)
-                      ->with('edit_rank',$edit_rank);
+                        ->with('cats',$cats)
+                        ->with('edit_rank',$edit_rank);
 
 
     }
@@ -242,6 +245,60 @@ class RankController extends Controller
         return back();
 
     }
+
+    public function rankHeroBanner(){
+      $rank_edit = RankBg::orderBy('created_at','DESC')->first();
+     
+      return view('ranking.rank-banner') ->with('rank_edit',$rank_edit);
+    }
+
+    public function rankHeroBannerCreate(Request $request){
+     // dd($request);
+    //   $this->validate($request, [
+    //     'rank_banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min-width=1366,min-height=375',
+    // ]);
+  
+        if($request->hasFile('rank_banner')){
+            $hero_image = $request->file('rank_banner');
+            $ext = $hero_image->getClientOriginalExtension();
+            $image_resize = Image::make($hero_image->getRealPath());
+            $resize = Image::make($image_resize)->fit(1366, 375)->encode($ext);
+            $hash = md5($resize->__toString());
+            $path = "{$hash}.$ext";
+            $url = 'rank-hero-bg/'.$path;
+            Storage::put($url, $resize->__toString());
+            $rank_create = new RankBg();
+            $rank_create->url = $url;
+            $rank_create->save();
+      }
+
+      return back()->with('syccess','Rank Hero Image Created Successfully');
+
+    }
+
+    public function rankHeroBanneUpdate(Request $request ,$id){
+  //  dd($id);
+    $this->validate($request, [
+      'rank_banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min-width=1366,min-height=202',
+  ]);
+
+      if($request->hasFile('rank_banner')){
+          $hero_image = $request->file('rank_banner');
+          $ext = $hero_image->getClientOriginalExtension();
+          $image_resize = Image::make($hero_image->getRealPath());
+          $resize = Image::make($image_resize)->fit(1366, 375)->encode($ext);
+          $hash = md5($resize->__toString());
+          $path = "{$hash}.$ext";
+          $url = 'rank-hero-bg/'.$path;
+          Storage::put($url, $resize->__toString());
+          $updated_solution = RankBg::where('id', $id)->update([
+              'url' =>$url,
+              'updated_at' => date('Y-m-d'),
+          ]);
+          return back()->with('success','Rank hero Image Updated Successfully');
+    }
+  }
+
 
     public function subscribe(Request $request){
       // dd($request->lname);

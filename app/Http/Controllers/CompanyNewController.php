@@ -117,5 +117,12 @@ public function edit_company_news_banner(){
                          ->with('related_news',$related_news)
                            ->with('find_news',$find_news);
     }
+   
+    public function news_destroy($id)
+    {
+       
+        CompanyNew::find($id)->delete();
 
+        return back()->with('success','Service deleted successfully');
+    }
 }

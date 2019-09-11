@@ -19,6 +19,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <title>Download &ndash; TWOREPORT
+        <style>
+            .p-text{
+                color:red;
+            }
+        </style>
     </title>
 </head>
 
@@ -43,8 +48,12 @@
                     <!-- Mobile Apps to Drive World Cup Consumption Among Nigerians, Reveals Media Study -->
                 </span>
                 <br>
-                <br> ...as TV remains key medium to view Mundial
-
+                <br> 
+                {{-- <span class="p-text">...as TV remains key medium to view Mundial</span> --}}
+                <h2 class="p-text">
+                        {{$article->title}}
+                </h2>
+       
             </p>
 
 
@@ -57,8 +66,7 @@
             <div>
            
                 <div class="news-paragraph">
-          {{$article->title}}
-
+                        
           <?php echo html_entity_decode(Ucfirst(Purifier::clean($article->description)));?>
                 <div>
                 <div>

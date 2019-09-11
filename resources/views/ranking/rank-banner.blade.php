@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="vendors/css/animate.css"> -->
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>TWOREPORT Advisory </title>
+    <title>TWOREPORT Rank </title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 </a>
             <div class="top__bar-hero">
                 <div>
-                    <span>UPDATE ADVISORY</span>
+                    <span>UPDATE RANK BANNER</span>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                    
                 </div>
             </div>
-            <form id="form-submit" method="post" enctype="multipart/form-data" action="{{url('/advisory-banner-update/'.$adv_img->id)}}">
+            <form id="form-submit" method="post" enctype="multipart/form-data" action="{{url('/rank-hero-banner-update/'.$rank_edit->id)}}">
                 @csrf
             <div class="main__container">
                 <div class="center__container">
@@ -85,7 +85,7 @@
                     <div class="center__container--wrapper center__container--sub-wrapper add__extra--padding">
                         <input placeholder="name" type="file" name="rank_banner">
                         <div class="container custom__edit--img-inner add__extra--margin">
-                            <img src="{{ url('storage/'.$adv_img->url) }}"/>
+                            <img src="{{ url('storage/'.$rank_edit->url) }}"/>
                         </div>
                     </div>
 
