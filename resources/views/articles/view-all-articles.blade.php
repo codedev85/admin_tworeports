@@ -134,7 +134,7 @@
 
                         <a href="{{url('/article/edit/'.$article->id)}}">EDIT </a><span>|
 
-                            <form action="{{url('/article/delete/'.$article->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
+                            <form  class="form__del" action="{{url('/article/delete/'.$article->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
                                 <input  type="submit" value="delete" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

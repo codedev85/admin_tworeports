@@ -94,7 +94,7 @@
                         <img src="../resource/images/left-arrow.svg" alt="" class="back__arrow"><span class=""><a href="{{ url()->previous() }}">Back</a></span>
                     </p>
                     <P class="aboutus__hero--container">
-                    <button id="" class=""><span class=""><a href="{{url('/new-services-create/')}}" class="solution-btn"> Add new Solution</a></span></button>
+                    <button id="" class=""><span class=""><a href="{{url('/new-services-create/')}}" class="solution-btn"> Add new Service</a></span></button>
                     </P>
                     &nbsp;
                     <P class="aboutus__hero--container">

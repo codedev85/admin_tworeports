@@ -61,8 +61,8 @@
                     <a>Log Out</a>
                 </div>
                 <div class="left__menu--item left__clicked--text">
-                    <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon">
-                    <a  href="">Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow">
+                    {{-- <img src="../resource/images/edithero__tworeport.svg" alt="" class="left__menu--icon"> --}}
+                    {{-- <a  href="">Edit</a><img src="../resource/images/dropdownicon.svg" class="dropdown__arrow"> --}}
 
                 </div>
             </div>

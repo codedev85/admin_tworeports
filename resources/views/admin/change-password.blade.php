@@ -15,7 +15,7 @@
     <link href="../../resource/css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>TWOREPORT About Us Update</title>
-    <style>
+    {{-- <style>
 
 .center__container{
     margin: 20px 0px;
@@ -68,7 +68,7 @@
     border-radius: 4px;
 }
 
-        </style>
+        </style> --}}
 </head>
 
 <body>

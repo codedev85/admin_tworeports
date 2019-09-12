@@ -1,5 +1,5 @@
 @include('includes.include-header')
-<style>
+{{-- <style>
     .slide__talents {
     height: calc(60vh - 50px);
     background: url({{url('storage/'.$talents_hero->hero_image)}});
@@ -10,6 +10,20 @@
 
 }
 
+</style> --}}
+<style>
+    .slide__talents {
+    height: calc(60vh - 50px);
+
+    background: url({{url('storage/'.$talents_hero->hero_image)}});
+/***  **/
+    background-position: 85% top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* ../resources/images/services--hero.jpg */
+
+
+}
 </style>
 <body>
 
@@ -264,7 +278,7 @@
                     </div>
                 </div>
 
-                <div class="contact_modal__body">
+                {{-- <div class="contact_modal__body">
 
                     <div class="input_section">
                         <input type="text" name="" placeholder="First name" class="">
@@ -336,7 +350,83 @@
                         </div>
                     </div>
 
+                </div> --}}
+                <form action="{{url('/news-letter/')}}" method="post" >
+                    @csrf
+                <div class="contact_modal__body">
+
+                    <div class="input_section">
+                        <input type="text" name="name" placeholder="First name" class="" >
+                        <input type="text" name="lname" placeholder="Last name" class="">
+                        <input type="email" name="email" placeholder="Email" class="" required>
+                        <input type="number" name="tel" placeholder="Phone number" class="">
+                        <input type="text" name="company" placeholder="Company" class="">
+                        <input type="text" name="industry" placeholder="industry" class="">
+                        <input type="text" name="jobtitle" placeholder="job title" class="">
+                        <input type="text" name="country" placeholder="Country" class="">
+                        <input type="text" name="city" placeholder="City" class="">
+                    </div>
+                    <div class="check_discription_section">
+                        <div class="modal__check__outer">
+
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="recieve_newsletter" id="download__recieve" checked>
+                                <label for="download__recieve">Receive Our NewsLetter <a href=""
+                                        class="label_red">UNSCRIPTED</a></label>
+                            </div>
+                            {{-- <div class="modal__check_container">
+                                <input type="checkbox" name="" id="download__remember">
+                                <label for="download__remember">Remember me </label>
+                            </div> --}}
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="agree_privacy_policy" id="download__policy" checked>
+                                <label for="download__policy">By clicking <a href="" class="label_red">submit</a>, you
+                                    agree to the terms of <a href="{{ url('/privacy-policy') }}" target="_blank"
+                                        class="label_red">Privacy Policy</a></label>
+                            </div>
+
+                        </div>
+
+                        <div class="modal__check__outer">
+                            <h3 class="modal__check_title">
+                                GDPR Agreement
+                            </h3>
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="deselect_all" checked id="download__deselect">
+                                <label for="download__deselect">Deselect All</label>
+                            </div>
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="consent_one" id="download__consent" checked>
+                                <label for="download__consent">I consent to TWOREPORT storing my submitted information
+                                    so they can respond
+                                    to my enquiry</label>
+                            </div>
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="consent_two" id="download__recieve" checked>
+                                <label for="download__recieve">I consent that my contact information can be added to
+                                    your mailing list for any
+                                    future correspondence
+                                </label>
+                            </div>
+                            <div class="modal__check_container">
+                                <input type="checkbox" name="agree_terms_of_use" id="download__agree" checked>
+                                <label for="download__recieve">I agree to the <a href="{{ url('/terms') }}" target="_blank"
+                                        class="label_red">Terms of Use
+                                        of this website </a>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="modal__check__outer">
+                            <input type="submit" value="Subscribe" class="modal__btn">
+                            <p class="respect__text">We respect your inbox and privacy, you may unsubscribe at anytime.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
+               </form>
 
 
             </div>
@@ -349,7 +439,7 @@
                 <img src="resources/images/Transparent_Long.png" alt="">
             </div>
             <img src="resources/images/close_btn_w.svg" class="menu__close" width="18px" alt="">
-            <a href="index.html" class="resp_menu__link">
+            <a href="{{ url('/') }}" class="resp_menu__link">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                     id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 460.298 460.297"
                     style="enable-background:new 0 0 460.298 460.297;" xml:space="preserve">
@@ -371,7 +461,7 @@
                 Home
             </a>
 
-            <a href="about-us.html" class="resp_menu__link resp_menu_drp__js">
+            <a href="{{ url('/services') }}" class="resp_menu__link resp_menu_drp__js">
                 <?xml version="1.0"?>
                 <?xml version="1.0"?>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -439,7 +529,7 @@
             </div> -->
 
 
-            <a href="" class="resp_menu__link  Subscribe resp_menu_drp__js">
+            <a href="{{ url('/solutions') }}" class="resp_menu__link  Subscribe resp_menu_drp__js">
                 <?xml version="1.0"?>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                     id="Capa_1" x="0px" y="0px" viewBox="0 0 486 486" style="enable-background:new 0 0 486 486;"
@@ -476,7 +566,7 @@
             </div> -->
 
 
-            <a href="about.html" class="resp_menu__link">
+            <a href="{{ url('/about-us') }}" class="resp_menu__link">
                 <?xml version="1.0"?>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                     id="Capa_1" x="0px" y="0px" viewBox="0 0 502.643 502.643"
@@ -545,7 +635,7 @@
                 </svg>
 
                 About Us</a>
-            <a href="patnership.html" class="resp_menu__link resp_menu__link--active resp_menu_drp__js">
+            <a href="{{ url('/talents') }}" class="resp_menu__link resp_menu__link--active resp_menu_drp__js">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                     id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
                     xml:space="preserve" width="20px" height="20px">

@@ -4352,11 +4352,11 @@ form {
 }
 
 form input {
-    margin: 10px 0px;
+    /* margin: 10px 0px; */
     background: #FFFFFF;
     border-radius: 4px;
     border: none;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .login__top--text {
@@ -4519,34 +4519,35 @@ form input {
     margin: 20px 100px;
     display: flex;
     justify-content: center;
-    width: 80%;
     background: white;
     border-radius: 4px;
 }
 
 .table__container {
     width: 100%;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; */
     background: #FFFFFF;
     border-radius: 4px;
 }
 
 table {
     background: white;
-    border-radius: 4px;
-    width: 100%;
-    display: flex;
+    /* border-radius: 4px;
+    width: 100%; */
+    /* display: flex;
     align-items: flex-start;
     justify-content: space-around;
     flex-direction: column;
     padding: 20px 0px;
     padding-right: 60px;
     background: #FFFFFF;
-    box-sizing: border-box;
+    box-sizing: border-box; */
+    padding: 36px;
     box-shadow: 0px 4px 12px rgba(255, 0, 0, 0.1);
     border-radius: 8px;
+    min-width: 800px;
 }
 
 thead>tr>th {
@@ -4554,39 +4555,42 @@ thead>tr>th {
     font-size: 15px;
     line-height: normal;
     letter-spacing: -0.02em;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     color: rgba(0, 0, 0, 0.3);
 }
 
 td {
-    width: 200px;
+    padding: 24px;
+    font-size: 16px;
+        /* width: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
 }
 
 tr,
 th {
-    width: 800px;
+    /* width: 800px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     font-family: sofia pro;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
     line-height: 26px;
-    text-align: justify;
+    padding: 13px 16px;
+    /* text-align: justify; */
     color: #333333;
 }
 
 tbody>tr>td:nth-child(3) {
-    margin: 0px 140px;
+    /* margin: 0px 140px; */
 }
 
 tbody>tr>td:nth-child(4) {
     color: #E00909;
-    font-size: 1.2em;
+    font-size: 16px;
 }
 
 tbody>tr>td:nth-child(4) span {
@@ -4595,7 +4599,7 @@ tbody>tr>td:nth-child(4) span {
 }
 
 thead>tr>th:nth-child(3) {
-    margin: 0px 140px;
+    /* margin: 0px 140px; */
 }
 
 
@@ -5728,4 +5732,13 @@ display:none;
 }
 .pagination {
     padding-left: 100px;
+}
+
+form.form__del{
+    display: inline
+}
+
+.center__container input {
+    width: 69%;
+    margin-bottom: 21px;
 }

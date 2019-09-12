@@ -27,7 +27,7 @@ class ServiceController extends Controller
         return view('services.new-service-create');
     }
     public function new_service_create_post(Request $request){
-
+ // dd($request);
         $main_title = $request->input('name');
         $main_desc = $request->input('desc');
         if ($request->hasFile('solution_img')) {
@@ -39,9 +39,14 @@ class ServiceController extends Controller
             $new_Services->hero_img = $tt;
             $new_Services->save();
 
-            return view('services.new-services-create');
+          
+        }else{
+            $new_Services = new Service();
+            $new_Services->sport_title = $main_title;
+            $new_Services->sport_description = $main_desc;
+            $new_Services->save();
         }
-
+        return back()->with('success','Service Created Successfully');
     }
 
     public function new_edit_service($id)
@@ -151,7 +156,7 @@ class ServiceController extends Controller
     }
     public function service_create_post(Request $request)
     {
-        //dd($request);
+        dd($request);
         // $main_title = $request->input('main_title');
         //
         $sport_title = $request->input('sport_title');

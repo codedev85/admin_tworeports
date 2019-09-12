@@ -38,7 +38,7 @@
                         <img alt="" class="left__menu--icon" src="../../resource/images/dropdown__icon.svg"> <a href="{{ url('/admin') }}">Dashboard</a>
                     </div>
                     <div class="left__menu--item">
-                        <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{ url('/') }}">Back To Main Site</a>
+                        {{-- <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(1).svg"> <a href="{{ url('/') }}">Back To Main Site</a> --}}
                     </div>
                     {{-- <div class="left__menu--item">
                             <img alt="" class="left__menu--icon" src="../../resource/images/Vector%20(2).svg"> <a>Manage Team</a>
@@ -88,7 +88,7 @@
                         <input placeholder="name" name="name">
                         {{-- <input placeholder="title" name="main_title"> --}}
                         <textarea placeholder="adv_desc" name="desc"></textarea>
-                        <input type="file"  name="solution_img">
+                        {{-- <input type="file"  name="solution_img"> --}}
                         <div class="container custom__edit--img-inner add__extra--margin">
 
                             <span>Width - 1366 Height - 700</span>

@@ -47,9 +47,9 @@
 <div class="top__bar">
 
         <div class="top__bar--main">
-
+            <a href="{{ url('/') }}">
             <span><img src="../resource/images/tworeport__logo.svg" alt="" class="home__img"></span>
-
+            </a>
             <div class="top__bar-hero">
 
                     <div><span>DASHBOARD</span></div>
@@ -72,11 +72,11 @@
 
                 <div class="left__menu--item">
                     <img src="../resource/images/dashboard__tworeport.svg" alt="" class="left__menu--icon">
-                    <a>Dashboard</a>
+                    <a href="{{ url('/admin') }}">Dashboard</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (1).svg" alt="" class="left__menu--icon">
-                    <a>Back To Main Site</a>
+                    <a href="{{ url('/') }}">Back To Main Site</a>
                 </div>
                 <div class="left__menu--item">
                     <img src="../resource/images/Vector (2).svg" alt="" class="left__menu--icon">
@@ -110,11 +110,12 @@
 
                 </div>
                 <div class="center__dashboard--menus">
+                    <a href="{{ url('/add/admin/') }}">
                         <div class="center__dashboard--item">
                                     <p><img src="../resource/images/footer__tworeport.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
                         <p class="home__menu--description"><a href="{{url('/add/admin/')}}" class="home__page--link">Add Admin</a></p>
                         </div>
-
+                    </a>
                 </div>
                 <div class="right__dashboard--menus">
 

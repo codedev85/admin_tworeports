@@ -56,7 +56,8 @@
                                 @csrf
                             </form>
                     </div>
-                    <div class="left__menu--item left__clicked--text"><img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg"> 
+                    <div class="left__menu--item left__clicked--text">
+                        {{-- <img alt="" class="left__menu--icon" src="../../resource/images/edithero__tworeport.svg">  --}}
                       
                     </div>
 

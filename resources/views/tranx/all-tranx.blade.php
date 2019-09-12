@@ -84,37 +84,43 @@
 
                 <div class="table__container">
 
-                    <table class="table__container--main">
+                    <table class="">
 
-                        <thead class="table__header">
 
-                            <tr class="table__row">
-                                <th class="table__section"></th>
-                                <th class="table__sec--col">DATE</th>
-                                <th class="table__third--col">TITLE</th>
-                                <th class="table__third--col">Category</th>
-                                <th class="table__third--col">Amount</th>
-                                <th class="table__third--col">Buyer Email</th>
+                            <tr class="">
+                                <th class=""></th>
+                                <th class="">DATE</th>
+                                <th class="">TITLE</th>
+                                <th class="">Category</th>
+                                <th class="">Amount</th>
+                                <th class="">Buyer Email</th>
                                 <!-- <th class="table__section">ACTIONS</th> -->
                             </tr>
 
-                        </thead>
-                    @foreach($tranx as $trans)
 
-                       <tr class="table__row">
-                           <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">{{$trans->created_at->format('Y.m.d')}}</td>
-                           <td class="table__third--col">{{$trans->article_name}}</td>
-                           <td class="table__third--col">@if($trans->article_cat ==1)
+                        
+                        {{-- <tr class="">
+                                <th class="">&nbsp;</th>
+                                <th class="">DATE</th>
+                                <th class="">TITLE</th>
+                                <th class="">ACTIONS</th>
+                            </tr> --}}
+                    @foreach($tranx as $trans)
+                    <tbody>
+                       <tr class="">
+                           <td class=""><img src="../resource/images/Ellipse (5).svg"></td>
+                           <td class="">{{$trans->created_at->format('Y.m.d')}}</td>
+                           <td class="">{{$trans->article_name}}</td>
+                           <td class="">@if($trans->article_cat ==1)
                            Case Study
                            @else
                            Article
                            @endif
                            </td>
                            <td>{{$trans->amount}}</td>
-                           <td class="table__third--col">{{$trans->customer_email}}</td>
+                           <td class="">{{$trans->customer_email}}</td>
                        </tr>
-                       
+                    </tbody>
                     @endforeach
                     </table>
                    

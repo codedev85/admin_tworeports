@@ -129,7 +129,7 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">April 16th, 2019.</td>
+                           <td class="table__sec--col">{{ $talent->created_at->format('D,m,Y') }}</td>
                            <td class="table__third--col">{{$talent->title}}</td>
                        <td class="table__data">
 

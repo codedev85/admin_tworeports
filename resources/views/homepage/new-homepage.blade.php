@@ -91,7 +91,7 @@
                     </div>
             </div>
                 <div class="left__menu--sub-item">
-                     <a href="{{url('/homepage/new/all')}}">Company News</a>
+                     {{-- <a href="{{url('/homepage/new/all')}}">Company News</a> --}}
                     <a href="{{url('all/partners')}}">Partners/Clients</a>
                 </div>
             </div>

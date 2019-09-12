@@ -1,3 +1,4 @@
+
 <nav class="header__navigation home__header_nav fixed">
 
     <div class="row header__navigation_inner">
@@ -95,8 +96,37 @@
 
                 </div> -->
             </div>
+            @if(!Auth::check())
+            <div class="menu__link_container">
+                    <a href="{{url('/login')}}" class="menu__link">
+                           Login
+                        </a>
+                    </div>
+            </div>
+            @elseif(Auth::user()->role_id == 3)
+            <div class="menu__link_container">
+            <a class="dropdown-item menu__logout" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" >
+            {{ __('Logout') }}
+             </a>
 
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+               @csrf
+            </form>
+            </div>
         </div>
+            @endif
+            @if(Auth::check())
+            @if(Auth::user()->role_id  < 3 )
+            <div class="menu__link_container">
+                    <a href="{{url('/admin')}}" class="menu__link">
+                            Admin
+                        </a>
+                    </div>
+        </div>
+        @endif
+        @endif
 
         <div class="menu__right_items">
 

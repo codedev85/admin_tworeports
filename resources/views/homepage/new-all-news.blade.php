@@ -111,30 +111,31 @@
 
                 <div class="table__container">
 
-                    <table class="table__container--main">
+                    <table class="">
 
-                        <thead class="table__header">
+        
 
-                            <tr class="table__row">
-                                <th class="table__section"></th>
-                                <th class="table__sec--col">DATE</th>
-                                <th class="table__third--col">TITLE</th>
-                                <th class="table__section">ACTIONS</th>
+                            <tr class="">
+                                <th class="">&nbsp;</th>
+                                <th class="">DATE</th>
+                                <th class="">TITLE</th>
+                                <th class="">ACTIONS</th>
                             </tr>
 
-                        </thead>
+                    
                         @foreach($news as $new)
-                       <tr class="table__row">
-                           <td class="table__data"><img src="../../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">{{ $new->created_at->format('D,m,Y') }}</td>
-                       <td class="table__third--col">{{$new->title}}</td>
-                       <td class="table__data"><a href="{{url('/company-news-edit/'.$new->id)}}">EDIT</a><span>|</span>
-                        <form action="{{url('/news/delete/'.$new->id)}}" method="post" onclick="return confirm('Are you sure? you want to delete ')">
-                            <input  type="submit" value="delete" />
-                            <input type="hidden" name="_method" value="delete" />
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        </form>
-                      </td>
+                       <tr class="">
+                        <td class=""><img src="../../resource/images/Ellipse (5).svg"></td>
+                        <td class="">{{ $new->created_at->format('D,m,Y') }}</td>
+                        <td class="">{{$new->title}}</td>
+                        <td class=""><a href="{{url('/company-news-edit/'.$new->id)}}">EDIT</a>
+                        <span>|</span>
+                            <form action="{{url('/news/delete/'.$new->id)}}" method="post" class="form__del" onclick="return confirm('Are you sure? you want to delete ')">
+                                <input  type="submit" value="delete" />
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </form>
+                        </td>
                        </tr>
                        @endforeach
                     </table>

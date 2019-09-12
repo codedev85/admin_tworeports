@@ -23,11 +23,11 @@ class SolutionController extends Controller
     }
 
     public function new_solution_create(){
-
+ 
         return view('solutions.new-solutions-create');
     }
     public function new_solution_create_post(Request $request){
-       
+    //    dd($request);
         $main_title = $request->input('name');
         $main_desc = $request->input('desc');
         if ($request->hasFile('solution_img')) {

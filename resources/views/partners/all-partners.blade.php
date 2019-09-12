@@ -151,7 +151,7 @@
 
                        <tr class="table__row">
                            <td class="table__data"><img src="../resource/images/Ellipse (5).svg"></td>
-                           <td class="table__sec--col">{{$partner->created_at->format('Y.m.d')}}</td>
+                           <td class="table__sec--col">{{$partner->created_at->format('D,m,Y')}}</td>
                            <td class="table__sec--col"><img id="img" src="{{url('storage/'.$partner->partner_image)}}"/></td>
                            <td class="table__third--col">{{$partner->name}}</td>
                            <td class="table__third--col">

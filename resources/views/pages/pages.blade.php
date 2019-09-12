@@ -167,10 +167,10 @@
                         </div>
                     </a>
 
-                    <a href="{{ url('/cases/') }}">
+                    <a href="{{ url('/all/casestudy/') }}">
                         <div class="center__dashboard--item">
 
-                        <a href="{{url('/cases/')}}">
+                        <a href="{{url('/all/casestudy/')}}">
                                     <p><img src="resource/images/casestudy__tworeport.svg" alt="" class="homepage__img"></p>
                                     <p class="home__menu--description"><a href="" class="home__page--link">Case Study</a></p>
                           </a>
